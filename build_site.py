@@ -26,6 +26,9 @@ def build_site(cfg):
     report.build(cfg)
     for path in (ROOT / "public" / "index.html", ROOT / "report.html"):
         path.write_text(inject_head(path.read_text()))
+    # report.html sits at the repo root, where the data files live under public/data/
+    rh = ROOT / "report.html"
+    rh.write_text(rh.read_text().replace('href="data/', 'href="public/data/'))
     return ROOT / "public" / "index.html"
 
 
