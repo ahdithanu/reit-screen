@@ -20,7 +20,7 @@ FRAME_PERIOD = "CY2025Q4I"
 
 
 def _fmt(v):
-    return "—" if v is None else f"{v:,.0f}"
+    return "n/a" if v is None else f"{v:,.0f}"
 
 
 # ------------------------------------------------------------ 1. control
@@ -259,7 +259,7 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
         tk = d["ticker"]
         for short, tag, ext, docv, shown, note in sc["rows"]:
             diff = None if (ext is None or docv is None) else ext - docv
-            L.append(f"| {short} | {tag.replace('LongTermDebtMaturitiesRepaymentsOfPrincipal', '…')} | {_fmt(ext)} | {_fmt(docv)} | {shown or '—'} | {_fmt(diff)} | {note} |")
+            L.append(f"| {short} | {tag.replace('LongTermDebtMaturitiesRepaymentsOfPrincipal', '…')} | {_fmt(ext)} | {_fmt(docv)} | {shown or 'n/a'} | {_fmt(diff)} | {note} |")
             if "SCALE MISMATCH" in note:
                 conflicts.append({"name": d["label"], "tag": tag, "value_a": ext, "value_b": note.split("would be ")[1].split(".")[0],
                                   "reason": "filer tagged scale differs from the rest of its own 10-K table; kept as tagged"})
@@ -323,7 +323,7 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
             hits = [(rec["filingDate"][i], f, rec["items"][i], rec["accessionNumber"][i]) for i, f in enumerate(rec["form"])
                     if fw["from"] <= rec["filingDate"][i] <= fw["to"]]
             L += [f"Source: {event_reader.submissions_url(dw['cik'])} (cached {fetched_at_of(dw['sub_path'])})", "",
-                  "| filed | form | items | accession |", "|---|---|---|---|"] + [f"| {a} | {b} | {c or '—'} | {e} |" for a, b, c, e in hits]
+                  "| filed | form | items | accession |", "|---|---|---|---|"] + [f"| {a} | {b} | {c or 'none'} | {e} |" for a, b, c, e in hits]
             k8 = [h for h in hits if h[1].startswith("8-K")]
             y8 = [(rec["filingDate"][i], rec["items"][i]) for i, f in enumerate(rec["form"]) if f.startswith("8-K") and rec["filingDate"][i] >= cfg["events_since"]]
             L += ["", f"**Result: {len(hits)} filings in the window, {len(k8)} of them 8-K.** All 2026 8-Ks with their items: " + "; ".join(f"{a} [{b}]" for a, b in y8) + ".",

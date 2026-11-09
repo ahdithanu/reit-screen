@@ -20,7 +20,7 @@ Checks the plumbing (two SEC endpoints over the same filings), not the filer.
 | SL Green | LTDMat…InYearFive | 0 | 0001628280-26-008669 | 0 | 0001628280-26-008669 | yes |
 | SL Green | LTDMat…AfterYearFive | 358,524,000 | 0001628280-26-008669 | 358,524,000 | 0001628280-26-008669 | yes |
 | SL Green | CashAndCashEquivalentsAtCarryingValue | 155,747,000 | 0001628280-26-008669 | 155,747,000 | 0001628280-26-029075 | yes |
-| SL Green | LongTermDebt | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
+| SL Green | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
 | Cousins Properties | LTDMat…InNextTwelveMonths | 870,127,000 | 0000025232-26-000014 | 870,127,000 | 0000025232-26-000014 | yes |
 | Cousins Properties | LTDMat…InYearTwo | 341,000,000 | 0000025232-26-000014 | 341,000,000 | 0000025232-26-000014 | yes |
 | Cousins Properties | LTDMat…InYearThree | 250,000,000 | 0000025232-26-000014 | 250,000,000 | 0000025232-26-000014 | yes |
@@ -34,9 +34,9 @@ Checks the plumbing (two SEC endpoints over the same filings), not the filer.
 | JBG Smith | LTDMat…InYearThree | 610,147,000 | 0001104659-26-016450 | 610,147,000 | 0001104659-26-016450 | yes |
 | JBG Smith | LTDMat…InYearFour | 278,987,000 | 0001104659-26-016450 | 278,987,000 | 0001104659-26-016450 | yes |
 | JBG Smith | LTDMat…InYearFive | 810,332,000 | 0001104659-26-016450 | 810,332,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…AfterYearFive | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
+| JBG Smith | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
 | JBG Smith | CashAndCashEquivalentsAtCarryingValue | 75,270,000 | 0001104659-26-016450 | 75,270,000 | 0001104659-26-123567 | yes |
-| JBG Smith | LongTermDebt | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
+| JBG Smith | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
 | Piedmont Office | LTDMat…InNextTwelveMonths | 3,433,000 | 0001042776-26-000012 | 3,433,000 | 0001042776-26-000012 | yes |
 | Piedmont Office | LTDMat…InYearTwo | 328,894,000 | 0001042776-26-000012 | 328,894,000 | 0001042776-26-000012 | yes |
 | Piedmont Office | LTDMat…InYearThree | 515,753,000 | 0001042776-26-000012 | 515,753,000 | 0001042776-26-000012 | yes |
@@ -60,15 +60,15 @@ Checks the plumbing (two SEC endpoints over the same filings), not the filer.
 | Empire State Realty Trust | LTDMat…InYearFive | 513,111,000 | 0001541401-26-000008 | 513,111,000 | 0001541401-26-000008 | yes |
 | Empire State Realty Trust | LTDMat…AfterYearFive | 1,114,130,000 | 0001541401-26-000008 | 1,114,130,000 | 0001541401-26-000008 | yes |
 | Empire State Realty Trust | CashAndCashEquivalentsAtCarryingValue | 132,657,000 | 0001541401-26-000008 | 132,657,000 | 0001541401-26-000033 | yes |
-| Empire State Realty Trust | LongTermDebt | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…InNextTwelveMonths | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…InYearTwo | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…InYearThree | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…InYearFour | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…InYearFive | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
-| BXP | LTDMat…AfterYearFive | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
+| Empire State Realty Trust | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
 | BXP | CashAndCashEquivalentsAtCarryingValue | 1,478,206,000 | 0001037540-26-000006 | 1,478,206,000 | 0001037540-26-000034 | yes |
-| BXP | LongTermDebt | — | no 10-K instant at 2025-12-31 | — | cik not in frame | both missing |
+| BXP | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
 | CBL & Associates | LTDMat…InNextTwelveMonths | 1,281,692,000 | 0001193125-26-087049 | 1,281,692,000 | 0001193125-26-087049 | yes |
 | CBL & Associates | LTDMat…InYearTwo | 11,195 | 0001193125-26-087049 | 11,195 | 0001193125-26-087049 | yes |
 | CBL & Associates | LTDMat…InYearThree | 134,781,000 | 0001193125-26-087049 | 134,781,000 | 0001193125-26-087049 | yes |
@@ -227,7 +227,7 @@ Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless
 | y3_2028 | …InYearThree | 610,147,000 | 610,147,000 | 610,147 (scale 3) | 0 |  |
 | y4_2029 | …InYearFour | 278,987,000 | 278,987,000 | 278,987 (scale 3) | 0 |  |
 | y5_2030 | …InYearFive | 810,332,000 | 810,332,000 | 810,332 (scale 3) | 0 |  |
-| after_2030 | …AfterYearFive | — | — | — | — | not tagged (dimensionless) in 10-K text |
+| after_2030 | …AfterYearFive | n/a | n/a | n/a | n/a | not tagged (dimensionless) in 10-K text |
 
 Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
 
@@ -534,15 +534,15 @@ Not checked against 10-K text (companyfacts vs frames only): BXP.
 
 Question: Is there any SLG filing for the March 18, 2026 credit facility amendment?
 
-Source: https://data.sec.gov/submissions/CIK0001040971.json (cached 20261109T060332Z)
+Source: https://data.sec.gov/submissions/CIK0001040971.json (cached 20261109T021822Z)
 
 | filed | form | items | accession |
 |---|---|---|---|
-| 2026-03-30 | 4 | — | 0001916385-26-000002 |
-| 2026-03-30 | 144 | — | 0001957799-26-000044 |
-| 2026-03-26 | SCHEDULE 13G/A | — | 0000102909-26-000468 |
-| 2026-03-10 | 4 | — | 0002117999-26-000004 |
-| 2026-03-10 | 3 | — | 0002117999-26-000003 |
+| 2026-03-30 | 4 | none | 0001916385-26-000002 |
+| 2026-03-30 | 144 | none | 0001957799-26-000044 |
+| 2026-03-26 | SCHEDULE 13G/A | none | 0000102909-26-000468 |
+| 2026-03-10 | 4 | none | 0002117999-26-000004 |
+| 2026-03-10 | 3 | none | 0002117999-26-000003 |
 
 **Result: 5 filings in the window, 0 of them 8-K.** All 2026 8-Ks with their items: 2026-10-22 [2.02,7.01,9.01]; 2026-07-23 [2.02,7.01,9.01]; 2026-06-02 [5.07]; 2026-04-16 [2.02,7.01,9.01]; 2026-03-06 [1.01,3.02,9.01]; 2026-03-04 [5.02,9.01]; 2026-01-29 [2.02,7.01,9.01].
 The exhibits of the earnings 8-Ks (items 2.02/7.01) are searched in §3d below.
@@ -628,13 +628,13 @@ Primary: the 10-K table's printed Total (spot-checked names only). Secondary: Lo
 
 | name | ladder sum | 10-K printed total | diff | LongTermDebt @2025-12-31 | diff | latest LongTermDebt (end) | diff |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| SL Green | 4,044,499,000 | 4,044,499,000 | 0 | — | — | 3,227,563,000 (2022-12-31, STALE) | 816,936,000 |
+| SL Green | 4,044,499,000 | 4,044,499,000 | 0 | n/a | n/a | 3,227,563,000 (2022-12-31, STALE) | 816,936,000 |
 | Cousins Properties | 3,357,127,000 | 3,357,127,000 | 0 | 3,340,815,000 | 16,312,000 | 3,579,763,000 (2026-09-30) | -222,636,000 |
-| JBG Smith | 2,546,589,000 (incomplete) | 2,546,589,000 | 0 | — | — | 1,376,077,000 (2017-06-30, STALE) | 1,170,512,000 |
+| JBG Smith | 2,546,589,000 (incomplete) | 2,546,589,000 | 0 | n/a | n/a | 1,376,077,000 (2017-06-30, STALE) | 1,170,512,000 |
 | Piedmont Office | 2,248,080,000 | 2,248,080,000 | 0 | 2,224,712,000 | 23,368,000 | 2,340,841,000 (2026-09-30) | -92,761,000 |
 | Office Properties Income Trust | 2,431,614,000 | 2,431,614,000 | 0 | 2,408,626,000 | 22,988,000 | 1,683,556,000 (2026-06-30) | 748,058,000 |
-| Empire State Realty Trust | 2,389,011,000 | 2,389,011,000 | 0 | — | — | 606,313,000 (2019-09-30, STALE) | 1,782,698,000 |
-| BXP | — (incomplete) | not checked | — | — | — | 3,300,000,000 (2021-12-31, STALE) | — |
+| Empire State Realty Trust | 2,389,011,000 | 2,389,011,000 | 0 | n/a | n/a | 606,313,000 (2019-09-30, STALE) | 1,782,698,000 |
+| BXP | n/a (incomplete) | not checked | n/a | n/a | n/a | 3,300,000,000 (2021-12-31, STALE) | n/a |
 | CBL & Associates | 2,224,398,195 | 2,235,582,000 | -11,183,805 | 2,170,785,000 | 53,613,195 | 2,034,011,000 (2026-06-30) | 190,387,195 |
 | Simon Property Group | 28,595,539,000 | 28,595,539,000 | 0 | 28,430,175,000 | 165,364,000 | 28,423,903,000 (2026-09-30) | 171,636,000 |
 | Brixmor | 5,518,453,000 | 5,518,453,000 | 0 | 5,494,753,000 | 23,700,000 | 5,322,955,000 (2026-09-30) | 195,498,000 |
@@ -647,13 +647,13 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 
 | claim | item | filed | exact re-extract | substring of fresh text | how | gap |
 |---|---|---|---|---|---|---|
-| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T060847Z); compared with original fetch 20261109T060826Z from cache |  |
-| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060827Z from cache |  |
-| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060827Z from cache |  |
-| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
-| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
-| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
-| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
+| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T024656Z); compared with original fetch 20261109T012558Z from cache |  |
+| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
+| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
+| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
 
 ## 6. Override quotes: is each quote verbatim in the filing behind its claim_id?
 

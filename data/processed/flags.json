@@ -2,10 +2,16 @@
  "rates_context": {
   "use_in_scoring": false,
   "dgs10": {
-   "gap_reason": "FRED DGS10 fetch failed"
+   "value": 4.84,
+   "date": "2026-11-05",
+   "fetched_at": "20261109T012545Z",
+   "change_12m": 0.6699999999999999,
+   "prior_date": "2025-11-05"
   },
   "sofr": {
-   "gap_reason": "FRED SOFR fetch failed"
+   "value": 3.92,
+   "date": "2026-11-05",
+   "fetched_at": "20261109T012545Z"
   }
  },
  "case_files": [
@@ -105,7 +111,7 @@
    "override": {
     "name": "SL Green",
     "bucket": "WATCH (reason changed: facility wall refinanced; residual 2027 is mortgages + JV debt)",
-    "reason": "[inferred, Claude's reading, needs human confirmation] The code's WATCH rests on the FY2025 10-K wall: $2,569.3M, 63.5% due 2027. The Q3-2026 10-Q (filed 2026-11-05) shows the facility amended and restated on March 18, 2026: revolver to June 2030 (extendable to June 2031), Term C $750M to June 2031, Term A $300M still due May 2027. No 8-K item was filed for it. Consolidated 2027 maturities are now 1,157,413 thousand of a 4,396,799 thousand total (about 26%, under the 30% watch threshold): $857.4M mortgages plus the $300M Term A. Kept at WATCH, not lowered, because SLG's share of JV debt due 2027 is 2,353,294 thousand, outside the consolidated wall and outside a facility lender's view. Next check: the Term A refinancing ahead of May 2027.",
+    "reason": "[inferred, Claude's reading, needs human confirmation] The code's WATCH rests on the FY2025 10-K wall: $2,569.3M, 63.5% due 2027. The Q3-2026 10-Q (filed 2026-11-05) shows the facility amended and restated on March 18, 2026: revolver to June 2030 (extendable to June 2031), Term C $750M to June 2031, Term A $300M still due May 2027. No 8-K was filed between 2026-03-10 and 2026-03-31. Consolidated 2027 maturities are now 1,157,413 thousand of a 4,396,799 thousand total (about 26%, under the 30% watch threshold): $857.4M mortgages plus the $300M Term A. Kept at WATCH, not lowered, because SLG's share of JV debt due 2027 is 2,353,294 thousand, outside the consolidated wall and outside a facility lender's view. Next check: the Term A refinancing ahead of May 2027.",
     "quote": "On March 18, 2026, the Company entered into an amended and restated credit facility (the \"2026 Credit Facility\"), which was previously amended in December 2021 and November 2017, and was originally entered into in November 2012.",
     "claim_id": "SLG.10q_2027_p0"
    },

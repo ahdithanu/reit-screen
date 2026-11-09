@@ -58,7 +58,7 @@ repfn("function renderHero(){", "function laneName(", r"""function renderHero(){
  var rev=hr(H.tk+'.override');
  var h='<div class="herocard"><div class="heroco"><div class="co"><span class="n">'+N(a)+'</span><span class="to">to</span><span class="n b">'+N(b)+'</span><span class="u">($M)</span></div>'+
   '<p class="cl">'+esc(H.caption)+'</p>'+
-  '<p class="ex">Exact figures: $'+fmt1(a)+'M '+chip(lad[H.hot].claim)+' and '+H.q10[H.qhot].total.toLocaleString('en-US')+' thousand '+chip(H.q10[H.qhot].claim)+'. Both are consolidated principal by calendar year. The highlighted bar is '+esc(H.year)+'.</p></div>'+
+  '<p class="ex">Exact figures: $'+fmt1(a)+'M '+chip(lad[H.hot].claim)+' and '+'$'+fmt1(H.q10[H.qhot].total/1000)+'M '+chip(H.q10[H.qhot].claim)+'. Both are consolidated principal by calendar year, converted to $M. The highlighted bar is '+esc(H.year)+'.</p></div>'+
   '<div class="herochart"><figure><figcaption>'+esc(H.k_caption)+'</figcaption>'+ladderSVG(lad,max,{hot:H.hot,aria:H.tk+' 10-K debt maturity ladder',cap:H.k_cap})+'</figure>'+
   '<figure><figcaption>'+esc(H.q_caption)+'</figcaption>'+ladderSVG(q,max,{hot:H.qhot,aria:H.tk+' 10-Q debt maturity ladder, same scale',cap:H.q_cap})+'</figure></div>'+
   '<div class="heroq"><blockquote class="q"><div class="qm">Verbatim, '+esc(H.q_period)+' '+chip(H.pcid)+(/^https?:/.test(k.src)?' <a href="'+esc(k.src)+'" target="_blank" rel="noopener noreferrer">filing</a>':'')+'</div><p>“'+esc(H.head)+'”</p></blockquote>'+
@@ -70,9 +70,9 @@ repfn("function renderHero(){", "function laneName(", r"""function renderHero(){
 
 repfn("var T0=Date.UTC(2026,10,1)", "/* ---------- screen table ---------- */", r"""var CW=D.clock_window,T0=Date.parse(CW.start+'T00:00:00Z'),T1=Date.parse(CW.end+'T00:00:00Z'),SPAN=(T1-T0)/864e5+1;
 function pos(iso){var p=iso.split('-');return ((Date.UTC(+p[0],+p[1]-1,+p[2])-T0)/864e5)/SPAN*100}
-function qhtml(text,cid,period,extra){
+function qhtml(text,cid,period,extra,label){
  var c=C[cid];
- return '<blockquote class="q"><div class="qm">Verbatim, '+esc(period)+' '+chip(cid)+(extra||'')+(c&&/^https?:/.test(c.src)?' <a href="'+esc(c.src)+'" target="_blank" rel="noopener noreferrer">filing</a>':'')+'</div><p>“'+esc(text)+'”</p></blockquote>';
+ return '<blockquote class="q"><div class="qm">'+esc(label||'Verbatim,')+' '+esc(period)+' '+chip(cid)+(extra||'')+(c&&/^https?:/.test(c.src)?' <a href="'+esc(c.src)+'" target="_blank" rel="noopener noreferrer">filing</a>':'')+'</div><p>'+(label?esc(text):'“'+esc(text)+'”')+'</p></blockquote>';
 }
 function renderClocks(){
  var asof=pos(D.as_of),tks=D.clock_tickers;
@@ -93,10 +93,10 @@ function renderClocks(){
  $('#clockBody').innerHTML=h;
  var q='<div class="qcards">';
  D.clocks.forEach(function(e){
-  q+='<div class="qc"><div class="big">'+esc(e.amt)+'</div><div class="sub"><b>'+esc(e.tk)+'</b> · '+esc(e.what)+' · '+esc(e.when)+'</div>'+qhtml(e.quote,e.cid,e.period)+'</div>';
+  q+='<div class="qc"><div class="big">'+esc(e.amt)+'</div><div class="sub"><b>'+esc(e.tk)+'</b> · '+esc(e.what)+' · '+esc(e.when)+'</div>'+qhtml(e.quote,e.cid,e.period,'',e.label)+'</div>';
  });
  D.clocks_off.forEach(function(e){
-  q+='<div class="qc off"><div class="big">'+esc(e.amt)+'</div><div class="sub"><b>'+esc(e.tk)+'</b> · '+esc(e.what)+' · '+esc(e.when)+' (after this window)</div>'+qhtml(e.quote,e.cid,e.period)+'</div>';
+  q+='<div class="qc off"><div class="big">'+esc(e.amt)+'</div><div class="sub"><b>'+esc(e.tk)+'</b> · '+esc(e.what)+' · '+esc(e.when)+' (after this window)</div>'+qhtml(e.quote,e.cid,e.period,'',e.label)+'</div>';
  });
  q+='</div>';
  $('#clockOff').innerHTML=q;
@@ -201,6 +201,18 @@ rep("var LABPOS={SLG:[9,4,'start'],JBGS:[-9,4,'end'],ESRT:[9,4,'start'],CBL:[0,-
     "var LABPOS={SLG:[12,5,'start'],JBGS:[-13,5,'end'],ESRT:[12,5,'start'],CBL:[0,-13,'middle'],KRG:[12,5,'start'],AKR:[-12,5,'end'],PDM:[0,-13,'middle'],SPG:[12,5,'start'],CUZ:[12,5,'start'],BRX:[12,5,'start']};")
 
 rep("(x.ub?'<path d=\"M'+cx+' '+(cy+8)+' v9 m-3 -3 l3 3 l3 -3\"", "(x.ub?'<path d=\"M'+cx+' '+(cy+11)+' v11 m-4 -4 l4 4 l4 -4\"")
+# ---- honest human-review line, derived from signoff.csv counts (D.review)
+rep(""" if(!D.signoff.length) b.innerHTML=warn+'<span>Overrides pending human sign-off.</span>';
+ else b.innerHTML=warn+'<span>'+D.signoff.length+' claim(s) human reviewed. Other overrides remain pending human sign-off.</span>';""",
+    """ var R=D.review,pend=D.overrides.filter(function(o){return !hr(o.ticker+'.override')}).length;
+ b.innerHTML=warn+'<span>Human review: '+R.n+' of '+R.m+' claims human reviewed'+(R.n?'':' (none yet)')+'. '+(pend?pend+' of '+D.overrides.length+' overrides pending human sign-off.':'All overrides human reviewed.')+'</span>';""")
+rep("""'<div class="stat"><span class="cap">Human sign-off (signoff.csv)</span><b>'+D.signoff.length+' claims</b><span class="small">'+(D.signoff.length?'Listed claims show human reviewed.':'No rows yet. Nothing is shown as human reviewed.')+'</span></div></div>';""",
+    """'<div class="stat"><span class="cap">Human review (signoff.csv)</span><b>'+D.review.n+' of '+D.review.m+'</b><span class="small">claims human reviewed'+(D.review.n?'':' (none yet)')+'. Only ids listed in signoff.csv are shown as human reviewed.</span></div></div>';""")
+# ---- claim panel: show the raw filing row when the displayed text was normalised
+rep("""  '<dt>Source</dt><dd>'+srcLink(c.src)+'</dd>'+""",
+    """  (c.raw?'<dt>Raw filing row</dt><dd><code>'+esc(c.raw)+'</code><br><span class="muted small">Empty cells are shown as n/a above.</span></dd>':'')+
+  '<dt>Source</dt><dd>'+srcLink(c.src)+'</dd>'+""")
+
 (HERE / "template.html").write_text(s)
 left = re.findall(r"'(?:SLG|JBGS|ESRT|CBL|OPI|BXP)'|2026-11-09|2026,10|2026-11-0[56]", s.split("__DATA__")[1])
 print("template written; hard-coded specifics left in the script:", left)

@@ -38,6 +38,19 @@ def _month_add(d, n):
     return dt.date(y, m, 1)
 
 
+def musd_from_thousands(cell):
+    """A filing cell in $ thousands (e.g. '125,000') as $ millions text ('125.0'). Display only."""
+    return f"{float(cell.replace(',', '')) / 1000:,.1f}"
+
+
+EMPTY_CELLS = ("\u2014", "\u2013")  # em and en dash: the filer's empty-cell marker
+
+
+def display_table_row(raw):
+    """A verbatim filing-table row with empty cells shown as n/a. The raw row stays in the ledger (claims.csv)."""
+    return " | ".join("n/a" if c.strip() in EMPTY_CELLS else c.strip() for c in raw.split("|"))
+
+
 # ---------------------------------------------------------------- dated maturities from verbatim 10-Q text
 AMT = r"\$([\d,]+(?:\.\d+)?) (million|billion)"
 MON = r"(" + "|".join(MONTHS) + r") (\d{4})"
@@ -69,8 +82,11 @@ def extract_clocks(tk, claims, ev, as_of):
         cells = [c.strip() for c in claims[cid]["claim"].split("|")]
         d = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", cells[-1]) if cells else None
         if d and len(cells) > 1 and re.match(r"^[\d,]+$", cells[1]):
-            out.append({"tk": tk, "what": cells[0], "amt": f"${cells[1]} thousand", "mon": MONTHS[int(d.group(1)) - 1], "yr": int(d.group(3)),
-                        "exact": f"{d.group(3)}-{int(d.group(1)):02d}-{int(d.group(2)):02d}", "cid": cid, "quote": claims[cid]["claim"], "period": period})
+            amt = f"${musd_from_thousands(cells[1])}M"
+            out.append({"tk": tk, "what": cells[0], "amt": amt, "mon": MONTHS[int(d.group(1)) - 1], "yr": int(d.group(3)),
+                        "exact": f"{d.group(3)}-{int(d.group(1)):02d}-{int(d.group(2)):02d}", "cid": cid,
+                        "quote": f"{cells[0]}: {amt}, matures {cells[-1]}", "label": "From the 10-Q debt table, amount converted from $ thousands to $M,",
+                        "period": period})
     seen, res = set(), []
     for e in out:
         key = (e["amt"], e["mon"], e["yr"])
@@ -86,12 +102,21 @@ def extract_clocks(tk, claims, ev, as_of):
 
 
 # ---------------------------------------------------------------- build D
+def review_line(n, m):
+    return f"{n} of {m} claims human reviewed" + (" (none yet)" if n == 0 else "")
+
+
 def build_data(cfg):
     rows = _csv(PROC / "metrics.csv")
     flags = json.load(open(PROC / "flags.json"))
     claims_rows = _csv(ROOT / "claims.csv")
-    claims = {c["claim_id"]: {"claim": c["claim"], "src": c["source_url"], "tag": c["tag_type"], "checked": c["checked"] == "yes", "note": c["note"]}
-              for c in claims_rows}
+    claims = {}
+    for c in claims_rows:
+        rec = {"claim": c["claim"], "src": c["source_url"], "tag": c["tag_type"], "checked": c["checked"] == "yes", "note": c["note"]}
+        if re.search(r"\.10q_(table_r|debtrow)\d+$", c["claim_id"]):  # a filing-table row: n/a for empty cells on screen, raw kept
+            rec["raw"] = c["claim"]
+            rec["claim"] = display_table_row(c["claim"])
+        claims[c["claim_id"]] = rec
     events = _csv(PROC / "events.csv")
     case = json.load(open(PROC / "case_evidence.json"))
     spot = json.load(open(PROC / "filing_text_checks.json"))
@@ -170,8 +195,12 @@ def build_data(cfg):
             or [{"type": "p", "html": "No 2026 negative or financing 8-K items.", "cls": ["small"]}]})
         tq = ev.get("tenq", {})
         items = [{"type": "quote", "meta": "", "href": None, "cid": f"{t}.10q_2027_p{i}", "text": p} for i, p in enumerate(tq.get("paragraphs", []))]
-        items += [{"type": "quote", "meta": "Debt table row mentioning 2027, $ thousands", "href": None, "cid": f"{t}.10q_debtrow{i}", "text": row}
-                  for i, row in enumerate(tq.get("debt_rows_2027", []))]
+        for i, row in enumerate(tq.get("debt_rows_2027", [])):
+            c_ = [x.strip() for x in row.split("|")]
+            amt = f"${musd_from_thousands(c_[1])}M" if len(c_) > 1 and re.match(r"^[\d,]+$", c_[1]) else "amount not stated"
+            items.append({"type": "p", "cls": None, "html": f"<b>10-Q debt table row</b> (amount converted from $ thousands): {E(c_[0])}, {amt}"
+                                                            + (f", matures {E(c_[-1])}" if re.match(r"^\d{1,2}/\d{1,2}/\d{4}$", c_[-1]) else "")
+                                                            + f". The filing's own row is in the claims ledger [[{t}.10q_debtrow{i}]]."})
         if tq.get("maturity_table"):
             items += [{"type": "p", "html": "10-Q maturity table, verbatim rows, $ thousands:", "cls": ["small"]},
                       {"type": "pre", "text": "\n".join(tq["maturity_table"])}]
@@ -330,7 +359,7 @@ def build_data(cfg):
         "hC": (f"{dis[0]['name']} is the one name where filings and market disagree." if len(dis) == 1 else f"{len(dis)} names show a disagreement." if dis else "No name shows a filings-market disagreement."),
         "hD": (f"{tk_name[hero['tk']]}'s 2027 figure falls between the 10-K and the latest 10-Q." if hero else "Case files show the evidence behind the top-ranked names."),
         "hE": f"Two SEC extractions were diffed on {vs['cross_pairs']} value pairs with {vs['cross_diffs']} differences; {n_checked} of {len(rows)} ladders are checked against 10-K text; "
-              + (f"{len(signoff)} claim(s) are human reviewed." if signoff else "no claim is human reviewed yet."),
+              + review_line(len([r for r in signoff if r["claim_id"] in claims]), len(claims)) + ".",
         "hF": (f"A lender's own file can only escalate a bucket: the SYNTHETIC sample moves {flipped[0]['ticker']} from {flipped[0]['code_bucket']} to {flipped[0]['overlay_bucket']}."
                if flipped else "A lender's own file can only escalate a bucket."),
         "hG": "This is a first read of public filings, and the limits below say where it fails."}
@@ -374,7 +403,8 @@ def build_data(cfg):
         "checked_names": ", ".join(tk_name.get(t, t) for t in vs["spot_checked"]) + ".", "checked_n": n_checked,
         "unchecked_names": ", ".join(vs["not_spot_checked"]) or "none",
         "tagcount": tagcount, "checkedcount": sum(1 for c in claims.values() if c["checked"]),
-        "thresholds": th, "takeaways": takeaways}
+        "thresholds": th, "takeaways": takeaways,
+        "review": {"n": len([r for r in signoff if r["claim_id"] in claims]), "m": len(claims)}}
 
 
 BREAKS = [

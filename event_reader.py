@@ -72,7 +72,7 @@ def extract_quote(ev, doc_path, nchars):
         # The heading is "PART III — NARRATIVE". Plain "Part III of this Form" in Part II is a cross-reference.
         m = re.search(r"PART\s+III\s*[-—–:]*\s*NARRATIVE", text, re.IGNORECASE)
         if not m:
-            return None, "'PART III — NARRATIVE' heading not found in NT form"
+            return None, "'PART III, NARRATIVE' heading not found in NT form"
     else:
         # A heading, not a cross-reference: skip "Item 1.03 of this Report", "Item 2.03 below", "Item 1.01 above", etc.
         xref = r"(?!\s*(?:of\b|below\b|above\b|herein\b|hereof\b|and\b|or\b|is\b|are\b|,|;|\)))"

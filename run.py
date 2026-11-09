@@ -127,8 +127,8 @@ def main():
         ok = verify.run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, offline=a.offline)
         if not ok:
             sys.exit("CONTROL FAILED: OPI is not ACT NOW. Fix the pipeline before anything else.")
-    import report
-    report.build(cfg)
+    import build_site
+    build_site.build_site(cfg)
     print(f"\nreport.html written. network calls this run: {fx.network_calls}")
 
 
