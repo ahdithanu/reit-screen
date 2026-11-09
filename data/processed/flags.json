@@ -2,16 +2,10 @@
  "rates_context": {
   "use_in_scoring": false,
   "dgs10": {
-   "value": 4.84,
-   "date": "2026-11-05",
-   "fetched_at": "20261109T012545Z",
-   "change_12m": 0.6699999999999999,
-   "prior_date": "2025-11-05"
+   "gap_reason": "FRED DGS10 fetch failed"
   },
   "sofr": {
-   "value": 3.92,
-   "date": "2026-11-05",
-   "fetched_at": "20261109T012545Z"
+   "gap_reason": "FRED SOFR fetch failed"
   }
  },
  "case_files": [

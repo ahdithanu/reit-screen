@@ -534,7 +534,7 @@ Not checked against 10-K text (companyfacts vs frames only): BXP.
 
 Question: Is there any SLG filing for the March 18, 2026 credit facility amendment?
 
-Source: https://data.sec.gov/submissions/CIK0001040971.json (cached 20261109T021822Z)
+Source: https://data.sec.gov/submissions/CIK0001040971.json (cached 20261109T060332Z)
 
 | filed | form | items | accession |
 |---|---|---|---|
@@ -647,13 +647,13 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 
 | claim | item | filed | exact re-extract | substring of fresh text | how | gap |
 |---|---|---|---|---|---|---|
-| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T024656Z); compared with original fetch 20261109T012558Z from cache |  |
-| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
-| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
-| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
+| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T060847Z); compared with original fetch 20261109T060826Z from cache |  |
+| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060827Z from cache |  |
+| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060827Z from cache |  |
+| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
+| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
+| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
+| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T060848Z); compared with original fetch 20261109T060829Z from cache |  |
 
 ## 6. Override quotes: is each quote verbatim in the filing behind its claim_id?
 
