@@ -249,7 +249,7 @@ blockquote.q p{margin:0}
 .qm{font-size:12px;color:var(--muted);margin-bottom:3px}
 /* screen */
 .screenwrap{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
-@media(min-width:1200px){.screenwrap{grid-template-columns:minmax(0,1fr) 330px}}
+#quad{max-width:980px}.quadchart text{font-size:13px}.quadchart .ax{font-size:12.5px}.quadchart .qlab{font-size:12.5px}.quadchart .pt text{font-weight:600}
 table{border-collapse:collapse;width:100%}
 table.screen{font-size:12.5px}
 table.screen .pill{font-size:11px;padding:1px 6px}
@@ -734,11 +734,11 @@ function shape(b,cx,cy,r){
  if(k==='routine')return '<rect class="mk" x="'+(cx-r)+'" y="'+(cy-r)+'" width="'+2*r+'" height="'+2*r+'" rx="2"/>';
  return '<path class="mk" d="M'+cx+' '+(cy-r-2)+' L'+(cx+r+2)+' '+cy+' L'+cx+' '+(cy+r+2)+' L'+(cx-r-2)+' '+cy+' Z"/>';
 }
-var LABPOS={SLG:[9,4,'start'],JBGS:[-9,4,'end'],ESRT:[9,4,'start'],CBL:[0,-10,'middle'],KRG:[9,4,'start'],AKR:[-9,4,'end'],PDM:[0,-10,'middle'],SPG:[9,4,'start'],CUZ:[9,4,'start'],BRX:[9,4,'start']};
+var LABPOS={SLG:[12,5,'start'],JBGS:[-13,5,'end'],ESRT:[12,5,'start'],CBL:[0,-13,'middle'],KRG:[12,5,'start'],AKR:[-12,5,'end'],PDM:[0,-13,'middle'],SPG:[12,5,'start'],CUZ:[12,5,'start'],BRX:[12,5,'start']};
 function renderQuad(){
- var L=live(),W=330,H=380,ml=46,mr=12,mt=14,mb=50,xmin=-16,xmax=26,ymin=0,ymax=70;
+ var L=live(),W=900,H=470,ml=60,mr=16,mt=16,mb=58,xmin=-16,xmax=26,ymin=0,ymax=70;
  var X=function(v){return ml+(v-xmin)/(xmax-xmin)*(W-ml-mr)},Y=function(v){return mt+(ymax-v)/(ymax-ymin)*(H-mt-mb)};
- var s='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Chart of 2027 maturity share against drawdown versus sector median, one mark per name">';
+ var s='<svg class="chart quadchart" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Chart of 2027 maturity share against drawdown versus sector median, one mark per name">';
  s+='<rect x="'+ml+'" y="'+mt+'" width="'+(W-ml-mr)+'" height="'+(H-mt-mb)+'" fill="var(--surface)" stroke="var(--line)"/>';
  var xt=X(state.thr.relWatch),yt=Y(state.thr.wallWatch);
  s+='<rect class="quad" x="'+ml+'" y="'+mt+'" width="'+(xt-ml)+'" height="'+(yt-mt)+'"/>';
@@ -752,7 +752,7 @@ function renderQuad(){
  s+='<text class="qlab" x="'+(ml+6)+'" y="'+(yt-18)+'">filings say risk, market calm</text><text class="qlab d" x="'+(ml+6)+'" y="'+(yt-6)+'">Disagreement quadrant</text>';
  s+='<text class="qlab" x="'+(W-mr-6)+'" y="'+(mt+14)+'" text-anchor="end">Both flag</text>';
  s+='<text class="qlab" x="'+(ml+6)+'" y="'+(H-mb-6)+'">Neither flags</text>';
- s+='<text class="qlab" x="'+(W-mr-6)+'" y="'+(yt+14)+'" text-anchor="end">Market singles out,</text><text class="qlab" x="'+(W-mr-6)+'" y="'+(yt+26)+'" text-anchor="end">filings below watch</text>';
+ s+='<text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-24)+'" text-anchor="end">Market singles out,</text><text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-9)+'" text-anchor="end">filings below watch</text>';
  s+='<text class="ax" x="'+((ml+W-mr)/2)+'" y="'+(H-8)+'" text-anchor="middle">52-week drawdown vs sector median (pts)</text>';
  s+='<text class="ax" transform="translate(12 '+((mt+H-mb)/2)+') rotate(-90)" text-anchor="middle">2027 share of ladder</text>';
  var np=[];
@@ -760,7 +760,7 @@ function renderQuad(){
   if(x.share27==null||x.rel==null){np.push(x);return}
   var cx=X(x.rel),cy=Y(x.share27),b=L[x.t].pub,lp=LABPOS[x.t]||[9,4,'start'];
   var d=x.t+': 2027 share '+x.share27.toFixed(1)+'%'+(x.ub?' (upper bound)':'')+', '+(x.rel>0?'+':'')+x.rel.toFixed(1)+' pts vs sector, '+b+'. Press Enter to jump to its row.';
-  s+='<g class="pt '+BK[b]+(x.ub?' ub':'')+'" role="button" tabindex="0" data-goto="'+x.t+'" data-tip="'+esc(d)+'" aria-label="'+esc(d)+'">'+shape(b,cx,cy,5)+'<circle class="ring" cx="'+cx+'" cy="'+cy+'" r="10"/>'+(x.ub?'<path d="M'+cx+' '+(cy+8)+' v9 m-3 -3 l3 3 l3 -3" fill="none" stroke="currentColor" stroke-width="1.5"/>':'')+'<text x="'+(cx+lp[0])+'" y="'+(cy+lp[1])+'" text-anchor="'+lp[2]+'" style="fill:var(--ink)">'+x.t+'</text></g>';
+  s+='<g class="pt '+BK[b]+(x.ub?' ub':'')+'" role="button" tabindex="0" data-goto="'+x.t+'" data-tip="'+esc(d)+'" aria-label="'+esc(d)+'">'+shape(b,cx,cy,7)+'<circle class="ring" cx="'+cx+'" cy="'+cy+'" r="13"/>'+(x.ub?'<path d="M'+cx+' '+(cy+11)+' v11 m-4 -4 l4 4 l4 -4" fill="none" stroke="currentColor" stroke-width="1.5"/>':'')+'<text x="'+(cx+lp[0])+'" y="'+(cy+lp[1])+'" text-anchor="'+lp[2]+'" style="fill:var(--ink)">'+x.t+'</text></g>';
  });
  s+='</svg>';
  s+='<div class="cap" style="margin-top:4px">Shapes: triangle ACT NOW, circle WATCH, square ROUTINE, diamond CAN\'T CALL. Further right means the market is more negative on the name. Dashed marker with arrow: upper bound, true share can only be lower. Thresholds are assumptions.</div>';

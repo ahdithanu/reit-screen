@@ -185,6 +185,22 @@ rep("""It adds no analysis, makes no network calls and sends nothing anywhere.""
     """It adds no analysis, makes no network calls and sends nothing anywhere. Data refreshed '+esc(D.refreshed)+'.""")
 
 rep("""tipBtn('Drawdown vs sector','Close on 2026-11-06 against the 52-week high""", """tipBtn('Drawdown vs sector','Close on '+D.price_as_of+' against the 52-week high""")
+
+# ---- quadrant chart: full width under the table, larger, no label collisions (review feedback)
+rep("@media(min-width:1200px){.screenwrap{grid-template-columns:minmax(0,1fr) 330px}}",
+    "#quad{max-width:980px}.quadchart text{font-size:13px}.quadchart .ax{font-size:12.5px}.quadchart .qlab{font-size:12.5px}.quadchart .pt text{font-weight:600}")
+rep(" var L=live(),W=330,H=380,ml=46,mr=12,mt=14,mb=50,xmin=-16,xmax=26,ymin=0,ymax=70;",
+    " var L=live(),W=900,H=470,ml=60,mr=16,mt=16,mb=58,xmin=-16,xmax=26,ymin=0,ymax=70;")
+rep("""var s='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Chart of 2027""",
+    """var s='<svg class="chart quadchart" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Chart of 2027""")
+rep("""s+='<text class="qlab" x="'+(W-mr-6)+'" y="'+(yt+14)+'" text-anchor="end">Market singles out,</text><text class="qlab" x="'+(W-mr-6)+'" y="'+(yt+26)+'" text-anchor="end">filings below watch</text>';""",
+    """s+='<text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-24)+'" text-anchor="end">Market singles out,</text><text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-9)+'" text-anchor="end">filings below watch</text>';""")
+rep("shape(b,cx,cy,5)+'<circle class=\"ring\" cx=\"'+cx+'\" cy=\"'+cy+'\" r=\"10\"/>'",
+    "shape(b,cx,cy,7)+'<circle class=\"ring\" cx=\"'+cx+'\" cy=\"'+cy+'\" r=\"13\"/>'")
+rep("var LABPOS={SLG:[9,4,'start'],JBGS:[-9,4,'end'],ESRT:[9,4,'start'],CBL:[0,-10,'middle'],KRG:[9,4,'start'],AKR:[-9,4,'end'],PDM:[0,-10,'middle'],SPG:[9,4,'start'],CUZ:[9,4,'start'],BRX:[9,4,'start']};",
+    "var LABPOS={SLG:[12,5,'start'],JBGS:[-13,5,'end'],ESRT:[12,5,'start'],CBL:[0,-13,'middle'],KRG:[12,5,'start'],AKR:[-12,5,'end'],PDM:[0,-13,'middle'],SPG:[12,5,'start'],CUZ:[12,5,'start'],BRX:[12,5,'start']};")
+
+rep("(x.ub?'<path d=\"M'+cx+' '+(cy+8)+' v9 m-3 -3 l3 3 l3 -3\"", "(x.ub?'<path d=\"M'+cx+' '+(cy+11)+' v11 m-4 -4 l4 4 l4 -4\"")
 (HERE / "template.html").write_text(s)
 left = re.findall(r"'(?:SLG|JBGS|ESRT|CBL|OPI|BXP)'|2026-11-09|2026,10|2026-11-0[56]", s.split("__DATA__")[1])
 print("template written; hard-coded specifics left in the script:", left)
