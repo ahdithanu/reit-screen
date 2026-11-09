@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 .vercel
 .env*
+raw_cache_*.tar.gz
+run.log
