@@ -102,6 +102,29 @@ def extract_clocks(tk, claims, ev, as_of):
 
 
 # ---------------------------------------------------------------- build D
+def limits_lines(vs, n_review, n_claims, lc):
+    """Plain-sentence limits, every number derived from the run."""
+    out = [
+        "The decision-maker persona (a credit officer at a bank in syndicated unsecured REIT loans) is an assumption. No credit practitioner has validated it.",
+        "Every bucket threshold is an assumption, set in config.toml with a one-line reason.",
+        "Prices come from the unofficial Yahoo chart API (daily closes, not adjusted for dividends). It can change or block requests at any time.",
+        "There is no interest coverage ratio, because InterestExpense is not tagged consistently, and no undrawn revolver data, because it is not tagged. Liquidity from cash alone understates the picture.",
+        "Ladders are as of the FY2025 10-K (2025-12-31) unless a 10-Q ladder is shown. 10-Q ladders are display only and never scored.",
+        f"{lc['k_label']}. {lc['q_label']}.",
+        f"{n_review} of {n_claims} claims are human reviewed (listed in signoff.csv)."
+        + (" No claim is human signed off." if n_review == 0 else " Every other claim is machine-extracted or machine-checked only."),
+        "The ladder does not separate secured property-level mortgages from unsecured debt, and does not show extension options. A large wall is not the same as refinancing risk for the unsecured facility.",
+    ]
+    diffs = vs.get("cross_diffs", 0)
+    line = f"The cross-extraction compared {vs['cross_pairs']} value pairs (companyfacts against the SEC frames API) and found {diffs} difference{'s' if diffs != 1 else ''}."
+    for r in vs.get("resolved_cross", []):
+        line += (f" One earlier difference was a plumbing artifact (period selection), now fixed: {E(r['name'])} reports its 2025-12-31 {E(r['tag'])} only as a "
+                 f"comparative in its 10-Qs, which a 10-K-only reader missed. Raw row before the fix: "
+                 f"<code>{E(r['name'])} | {E(r['tag'])} | A = n/a ({E(r['a_before_reason'])}) | B = {r['b']:,.0f} ({E(r['b_accn'])}, {E(r['b_form'])})</code>.")
+    out.append(line)
+    return out
+
+
 def review_line(n, m):
     return f"{n} of {m} claims human reviewed" + (" (none yet)" if n == 0 else "")
 
@@ -360,8 +383,18 @@ def build_data(cfg):
     q_names = [r["ticker"] for r in rows if r["q_2027_share"] != ""]
     q_conf = [r["ticker"] for r in rows if r["q_mapping_confirmed"] == "True"]
     n_review = len([r for r in signoff if r["claim_id"] in claims])
-    ladder_counts = {"k_total": len(k_names), "k_checked": sum(1 for t in vs["spot_checked"] if t in k_names), "no_k": len(rows) - len(k_names),
-                     "q_total": len(q_names), "q_checked": 0, "q_confirmed": len(q_conf)}
+    no_k_names = [r["ticker"] for r in rows if r["ticker"] not in k_names]
+    k_checked = [t for t in vs["spot_checked"] if t in k_names]
+    q_checked = []  # no 10-Q ladder is compared with its 10-Q document text yet
+    ladder_counts = {"k_total": len(k_names), "k_checked": len(k_checked), "no_k": len(no_k_names), "no_k_names": no_k_names,
+                     "k_unchecked": [t for t in k_names if t not in k_checked],
+                     "q_total": len(q_names), "q_checked": len(q_checked), "q_unchecked": [t for t in q_names if t not in q_checked],
+                     "q_confirmed": len(q_conf)}
+    k_label = (f"{len(k_checked)} of {len(k_names)} 10-K ladders checked against filing text"
+               + (f" (n/a, no tags: {', '.join(no_k_names)})" if no_k_names else ""))
+    q_label = (f"{len(q_checked)} of {len(q_names)} 10-Q ladders checked against filing text"
+               + (f" (not checked: {', '.join(t for t in q_names if t not in q_checked)})" if len(q_checked) < len(q_names) else ""))
+    ladder_counts.update(k_label=k_label, q_label=q_label)
     tk_name = {r["ticker"]: r["name"] for r in rows}
     takeaways = {
         "hA": (("No live name is ACT NOW; " if not live_act else f"{len(live_act)} live name(s) ACT NOW; ") + f"{ctl} is there as the pipeline test."
@@ -370,8 +403,7 @@ def build_data(cfg):
                if clocks else "No dated maturity is named inside this window."),
         "hC": (f"{dis[0]['name']} is the one name where filings and market disagree." if len(dis) == 1 else f"{len(dis)} names show a disagreement." if dis else "No name shows a filings-market disagreement."),
         "hD": (f"{tk_name[hero['tk']]}'s 2027 figure falls between the 10-K and the latest 10-Q." if hero else "Case files show the evidence behind the top-ranked names."),
-        "hE": f"Two SEC extractions were diffed on {vs['cross_pairs']} value pairs with {vs['cross_diffs']} difference(s); {ladder_counts['k_checked']} of {ladder_counts['k_total']} 10-K ladders are checked against 10-K text, "
-              f"0 of {ladder_counts['q_total']} 10-Q ladders against 10-Q text; "
+        "hE": f"Two SEC extractions were diffed on {vs['cross_pairs']} value pairs with {vs['cross_diffs']} difference(s); {k_label}; {q_label}; "
               + review_line(len([r for r in signoff if r["claim_id"] in claims]), len(claims)) + ".",
         "hF": (f"A lender's own file can only escalate a bucket: the SYNTHETIC sample moves {flipped[0]['ticker']} from {flipped[0]['code_bucket']} to {flipped[0]['overlay_bucket']}."
                if flipped else "A lender's own file can only escalate a bucket."),
@@ -407,9 +439,7 @@ def build_data(cfg):
         "breaks": [x.format(n_office=sum(1 for r in rows if r["segment"] == "office"), n_retail=sum(1 for r in rows if r["segment"] == "retail"),
                             n_q=sum(1 for r in rows if r["q_2027_share"] != ""), n_qc=sum(1 for r in rows if r["q_mapping_confirmed"] == "True"),
                             n_sec=sum(1 for r in rows if r["secured_share"] != ""), n_all=len(rows), no_k=ladder_counts["no_k"]) for x in BREAKS],
-        "week": WEEK, "limits": LIMITS + [f"<b>Human sign-off covers {n_review} of {len(claims)} claims.</b> "
-                                          + ("None of the claims is human signed off." if n_review == 0 else
-                                             "Only the claims listed in signoff.csv (the overrides and the SLG column mapping) are human reviewed; every other claim is machine-extracted or machine-checked only.")],
+        "week": WEEK, "limits": limits_lines(vs, n_review, len(claims), ladder_counts),
         "ladder_counts": ladder_counts,
         "footer": "Generated by deterministic code from cached public data (SEC EDGAR, FRED, Yahoo). No LLM calls in the data path.",
         "clocks": clocks, "clocks_off": clocks_off, "clock_tickers": clock_tickers,

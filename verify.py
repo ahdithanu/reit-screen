@@ -34,6 +34,9 @@ def control(flags, cfg):
 
 
 # ------------------------------------------------------------ 2. cross-extraction
+resolved = []  # cross-check rows that differed only because side A read 10-K facts only (fixed: frames selection rule)
+
+
 def cross_extract(fx, names, cf_paths, cfg):
     frames = {}
     for tag in LTAGS + [ladder_extract.CASH_TAG, ladder_extract.DEBT_TAG]:
@@ -42,8 +45,14 @@ def cross_extract(fx, names, cf_paths, cfg):
     rows, diffs = [], []
     for d in names:
         for tag in LTAGS + [ladder_extract.CASH_TAG, ladder_extract.DEBT_TAG]:
-            a = (None, "companyfacts not fetched") if cf_paths[d["cik"]] is None else \
-                ladder_extract.value_at(cf_paths[d["cik"]], tag, cfg["ladder_period_end"])
+            if cf_paths[d["cik"]] is None:
+                a = (None, "companyfacts not fetched")
+            else:
+                a10k = ladder_extract.value_at(cf_paths[d["cik"]], tag, cfg["ladder_period_end"])
+                av, aacc, aform = ladder_extract.value_at_frames_rule(cf_paths[d["cik"]], tag, cfg["ladder_period_end"])
+                a = (av, aacc if av is None else f"{aacc} ({aform})")
+                if a10k[0] is None and av is not None:  # the 10-K-only rule found nothing; record the earlier artifact
+                    resolved.append((d["label"], tag, a10k, (av, aacc, aform)))
             fr, err, _ = frames[tag]
             b = None
             if fr is not None:
@@ -236,7 +245,9 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
           "| name | tag | A value | A accn / reason | B value | B accn / reason | same |", "|---|---|---:|---|---:|---|---|"]
     for n, t, a, b, s in rows:
         L.append(f"| {n} | {t.replace('LongTermDebtMaturitiesRepaymentsOfPrincipal', 'LTDMat…')} | {_fmt(a[0])} | {a[1]} | {_fmt(b[0])} | {b[1]} | {s} |")
-    L += ["", f"**Differences: {len(diffs)}**", ""]
+    L += ["", f"**Differences: {len(diffs)}**", "",
+          "Side A uses the frames selection rule: the most recently filed 10-K or 10-Q fact for the instant. "
+          "Until 2026-11-09 side A read 10-K facts only; rows that differed only because of that are listed under Conflicts and gaps as RESOLVED.", ""]
     for n, t, a, b in diffs:
         L.append(f"- {n} / {t}: A={_fmt(a[0])} ({a[1]}) vs B={_fmt(b[0])} ({b[1]})")
     L.append("")
@@ -480,6 +491,10 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
     L += ["## Conflicts and gaps", ""]
     for c in conflicts:
         L.append(f"- CONFLICT {c['name']} / {c['tag']}: kept {c['value_a']}, others {c['value_b']}. {c['reason']}")
+    for name, tag, a10k, (av, aacc, aform) in resolved:
+        L.append(f"- RESOLVED (plumbing: period-selection) {name} / {tag}: raw row before the fix: A=n/a ({a10k[1]}) vs B={av:,.0f} ({aacc}). "
+                 f"Evidence: companyfacts holds this {cfg['ladder_period_end']} value only as a comparative in 10-Q filings ({aform} {aacc} is the latest), "
+                 f"and the frames API takes the latest filing for the instant. Fix: side A now applies the same rule; the values agree.")
     for d in names:
         for k, f in list(d["ladder"].items()) + [("latest_cash", d["cash"]), ("latest_debt", d["debt"])]:
             if f["gap_reason"] and f["value"] is None:
@@ -512,6 +527,9 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
     same_counts = {"same": sum(1 for r in rows if r[4] == "yes"), "both_missing": sum(1 for r in rows if r[4] == "both missing")}
     (PROC / "verification_summary.json").write_text(json.dumps({
         "control_hdr": ctl_hdr, "control_rows": ctl_rows, "conflict_lines": conflict_lines, **same_counts,
+        "resolved_cross": [{"name": n, "tag": tg, "a_before": "n/a", "a_before_reason": a10k[1], "b": av, "b_accn": aacc, "b_form": aform,
+                            "a_source": "https://data.sec.gov/api/xbrl/companyfacts/", "b_source": f"https://data.sec.gov/api/xbrl/frames/us-gaap/{tg}/USD/CY2025Q4I.json"}
+                           for n, tg, a10k, (av, aacc, aform) in resolved],
         "control_pass": ok, "control_msg": msg[0], "cross_pairs": len(rows), "cross_diffs": len(diffs),
         "spot_checked": {spot_results[c]["ticker"]: {"rows_equal": sum(1 for r in spot_results[c]["rows"] if r[2] is not None and r[2] == r[3]),
                                                      "rows": len(spot_results[c]["rows"]),

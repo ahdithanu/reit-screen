@@ -253,6 +253,7 @@
  ],
  "conflict_lines": [
   "CONFLICT CBL & Associates / LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo: kept 11195.0, others 11,195,000. filer tagged scale differs from the rest of its own 10-K table; kept as tagged",
+  "RESOLVED (plumbing: period-selection) Tanger / LongTermDebt: raw row before the fix: A=n/a (no 10-K instant at 2025-12-31) vs B=1,596,821,000 (0001628280-26-071352). Evidence: companyfacts holds this 2025-12-31 value only as a comparative in 10-Q filings (10-Q 0001628280-26-071352 is the latest), and the frames API takes the latest filing for the instant. Fix: side A now applies the same rule; the values agree.",
   "FALLBACK SL Green / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
   "FALLBACK SL Green / latest_debt: STALE: latest value is 1409 days old at as_of; no newer filing tagged (end 2022-12-31). Action: older value kept and flagged, not replaced.",
   "GAP JBG Smith / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
@@ -317,12 +318,25 @@
   "GAP Tanger / y5_2030: tag not reported by filer. Action: left as missing.",
   "GAP Tanger / after_2030: tag not reported by filer. Action: left as missing."
  ],
- "same": 137,
+ "same": 138,
  "both_missing": 54,
+ "resolved_cross": [
+  {
+   "name": "Tanger",
+   "tag": "LongTermDebt",
+   "a_before": "n/a",
+   "a_before_reason": "no 10-K instant at 2025-12-31",
+   "b": 1596821000.0,
+   "b_accn": "0001628280-26-071352",
+   "b_form": "10-Q",
+   "a_source": "https://data.sec.gov/api/xbrl/companyfacts/",
+   "b_source": "https://data.sec.gov/api/xbrl/frames/us-gaap/LongTermDebt/USD/CY2025Q4I.json"
+  }
+ ],
  "control_pass": true,
  "control_msg": "expected ACT NOW, got **ACT NOW** (hard trigger: 1.03, NT 10-Q)",
  "cross_pairs": 192,
- "cross_diffs": 1,
+ "cross_diffs": 0,
  "spot_checked": {
   "SLG": {
    "rows_equal": 6,

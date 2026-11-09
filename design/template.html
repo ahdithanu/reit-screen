@@ -249,7 +249,7 @@ blockquote.q p{margin:0}
 .qm{font-size:12px;color:var(--muted);margin-bottom:3px}
 /* screen */
 .screenwrap{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
-#quad{max-width:980px}.quadchart text{font-size:13px}.quadchart .ax{font-size:12.5px}.quadchart .qlab{font-size:12.5px}.quadchart .pt text{font-weight:600}
+#quad{max-width:980px}details.fold{margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--surface)}details.fold>summary{cursor:pointer;list-style:none;padding:16px 18px;display:block}details.fold>summary::-webkit-details-marker{display:none}details.fold>summary h2{display:inline;font-size:20px;margin:0}details.fold>summary::after{content:'Open';float:right;font:600 12px var(--sans);color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:3px 8px}details.fold[open]>summary::after{content:'Close'}details.fold>summary .take{margin:6px 0 0;font-size:14px}details.fold>summary .eyebrow{display:block;margin-bottom:4px}details.fold>summary .eyebrow b{margin-right:8px}details.fold .fh{font:600 17px var(--serif)}.foldbody{padding:0 18px 18px}section.sec.foldbody{margin-top:0;padding-top:0;border-top:0}.foldhint{margin:26px 0 4px}details.herodet{margin-top:10px}details.herodet>summary{cursor:pointer;font-weight:600;color:var(--accent)}.quadchart text{font-size:13px}.quadchart .ax{font-size:12.5px}.quadchart .qlab{font-size:12.5px}.quadchart .pt text{font-weight:600}
 table{border-collapse:collapse;width:100%}
 table.screen{font-size:12.5px}
 table.screen .pill{font-size:11px;padding:1px 6px}
@@ -356,7 +356,7 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
 <header class="top noprint">
  <div class="wrap">
   <nav aria-label="Sections">
-   <a href="#answer">A Answer</a><a href="#clocks">B Clocks</a><a href="#screen">C Screen</a><a href="#cases">D Case files</a><a href="#trust">E Verification</a><a href="#overlay">F Lender data</a><a href="#limits">G Limits</a>
+   <a href="#answer">A Answer</a><a href="#clocks">B Clocks</a><a href="#screen">C Screen</a><a href="#cases">D Case files</a><a href="#trust">E Verification</a><a href="#overlay">F Lender data</a><a href="#limits">G Limits</a><button type="button" class="btn" id="expandAll">Expand all</button>
   </nav>
   <button type="button" class="btn" id="themeBtn" aria-label="Change theme">Theme: auto</button>
   <button type="button" class="btn" id="printBtn">Print or save PDF</button>
@@ -371,32 +371,35 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
   <h1 id="headline"></h1>
   <div class="eyebrow runline" id="eyebrow"></div>
  </div>
- <div class="banner" id="signoffBanner" role="status"></div>
 
  <section class="hero" id="hero" aria-label="Lead finding"><div id="heroBody"></div></section>
 
- <section class="sec" id="answer" aria-labelledby="hA">
+ <section class="sec first" id="answer" aria-labelledby="hA">
   <div class="hd"><div class="eyebrow"><b>A</b>The answer</div><h2 id="hA">Who moves to enhanced monitoring this quarter</h2></div>
+  <p class="whatif" id="ovNote" hidden></p>
+  <div class="lanes" id="lanes"></div>
   <div class="answerbox">
    <dl class="four" id="four"></dl>
    <p class="assume" id="assume"></p>
-   <p class="whatif" id="ovNote" hidden></p>
-   <div class="lanes" id="lanes"></div>
   </div>
+  <div class="banner small" id="signoffBanner" role="status"></div>
   <div id="miniSentinel" aria-hidden="true"></div>
-  <div class="det"><details><summary>Detail behind the answer: dated triggers and what would change the call</summary>
-   <div id="detailA" style="padding:8px 0"></div></details></div>
  </section>
 
- <section class="sec" id="clocks" aria-labelledby="hB">
-  <div class="hd"><div class="eyebrow"><b>B</b>Clocks</div><h2 id="hB"></h2>
-   <p>Each bar spans the month the filing names. The dot is an exact date. Every item links to its verbatim 10-Q text. Latest 10-Q on file for each name; the ladder used by the screen is older.</p></div>
+ <p class="foldhint muted small">Everything below is collapsed. Each heading carries its one-line takeaway; open a section for the evidence.</p>
+
+ <details class="fold" id="fold-detail"><summary><span class="eyebrow"><b>A+</b>Detail behind the answer</span><span class="fh">Dated triggers and what would change the call</span></summary>
+  <div class="foldbody"><div id="detailA" style="padding:8px 0"></div></div></details>
+
+ <details class="fold" id="fold-clocks"><summary><span class="eyebrow"><b>B</b>Clocks</span><h2 id="hB"></h2></summary>
+ <section class="sec foldbody" id="clocks">
+  <p>Each bar spans the month the filing names. The dot is an exact date. Every item links to its source text.</p>
   <div class="clock"><div id="clockBody"></div><div id="clockOff"></div></div>
- </section>
+ </section></details>
 
- <section class="sec" id="screen" aria-labelledby="hC">
-  <div class="hd"><div class="eyebrow"><b>C</b>The screen</div><h2 id="hC"></h2>
-   <p id="screenFoot"></p></div>
+ <details class="fold" id="fold-screen"><summary><span class="eyebrow"><b>C</b>The screen</span><h2 id="hC"></h2></summary>
+ <section class="sec foldbody" id="screen">
+  <p id="screenFoot"></p>
   <div class="legend" id="legend" style="margin-bottom:12px"></div>
   <div class="whatif" id="whatif" hidden><span><b>What-if thresholds.</b> These buckets no longer match the file. The file's calls are unchanged.</span><button type="button" class="btn" id="whatifReset">Reset thresholds</button></div>
   <div class="screenwrap">
@@ -407,22 +410,22 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
   <h3 style="margin:34px 0 6px">Human overrides</h3>
   <p class="muted">Overrides sit beside the code bucket and never replace it. Each stays pending until its claim id appears in signoff.csv.</p>
   <div id="overrides"></div>
- </section>
+ </section></details>
 
- <section class="sec" id="cases" aria-labelledby="hD">
-  <div class="hd"><div class="eyebrow"><b>D</b>Case files</div><h2 id="hD"></h2>
-   <p>Ladder bars are the FY2025 10-K principal maturities in $M. Click a bar, tag or quote to see the claim, source and note.</p></div>
+ <details class="fold" id="fold-cases"><summary><span class="eyebrow"><b>D</b>Case files</span><h2 id="hD"></h2></summary>
+ <section class="sec foldbody" id="cases">
+  <p>Ladder bars are the FY2025 10-K principal maturities in $M. Click a bar, tag or quote to see the claim, source and note.</p>
   <div id="caseBody"></div>
- </section>
+ </section></details>
 
- <section class="sec" id="trust" aria-labelledby="hE">
-  <div class="hd"><div class="eyebrow"><b>E</b>Trust layer</div><h2 id="hE">Verification</h2>
-   <p>Every number carries a tag. Click a tag to open its claim ID, source and note.</p></div>
+ <details class="fold" id="fold-trust"><summary><span class="eyebrow"><b>E</b>Trust layer</span><h2 id="hE">Verification</h2></summary>
+ <section class="sec foldbody" id="trust">
+  <p>Every number carries a tag. Click a tag to open its claim ID, source and note.</p>
   <div id="trustBody"></div>
- </section>
+ </section></details>
 
- <section class="sec" id="overlay" aria-labelledby="hF">
-  <div class="hd"><div class="eyebrow"><b>F</b>Where a lender's private data plugs in</div><h2 id="hF">Apply a lender file to the public screen</h2></div>
+ <details class="fold" id="fold-overlay"><summary><span class="eyebrow"><b>F</b>Where a lender's private data plugs in</span><h2 id="hF">Apply a lender file to the public screen</h2></summary>
+ <section class="sec foldbody" id="overlay">
   <div id="overlayBody"><div class="card">
    <div class="dz noprint" id="dz">
     <p><b>Drop a lender CSV here</b>, or <label class="btn" for="fileIn">choose a file</label><input id="fileIn" type="file" accept=".csv,text/csv,text/plain"></p>
@@ -437,12 +440,12 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
    <div id="ovNotes"></div>
    <div id="ovResult"></div>
   </div></div>
- </section>
+ </section></details>
 
- <section class="sec" id="limits" aria-labelledby="hG">
-  <div class="hd"><div class="eyebrow"><b>G</b>Honest limits</div><h2 id="hG">Where this breaks, with another week, limits</h2></div>
+ <details class="fold" id="fold-limits"><summary><span class="eyebrow"><b>G</b>Honest limits</span><h2 id="hG">Where this breaks, with another week, limits</h2></summary>
+ <section class="sec foldbody" id="limits">
   <div id="limitsBody"></div>
- </section>
+ </section></details>
 
  <footer class="muted small" id="foot"></footer>
 </div></main>
@@ -590,8 +593,9 @@ document.addEventListener('click',function(e){
  var c=e.target.closest('[data-claim]');if(c){openClaim(c.getAttribute('data-claim'),c);return}
  var g=e.target.closest('[data-goto]');if(g){gotoRow(g.getAttribute('data-goto'))}
 });
+function openFoldOf(el){var d=el&&el.closest('details.fold');if(d&&!d.open)d.open=true}
 function gotoRow(t){
- var row=document.getElementById('row-'+t);if(!row)return;
+ var row=document.getElementById('row-'+t);if(!row)return;openFoldOf(row);
  row.scrollIntoView({block:'center'});row.focus({preventScroll:true});row.classList.add('flash');
  setTimeout(function(){row.classList.remove('flash')},1800);
 }
@@ -623,8 +627,8 @@ function renderHero(){
  var h='<div class="herocard"><div class="heroco"><div class="co"><span class="n">'+N(a)+'</span><span class="to">to</span><span class="n b">'+N(b)+'</span><span class="u">($M)</span></div>'+
   '<p class="cl">'+esc(H.caption)+'</p>'+
   '<p class="ex">Exact figures: $'+fmt1(a)+'M '+chip(lad[H.hot].claim)+' and '+'$'+fmt1(H.q10[H.qhot].total/1000)+'M '+chip(H.q10[H.qhot].claim)+'. Both are consolidated principal by calendar year, converted to $M. The highlighted bar is '+esc(H.year)+'.</p></div>'+
-  '<div class="herochart"><figure><figcaption>'+esc(H.k_caption)+'</figcaption>'+ladderSVG(lad,max,{hot:H.hot,aria:H.tk+' 10-K debt maturity ladder',cap:H.k_cap})+'</figure>'+
-  '<figure><figcaption>'+esc(H.q_caption)+'</figcaption>'+ladderSVG(q,max,{hot:H.qhot,aria:H.tk+' 10-Q debt maturity ladder, same scale',cap:H.q_cap})+'</figure></div>'+
+  '<details class="herodet"><summary>Show both ladders, same scale</summary><div class="herochart"><figure><figcaption>'+esc(H.k_caption)+'</figcaption>'+ladderSVG(lad,max,{hot:H.hot,aria:H.tk+' 10-K debt maturity ladder',cap:H.k_cap})+'</figure>'+
+  '<figure><figcaption>'+esc(H.q_caption)+'</figcaption>'+ladderSVG(q,max,{hot:H.qhot,aria:H.tk+' 10-Q debt maturity ladder, same scale',cap:H.q_cap})+'</figure></div></details>'+
   '<div class="heroq"><blockquote class="q"><div class="qm">Verbatim, '+esc(H.q_period)+' '+chip(H.pcid)+(/^https?:/.test(k.src)?' <a href="'+esc(k.src)+'" target="_blank" rel="noopener noreferrer">filing</a>':'')+'</div><p>“'+esc(H.head)+'”</p></blockquote>'+
   (H.rest?'<details><summary>Rest of the same paragraph</summary><blockquote class="q"><p>'+esc(H.rest)+'</p></blockquote></details>':'')+'</div>'+
   '<p class="herocap">'+rt(H.note)+' The reading that the filing explains the smaller figure is tagged inferred and '+(rev?'human reviewed':'pending human sign-off')+(C[H.tk+'.override']?' '+chip(H.tk+'.override'):'')+'. The screen still scores the older 10-K ladder.</p></div>';
@@ -937,15 +941,15 @@ function renderTrust(){
  h+='<div class="stats">'+
  '<div class="stat '+(D.control_pass?'pass':'')+'"><span class="cap">Pipeline control</span><b>'+(D.control_pass?'PASS':'FAIL')+'</b><span class="small">'+esc(D.control_result)+'</span></div>'+
  '<div class="stat"><span class="cap">Cross-extraction, companyfacts vs frames</span><b>'+x.diffs+' differences</b><span class="small">'+x.pairs+' name-tag pairs: '+x.same+' equal, '+x.both_missing+' missing in both</span></div>'+
- '<div class="stat"><span class="cap">10-K ladders checked against 10-K text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+D.ladder_counts.no_k+' of '+ROWS.length+' names file no 10-K ladder tags. Checked: '+esc(D.checked_names)+'</span></div>'+
- '<div class="stat"><span class="cap">10-Q ladders checked against 10-Q text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">Display only, never scored. Year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+
+ '<div class="stat"><span class="cap">10-K ladders checked against filing text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+esc(D.ladder_counts.k_label)+'</span></div>'+
+ '<div class="stat"><span class="cap">10-Q ladders checked against filing text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">'+esc(D.ladder_counts.q_label)+'. Display only, never scored; year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+
  '<div class="stat"><span class="cap">Claims ledger</span><b>'+Object.keys(C).length+' claims</b><span class="small">'+tc.measured+' measured, '+(tc.checked||0)+' checked, '+tc.inferred+' inferred, '+tc.assumed+' assumed; '+D.checkedcount+' matched against filing text</span></div>'+
  '<div class="stat"><span class="cap">Human review (signoff.csv)</span><b>'+D.review.n+' of '+D.review.m+'</b><span class="small">claims human reviewed'+(D.review.n?'':' (none yet)')+'. Only ids listed in signoff.csv are shown as human reviewed.</span></div></div>';
- h+='<p class="muted"><b>Not checked against 10-K text (companyfacts vs frames only):</b> '+esc(D.unchecked_names)+'.</p>';
+ 
  h+='<h4>Control totals: ladder sum against the 10-K printed total and LongTermDebt</h4><div class="scrollbox" style="max-height:none"><table class="plain"><thead><tr>'+D.control.hdr.map(function(c){return '<th scope="col">'+esc(c)+'</th>'}).join('')+'</tr></thead><tbody>'+
   D.control.rows.map(function(r){return '<tr>'+r.map(function(c,i){return '<td'+(i>0?' class="r"':'')+'>'+esc(cellTxt(c)).replace(/^not checked$/,'not checked')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div><p class="cap">'+esc(D.ctl_note)+'</p>';
  h+='<h4>Conflicts and gaps, as logged</h4><ul class="l small">'+D.conflicts.map(function(c){return '<li>'+mdInline(c)+'</li>'}).join('')+'</ul>';
- h+='<details class="det"><summary>Raw verification.md, printed in full (raw diffs, spot checks, quote re-fetch)</summary><div class="md">'+renderMd(D.verification_md)+'</div></details>';
+ h+='<details class="det"><summary>Raw verification.md, printed in full (raw diffs, spot checks, quote re-fetch)</summary><div class="md" id="vmd"></div></details>';
  h+='<details class="det ledger"><summary>Claims ledger ('+Object.keys(C).length+' rows). Search by id or text.</summary><p><label class="small muted" for="cf">Filter</label><br><input type="search" id="cf" placeholder="e.g. SLG.ladder or inferred"></p><div class="scrollbox"><table class="plain"><thead><tr><th scope="col">Claim id</th><th scope="col">Tag</th><th scope="col">Checked</th><th scope="col">Claim</th></tr></thead><tbody id="cfBody"></tbody></table></div></details>';
  $('#trustBody').innerHTML=h;
  function rows(f){
@@ -955,7 +959,10 @@ function renderTrust(){
    out+='<tr><td><button type="button" class="btn" style="font:12px var(--mono);min-height:28px" data-claim="'+esc(id)+'">'+esc(id)+'</button></td><td>'+esc(c.tag)+'</td><td>'+(c.checked?'yes':'no')+'</td><td>'+esc(c.claim.length>220?c.claim.slice(0,220)+'...':c.claim)+'</td></tr>'});
   $('#cfBody').innerHTML=out||'<tr><td colspan="4" class="muted">No match</td></tr>';
  }
- rows('');$('#cf').addEventListener('input',function(e){rows(e.target.value);labelTables()});
+ var led=document.querySelector('details.ledger'),vmd=$('#vmd'),vdet=vmd.closest('details');
+ led.addEventListener('toggle',function(){if(led.open&&!led.dataset.done){led.dataset.done=1;rows('');labelTables()}});
+ vdet.addEventListener('toggle',function(){if(vdet.open&&!vdet.dataset.done){vdet.dataset.done=1;vmd.innerHTML=renderMd(D.verification_md);labelTables()}});
+ $('#cf').addEventListener('input',function(e){rows(e.target.value);labelTables()});
 }
 
 /* ---------- overlay ---------- */
@@ -1104,6 +1111,9 @@ $('#themeBtn').addEventListener('click',function(){
  this.textContent='Theme: '+t;
 });
 $('#printBtn').addEventListener('click',function(){window.print()});
+document.querySelectorAll('nav a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){var el=document.getElementById(a.getAttribute('href').slice(1));if(el)openFoldOf(el)})});
+if(location.hash){var _h=document.getElementById(location.hash.slice(1));if(_h)openFoldOf(_h)}
+$('#expandAll').addEventListener('click',function(){var all=[].every.call(document.querySelectorAll('details.fold'),function(d){return d.open});document.querySelectorAll('details.fold').forEach(function(d){d.open=!all});this.textContent=all?'Expand all':'Collapse all'});
 var opened=[];
 window.addEventListener('beforeprint',function(){opened=[];document.querySelectorAll('details:not(.ledger)').forEach(function(d){if(!d.open){opened.push(d);d.open=true}})});
 window.addEventListener('afterprint',function(){opened.forEach(function(d){d.open=false})});

@@ -217,3 +217,17 @@ def secured_split(cik, label, cfg, cf_path):
     if res["stale"]:
         res["gap_reason"] = f"latest common period end {end} is {age} days old; shown as stale"
     return res
+
+
+def value_at_frames_rule(cf_path, tag, end):
+    """Cross-check side A, using the same selection rule as the SEC frames API: for an exact instant, the most
+    recently filed fact from any periodic form (10-K or 10-Q, incl. amendments). (val, accn, form) or (None, reason, None)."""
+    data = json.loads(open(cf_path, "rb").read())
+    vals, err = _usd(data.get("facts", {}).get("us-gaap", {}), tag)
+    if vals is None:
+        return None, err, None
+    c = sorted([v for v in vals if v.get("end") == end and "start" not in v and v.get("form") in PERIODIC_FORMS],
+               key=lambda v: v["filed"])
+    if not c:
+        return None, f"no 10-K/10-Q instant at {end}", None
+    return float(c[-1]["val"]), c[-1].get("accn"), c[-1].get("form")

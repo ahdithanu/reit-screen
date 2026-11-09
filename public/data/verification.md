@@ -13,202 +13,203 @@ Checks the plumbing (two SEC endpoints over the same filings), not the filer.
 
 | name | tag | A value | A accn / reason | B value | B accn / reason | same |
 |---|---|---:|---|---:|---|---|
-| SL Green | LTDMat…InNextTwelveMonths | 655,148,000 | 0001628280-26-008669 | 655,148,000 | 0001628280-26-008669 | yes |
-| SL Green | LTDMat…InYearTwo | 2,569,277,000 | 0001628280-26-008669 | 2,569,277,000 | 0001628280-26-008669 | yes |
-| SL Green | LTDMat…InYearThree | 284,550,000 | 0001628280-26-008669 | 284,550,000 | 0001628280-26-008669 | yes |
-| SL Green | LTDMat…InYearFour | 177,000,000 | 0001628280-26-008669 | 177,000,000 | 0001628280-26-008669 | yes |
-| SL Green | LTDMat…InYearFive | 0 | 0001628280-26-008669 | 0 | 0001628280-26-008669 | yes |
-| SL Green | LTDMat…AfterYearFive | 358,524,000 | 0001628280-26-008669 | 358,524,000 | 0001628280-26-008669 | yes |
-| SL Green | CashAndCashEquivalentsAtCarryingValue | 155,747,000 | 0001628280-26-008669 | 155,747,000 | 0001628280-26-029075 | yes |
-| SL Green | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Cousins Properties | LTDMat…InNextTwelveMonths | 870,127,000 | 0000025232-26-000014 | 870,127,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | LTDMat…InYearTwo | 341,000,000 | 0000025232-26-000014 | 341,000,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | LTDMat…InYearThree | 250,000,000 | 0000025232-26-000014 | 250,000,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | LTDMat…InYearFour | 275,000,000 | 0000025232-26-000014 | 275,000,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | LTDMat…InYearFive | 500,000,000 | 0000025232-26-000014 | 500,000,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | LTDMat…AfterYearFive | 1,121,000,000 | 0000025232-26-000014 | 1,121,000,000 | 0000025232-26-000014 | yes |
-| Cousins Properties | CashAndCashEquivalentsAtCarryingValue | 5,720,000 | 0000025232-26-000014 | 5,720,000 | 0000025232-26-000079 | yes |
-| Cousins Properties | LongTermDebt | 3,340,815,000 | 0000025232-26-000014 | 3,340,815,000 | 0000025232-26-000079 | yes |
-| JBG Smith | LTDMat…InNextTwelveMonths | 170,820,000 | 0001104659-26-016450 | 170,820,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…InYearTwo | 676,303,000 | 0001104659-26-016450 | 676,303,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…InYearThree | 610,147,000 | 0001104659-26-016450 | 610,147,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…InYearFour | 278,987,000 | 0001104659-26-016450 | 278,987,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…InYearFive | 810,332,000 | 0001104659-26-016450 | 810,332,000 | 0001104659-26-016450 | yes |
-| JBG Smith | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| JBG Smith | CashAndCashEquivalentsAtCarryingValue | 75,270,000 | 0001104659-26-016450 | 75,270,000 | 0001104659-26-123567 | yes |
-| JBG Smith | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Piedmont Office | LTDMat…InNextTwelveMonths | 3,433,000 | 0001042776-26-000012 | 3,433,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | LTDMat…InYearTwo | 328,894,000 | 0001042776-26-000012 | 328,894,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | LTDMat…InYearThree | 515,753,000 | 0001042776-26-000012 | 515,753,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | LTDMat…InYearFour | 400,000,000 | 0001042776-26-000012 | 400,000,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | LTDMat…InYearFive | 300,000,000 | 0001042776-26-000012 | 300,000,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | LTDMat…AfterYearFive | 700,000,000 | 0001042776-26-000012 | 700,000,000 | 0001042776-26-000012 | yes |
-| Piedmont Office | CashAndCashEquivalentsAtCarryingValue | 731,000 | 0001042776-26-000012 | 731,000 | 0001042776-26-000071 | yes |
-| Piedmont Office | LongTermDebt | 2,224,712,000 | 0001042776-26-000012 | 2,224,712,000 | 0001042776-26-000071 | yes |
-| Office Properties Income Trust | LTDMat…InNextTwelveMonths | 144,154,000 | 0001456772-26-000022 | 144,154,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | LTDMat…InYearTwo | 921,300,000 | 0001456772-26-000022 | 921,300,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | LTDMat…InYearThree | 123,487,000 | 0001456772-26-000022 | 123,487,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | LTDMat…InYearFour | 910,278,000 | 0001456772-26-000022 | 910,278,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | LTDMat…InYearFive | 14,739,000 | 0001456772-26-000022 | 14,739,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | LTDMat…AfterYearFive | 317,656,000 | 0001456772-26-000022 | 317,656,000 | 0001456772-26-000022 | yes |
-| Office Properties Income Trust | CashAndCashEquivalentsAtCarryingValue | 29,486,000 | 0001456772-26-000022 | 29,486,000 | 0001456772-26-000023 | yes |
-| Office Properties Income Trust | LongTermDebt | 2,408,626,000 | 0001456772-26-000022 | 2,408,626,000 | 0001456772-26-000022 | yes |
-| Empire State Realty Trust | LTDMat…InNextTwelveMonths | 53,958,000 | 0001541401-26-000008 | 53,958,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | LTDMat…InYearTwo | 159,276,000 | 0001541401-26-000008 | 159,276,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | LTDMat…InYearThree | 149,646,000 | 0001541401-26-000008 | 149,646,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | LTDMat…InYearFour | 398,890,000 | 0001541401-26-000008 | 398,890,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | LTDMat…InYearFive | 513,111,000 | 0001541401-26-000008 | 513,111,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | LTDMat…AfterYearFive | 1,114,130,000 | 0001541401-26-000008 | 1,114,130,000 | 0001541401-26-000008 | yes |
-| Empire State Realty Trust | CashAndCashEquivalentsAtCarryingValue | 132,657,000 | 0001541401-26-000008 | 132,657,000 | 0001541401-26-000033 | yes |
-| Empire State Realty Trust | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| BXP | CashAndCashEquivalentsAtCarryingValue | 1,478,206,000 | 0001037540-26-000006 | 1,478,206,000 | 0001037540-26-000034 | yes |
-| BXP | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| CBL & Associates | LTDMat…InNextTwelveMonths | 1,281,692,000 | 0001193125-26-087049 | 1,281,692,000 | 0001193125-26-087049 | yes |
-| CBL & Associates | LTDMat…InYearTwo | 11,195 | 0001193125-26-087049 | 11,195 | 0001193125-26-087049 | yes |
-| CBL & Associates | LTDMat…InYearThree | 134,781,000 | 0001193125-26-087049 | 134,781,000 | 0001193125-26-087049 | yes |
-| CBL & Associates | LTDMat…InYearFour | 7,939,000 | 0001193125-26-087049 | 7,939,000 | 0001193125-26-087049 | yes |
-| CBL & Associates | LTDMat…InYearFive | 740,144,000 | 0001193125-26-087049 | 740,144,000 | 0001193125-26-087049 | yes |
-| CBL & Associates | LTDMat…AfterYearFive | 59,831,000 | 0001193125-26-087049 | 59,831,000 | 0001193125-26-087049 | yes |
-| CBL & Associates | CashAndCashEquivalentsAtCarryingValue | 42,287,000 | 0001193125-26-087049 | 42,287,000 | 0001193125-26-339651 | yes |
-| CBL & Associates | LongTermDebt | 2,170,785,000 | 0001193125-26-087049 | 2,170,785,000 | 0001193125-26-339651 | yes |
-| Simon Property Group | LTDMat…InNextTwelveMonths | 5,905,606,000 | 0001104659-26-019419 | 5,905,606,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | LTDMat…InYearTwo | 3,936,773,000 | 0001104659-26-019419 | 3,936,773,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | LTDMat…InYearThree | 2,296,651,000 | 0001104659-26-019419 | 2,296,651,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | LTDMat…InYearFour | 2,940,031,000 | 0001104659-26-019419 | 2,940,031,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | LTDMat…InYearFive | 1,657,864,000 | 0001104659-26-019419 | 1,657,864,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | LTDMat…AfterYearFive | 11,858,614,000 | 0001104659-26-019419 | 11,858,614,000 | 0001104659-26-019419 | yes |
-| Simon Property Group | CashAndCashEquivalentsAtCarryingValue | 823,147,000 | 0001104659-26-019419 | 823,147,000 | 0001104659-26-123591 | yes |
-| Simon Property Group | LongTermDebt | 28,430,175,000 | 0001104659-26-019419 | 28,430,175,000 | 0001104659-26-123591 | yes |
-| Brixmor | LTDMat…InNextTwelveMonths | 607,542,000 | 0001581068-26-000007 | 607,542,000 | 0001581068-26-000007 | yes |
-| Brixmor | LTDMat…InYearTwo | 400,000,000 | 0001581068-26-000007 | 400,000,000 | 0001581068-26-000007 | yes |
-| Brixmor | LTDMat…InYearThree | 357,708,000 | 0001581068-26-000007 | 357,708,000 | 0001581068-26-000007 | yes |
-| Brixmor | LTDMat…InYearFour | 753,203,000 | 0001581068-26-000007 | 753,203,000 | 0001581068-26-000007 | yes |
-| Brixmor | LTDMat…InYearFive | 1,300,000,000 | 0001581068-26-000007 | 1,300,000,000 | 0001581068-26-000007 | yes |
-| Brixmor | LTDMat…AfterYearFive | 2,100,000,000 | 0001581068-26-000007 | 2,100,000,000 | 0001581068-26-000007 | yes |
-| Brixmor | CashAndCashEquivalentsAtCarryingValue | 334,422,000 | 0001581068-26-000007 | 334,422,000 | 0001581068-26-000031 | yes |
-| Brixmor | LongTermDebt | 5,494,753,000 | 0001581068-26-000007 | 5,494,753,000 | 0001581068-26-000031 | yes |
-| Acadia Realty | LTDMat…InNextTwelveMonths | 292,287,000 | 0001193125-26-051677 | 292,287,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | LTDMat…InYearTwo | 309,638,000 | 0001193125-26-051677 | 309,638,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | LTDMat…InYearThree | 845,235,000 | 0001193125-26-051677 | 845,235,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | LTDMat…InYearFour | 98,292,000 | 0001193125-26-051677 | 98,292,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | LTDMat…InYearFive | 326,850,000 | 0001193125-26-051677 | 326,850,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | LTDMat…AfterYearFive | 1,065,000 | 0001193125-26-051677 | 1,065,000 | 0001193125-26-051677 | yes |
-| Acadia Realty | CashAndCashEquivalentsAtCarryingValue | 38,818,000 | 0001193125-26-051677 | 38,818,000 | 0001193125-26-443763 | yes |
-| Acadia Realty | LongTermDebt | 1,862,906,000 | 0001193125-26-051677 | 1,862,906,000 | 0001193125-26-443763 | yes |
-| Kite Realty | LTDMat…InNextTwelveMonths | 415,181,000 | 0001286043-26-000009 | 415,181,000 | 0001286043-26-000009 | yes |
-| Kite Realty | LTDMat…InYearTwo | 522,568,000 | 0001286043-26-000009 | 522,568,000 | 0001286043-26-000009 | yes |
-| Kite Realty | LTDMat…InYearThree | 187,943,000 | 0001286043-26-000009 | 187,943,000 | 0001286043-26-000009 | yes |
-| Kite Realty | LTDMat…InYearFour | 403,474,000 | 0001286043-26-000009 | 403,474,000 | 0001286043-26-000009 | yes |
-| Kite Realty | LTDMat…InYearFive | 403,036,000 | 0001286043-26-000009 | 403,036,000 | 0001286043-26-000009 | yes |
-| Kite Realty | LTDMat…AfterYearFive | 1,095,735,000 | 0001286043-26-000009 | 1,095,735,000 | 0001286043-26-000009 | yes |
-| Kite Realty | CashAndCashEquivalentsAtCarryingValue | 36,761,000 | 0001286043-26-000009 | 36,761,000 | 0001286043-26-000058 | yes |
-| Kite Realty | LongTermDebt | 3,025,478,000 | 0001286043-26-000009 | 3,025,478,000 | 0001286043-26-000058 | yes |
+| SL Green | LTDMat…InNextTwelveMonths | 655,148,000 | 0001628280-26-008669 (10-K) | 655,148,000 | 0001628280-26-008669 | yes |
+| SL Green | LTDMat…InYearTwo | 2,569,277,000 | 0001628280-26-008669 (10-K) | 2,569,277,000 | 0001628280-26-008669 | yes |
+| SL Green | LTDMat…InYearThree | 284,550,000 | 0001628280-26-008669 (10-K) | 284,550,000 | 0001628280-26-008669 | yes |
+| SL Green | LTDMat…InYearFour | 177,000,000 | 0001628280-26-008669 (10-K) | 177,000,000 | 0001628280-26-008669 | yes |
+| SL Green | LTDMat…InYearFive | 0 | 0001628280-26-008669 (10-K) | 0 | 0001628280-26-008669 | yes |
+| SL Green | LTDMat…AfterYearFive | 358,524,000 | 0001628280-26-008669 (10-K) | 358,524,000 | 0001628280-26-008669 | yes |
+| SL Green | CashAndCashEquivalentsAtCarryingValue | 155,747,000 | 0001628280-26-029075 (10-Q) | 155,747,000 | 0001628280-26-029075 | yes |
+| SL Green | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Cousins Properties | LTDMat…InNextTwelveMonths | 870,127,000 | 0000025232-26-000014 (10-K) | 870,127,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | LTDMat…InYearTwo | 341,000,000 | 0000025232-26-000014 (10-K) | 341,000,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | LTDMat…InYearThree | 250,000,000 | 0000025232-26-000014 (10-K) | 250,000,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | LTDMat…InYearFour | 275,000,000 | 0000025232-26-000014 (10-K) | 275,000,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | LTDMat…InYearFive | 500,000,000 | 0000025232-26-000014 (10-K) | 500,000,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | LTDMat…AfterYearFive | 1,121,000,000 | 0000025232-26-000014 (10-K) | 1,121,000,000 | 0000025232-26-000014 | yes |
+| Cousins Properties | CashAndCashEquivalentsAtCarryingValue | 5,720,000 | 0000025232-26-000079 (10-Q) | 5,720,000 | 0000025232-26-000079 | yes |
+| Cousins Properties | LongTermDebt | 3,340,815,000 | 0000025232-26-000079 (10-Q) | 3,340,815,000 | 0000025232-26-000079 | yes |
+| JBG Smith | LTDMat…InNextTwelveMonths | 170,820,000 | 0001104659-26-016450 (10-K) | 170,820,000 | 0001104659-26-016450 | yes |
+| JBG Smith | LTDMat…InYearTwo | 676,303,000 | 0001104659-26-016450 (10-K) | 676,303,000 | 0001104659-26-016450 | yes |
+| JBG Smith | LTDMat…InYearThree | 610,147,000 | 0001104659-26-016450 (10-K) | 610,147,000 | 0001104659-26-016450 | yes |
+| JBG Smith | LTDMat…InYearFour | 278,987,000 | 0001104659-26-016450 (10-K) | 278,987,000 | 0001104659-26-016450 | yes |
+| JBG Smith | LTDMat…InYearFive | 810,332,000 | 0001104659-26-016450 (10-K) | 810,332,000 | 0001104659-26-016450 | yes |
+| JBG Smith | LTDMat…AfterYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| JBG Smith | CashAndCashEquivalentsAtCarryingValue | 75,270,000 | 0001104659-26-123567 (10-Q) | 75,270,000 | 0001104659-26-123567 | yes |
+| JBG Smith | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Piedmont Office | LTDMat…InNextTwelveMonths | 3,433,000 | 0001042776-26-000012 (10-K) | 3,433,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | LTDMat…InYearTwo | 328,894,000 | 0001042776-26-000012 (10-K) | 328,894,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | LTDMat…InYearThree | 515,753,000 | 0001042776-26-000012 (10-K) | 515,753,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | LTDMat…InYearFour | 400,000,000 | 0001042776-26-000012 (10-K) | 400,000,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | LTDMat…InYearFive | 300,000,000 | 0001042776-26-000012 (10-K) | 300,000,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | LTDMat…AfterYearFive | 700,000,000 | 0001042776-26-000012 (10-K) | 700,000,000 | 0001042776-26-000012 | yes |
+| Piedmont Office | CashAndCashEquivalentsAtCarryingValue | 731,000 | 0001042776-26-000071 (10-Q) | 731,000 | 0001042776-26-000071 | yes |
+| Piedmont Office | LongTermDebt | 2,224,712,000 | 0001042776-26-000071 (10-Q) | 2,224,712,000 | 0001042776-26-000071 | yes |
+| Office Properties Income Trust | LTDMat…InNextTwelveMonths | 144,154,000 | 0001456772-26-000022 (10-K) | 144,154,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | LTDMat…InYearTwo | 921,300,000 | 0001456772-26-000022 (10-K) | 921,300,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | LTDMat…InYearThree | 123,487,000 | 0001456772-26-000022 (10-K) | 123,487,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | LTDMat…InYearFour | 910,278,000 | 0001456772-26-000022 (10-K) | 910,278,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | LTDMat…InYearFive | 14,739,000 | 0001456772-26-000022 (10-K) | 14,739,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | LTDMat…AfterYearFive | 317,656,000 | 0001456772-26-000022 (10-K) | 317,656,000 | 0001456772-26-000022 | yes |
+| Office Properties Income Trust | CashAndCashEquivalentsAtCarryingValue | 29,486,000 | 0001456772-26-000023 (10-Q) | 29,486,000 | 0001456772-26-000023 | yes |
+| Office Properties Income Trust | LongTermDebt | 2,408,626,000 | 0001456772-26-000022 (10-K) | 2,408,626,000 | 0001456772-26-000022 | yes |
+| Empire State Realty Trust | LTDMat…InNextTwelveMonths | 53,958,000 | 0001541401-26-000008 (10-K) | 53,958,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | LTDMat…InYearTwo | 159,276,000 | 0001541401-26-000008 (10-K) | 159,276,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | LTDMat…InYearThree | 149,646,000 | 0001541401-26-000008 (10-K) | 149,646,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | LTDMat…InYearFour | 398,890,000 | 0001541401-26-000008 (10-K) | 398,890,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | LTDMat…InYearFive | 513,111,000 | 0001541401-26-000008 (10-K) | 513,111,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | LTDMat…AfterYearFive | 1,114,130,000 | 0001541401-26-000008 (10-K) | 1,114,130,000 | 0001541401-26-000008 | yes |
+| Empire State Realty Trust | CashAndCashEquivalentsAtCarryingValue | 132,657,000 | 0001541401-26-000033 (10-Q) | 132,657,000 | 0001541401-26-000033 | yes |
+| Empire State Realty Trust | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InNextTwelveMonths | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearTwo | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearThree | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearFour | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…InYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | LTDMat…AfterYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| BXP | CashAndCashEquivalentsAtCarryingValue | 1,478,206,000 | 0001037540-26-000034 (10-Q) | 1,478,206,000 | 0001037540-26-000034 | yes |
+| BXP | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| CBL & Associates | LTDMat…InNextTwelveMonths | 1,281,692,000 | 0001193125-26-087049 (10-K) | 1,281,692,000 | 0001193125-26-087049 | yes |
+| CBL & Associates | LTDMat…InYearTwo | 11,195 | 0001193125-26-087049 (10-K) | 11,195 | 0001193125-26-087049 | yes |
+| CBL & Associates | LTDMat…InYearThree | 134,781,000 | 0001193125-26-087049 (10-K) | 134,781,000 | 0001193125-26-087049 | yes |
+| CBL & Associates | LTDMat…InYearFour | 7,939,000 | 0001193125-26-087049 (10-K) | 7,939,000 | 0001193125-26-087049 | yes |
+| CBL & Associates | LTDMat…InYearFive | 740,144,000 | 0001193125-26-087049 (10-K) | 740,144,000 | 0001193125-26-087049 | yes |
+| CBL & Associates | LTDMat…AfterYearFive | 59,831,000 | 0001193125-26-087049 (10-K) | 59,831,000 | 0001193125-26-087049 | yes |
+| CBL & Associates | CashAndCashEquivalentsAtCarryingValue | 42,287,000 | 0001193125-26-339651 (10-Q) | 42,287,000 | 0001193125-26-339651 | yes |
+| CBL & Associates | LongTermDebt | 2,170,785,000 | 0001193125-26-339651 (10-Q) | 2,170,785,000 | 0001193125-26-339651 | yes |
+| Simon Property Group | LTDMat…InNextTwelveMonths | 5,905,606,000 | 0001104659-26-019419 (10-K) | 5,905,606,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | LTDMat…InYearTwo | 3,936,773,000 | 0001104659-26-019419 (10-K) | 3,936,773,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | LTDMat…InYearThree | 2,296,651,000 | 0001104659-26-019419 (10-K) | 2,296,651,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | LTDMat…InYearFour | 2,940,031,000 | 0001104659-26-019419 (10-K) | 2,940,031,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | LTDMat…InYearFive | 1,657,864,000 | 0001104659-26-019419 (10-K) | 1,657,864,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | LTDMat…AfterYearFive | 11,858,614,000 | 0001104659-26-019419 (10-K) | 11,858,614,000 | 0001104659-26-019419 | yes |
+| Simon Property Group | CashAndCashEquivalentsAtCarryingValue | 823,147,000 | 0001104659-26-123591 (10-Q) | 823,147,000 | 0001104659-26-123591 | yes |
+| Simon Property Group | LongTermDebt | 28,430,175,000 | 0001104659-26-123591 (10-Q) | 28,430,175,000 | 0001104659-26-123591 | yes |
+| Brixmor | LTDMat…InNextTwelveMonths | 607,542,000 | 0001581068-26-000007 (10-K) | 607,542,000 | 0001581068-26-000007 | yes |
+| Brixmor | LTDMat…InYearTwo | 400,000,000 | 0001581068-26-000007 (10-K) | 400,000,000 | 0001581068-26-000007 | yes |
+| Brixmor | LTDMat…InYearThree | 357,708,000 | 0001581068-26-000007 (10-K) | 357,708,000 | 0001581068-26-000007 | yes |
+| Brixmor | LTDMat…InYearFour | 753,203,000 | 0001581068-26-000007 (10-K) | 753,203,000 | 0001581068-26-000007 | yes |
+| Brixmor | LTDMat…InYearFive | 1,300,000,000 | 0001581068-26-000007 (10-K) | 1,300,000,000 | 0001581068-26-000007 | yes |
+| Brixmor | LTDMat…AfterYearFive | 2,100,000,000 | 0001581068-26-000007 (10-K) | 2,100,000,000 | 0001581068-26-000007 | yes |
+| Brixmor | CashAndCashEquivalentsAtCarryingValue | 334,422,000 | 0001581068-26-000031 (10-Q) | 334,422,000 | 0001581068-26-000031 | yes |
+| Brixmor | LongTermDebt | 5,494,753,000 | 0001581068-26-000031 (10-Q) | 5,494,753,000 | 0001581068-26-000031 | yes |
+| Acadia Realty | LTDMat…InNextTwelveMonths | 292,287,000 | 0001193125-26-051677 (10-K) | 292,287,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | LTDMat…InYearTwo | 309,638,000 | 0001193125-26-051677 (10-K) | 309,638,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | LTDMat…InYearThree | 845,235,000 | 0001193125-26-051677 (10-K) | 845,235,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | LTDMat…InYearFour | 98,292,000 | 0001193125-26-051677 (10-K) | 98,292,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | LTDMat…InYearFive | 326,850,000 | 0001193125-26-051677 (10-K) | 326,850,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | LTDMat…AfterYearFive | 1,065,000 | 0001193125-26-051677 (10-K) | 1,065,000 | 0001193125-26-051677 | yes |
+| Acadia Realty | CashAndCashEquivalentsAtCarryingValue | 38,818,000 | 0001193125-26-443763 (10-Q) | 38,818,000 | 0001193125-26-443763 | yes |
+| Acadia Realty | LongTermDebt | 1,862,906,000 | 0001193125-26-443763 (10-Q) | 1,862,906,000 | 0001193125-26-443763 | yes |
+| Kite Realty | LTDMat…InNextTwelveMonths | 415,181,000 | 0001286043-26-000009 (10-K) | 415,181,000 | 0001286043-26-000009 | yes |
+| Kite Realty | LTDMat…InYearTwo | 522,568,000 | 0001286043-26-000009 (10-K) | 522,568,000 | 0001286043-26-000009 | yes |
+| Kite Realty | LTDMat…InYearThree | 187,943,000 | 0001286043-26-000009 (10-K) | 187,943,000 | 0001286043-26-000009 | yes |
+| Kite Realty | LTDMat…InYearFour | 403,474,000 | 0001286043-26-000009 (10-K) | 403,474,000 | 0001286043-26-000009 | yes |
+| Kite Realty | LTDMat…InYearFive | 403,036,000 | 0001286043-26-000009 (10-K) | 403,036,000 | 0001286043-26-000009 | yes |
+| Kite Realty | LTDMat…AfterYearFive | 1,095,735,000 | 0001286043-26-000009 (10-K) | 1,095,735,000 | 0001286043-26-000009 | yes |
+| Kite Realty | CashAndCashEquivalentsAtCarryingValue | 36,761,000 | 0001286043-26-000058 (10-Q) | 36,761,000 | 0001286043-26-000058 | yes |
+| Kite Realty | LongTermDebt | 3,025,478,000 | 0001286043-26-000058 (10-Q) | 3,025,478,000 | 0001286043-26-000058 | yes |
 | Vornado Realty Trust | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Vornado Realty Trust | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Vornado Realty Trust | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Vornado Realty Trust | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Vornado Realty Trust | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Vornado Realty Trust | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
-| Vornado Realty Trust | CashAndCashEquivalentsAtCarryingValue | 840,850,000 | 0000899689-26-000009 | 840,850,000 | 0000899689-26-000046 | yes |
-| Vornado Realty Trust | LongTermDebt | 2,264,959,000 | 0000899689-26-000009 | 2,264,959,000 | 0000899689-26-000046 | yes |
-| Kilroy Realty | LTDMat…InNextTwelveMonths | 601,317,000 | 0001628280-26-007051 | 601,317,000 | 0001628280-26-007051 | yes |
-| Kilroy Realty | LTDMat…InYearTwo | 249,125,000 | 0001628280-26-007051 | 249,125,000 | 0001628280-26-007051 | yes |
+| Vornado Realty Trust | CashAndCashEquivalentsAtCarryingValue | 840,850,000 | 0000899689-26-000046 (10-Q) | 840,850,000 | 0000899689-26-000046 | yes |
+| Vornado Realty Trust | LongTermDebt | 2,264,959,000 | 0000899689-26-000046 (10-Q) | 2,264,959,000 | 0000899689-26-000046 | yes |
+| Kilroy Realty | LTDMat…InNextTwelveMonths | 601,317,000 | 0001628280-26-007051 (10-K) | 601,317,000 | 0001628280-26-007051 | yes |
+| Kilroy Realty | LTDMat…InYearTwo | 249,125,000 | 0001628280-26-007051 (10-K) | 249,125,000 | 0001628280-26-007051 | yes |
 | Kilroy Realty | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Kilroy Realty | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Kilroy Realty | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
-| Kilroy Realty | LTDMat…AfterYearFive | 2,400,000,000 | 0001628280-26-007051 | 2,400,000,000 | 0001628280-26-007051 | yes |
-| Kilroy Realty | CashAndCashEquivalentsAtCarryingValue | 179,316,000 | 0001628280-26-007051 | 179,316,000 | 0001628280-26-028013 | yes |
-| Kilroy Realty | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Highwoods Properties | LTDMat…InNextTwelveMonths | 6,682,000 | 0000921082-26-000005 | 6,682,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | LTDMat…InYearTwo | 458,736,000 | 0000921082-26-000005 | 458,736,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | LTDMat…InYearThree | 723,928,000 | 0000921082-26-000005 | 723,928,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | LTDMat…InYearFour | 717,027,000 | 0000921082-26-000005 | 717,027,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | LTDMat…InYearFive | 404,662,000 | 0000921082-26-000005 | 404,662,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | LTDMat…AfterYearFive | 1,259,119,000 | 0000921082-26-000005 | 1,259,119,000 | 0000921082-26-000005 | yes |
-| Highwoods Properties | CashAndCashEquivalentsAtCarryingValue | 27,358,000 | 0000921082-26-000005 | 27,358,000 | 0000921082-26-000035 | yes |
+| Kilroy Realty | LTDMat…AfterYearFive | 2,400,000,000 | 0001628280-26-007051 (10-K) | 2,400,000,000 | 0001628280-26-007051 | yes |
+| Kilroy Realty | CashAndCashEquivalentsAtCarryingValue | 179,316,000 | 0001628280-26-028013 (10-Q) | 179,316,000 | 0001628280-26-028013 | yes |
+| Kilroy Realty | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Highwoods Properties | LTDMat…InNextTwelveMonths | 6,682,000 | 0000921082-26-000005 (10-K) | 6,682,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearTwo | 458,736,000 | 0000921082-26-000005 (10-K) | 458,736,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearThree | 723,928,000 | 0000921082-26-000005 (10-K) | 723,928,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearFour | 717,027,000 | 0000921082-26-000005 (10-K) | 717,027,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearFive | 404,662,000 | 0000921082-26-000005 (10-K) | 404,662,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…AfterYearFive | 1,259,119,000 | 0000921082-26-000005 (10-K) | 1,259,119,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | CashAndCashEquivalentsAtCarryingValue | 27,358,000 | 0000921082-26-000035 (10-Q) | 27,358,000 | 0000921082-26-000035 | yes |
 | Highwoods Properties | LongTermDebt | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Douglas Emmett | CashAndCashEquivalentsAtCarryingValue | 340,789,000 | 0001364250-26-000011 | 340,789,000 | 0001364250-26-000057 | yes |
-| Douglas Emmett | LongTermDebt | 5,548,870,000 | 0001364250-26-000011 | 5,548,870,000 | 0001364250-26-000057 | yes |
-| Hudson Pacific Properties | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Hudson Pacific Properties | CashAndCashEquivalentsAtCarryingValue | 138,358,000 | 0001482512-26-000038 | 138,358,000 | 0001482512-26-000050 | yes |
-| Hudson Pacific Properties | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Brandywine Realty Trust | LTDMat…InNextTwelveMonths | 178,014,000 | 0000790816-26-000008 | 178,014,000 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | LTDMat…InYearTwo | 700,000,000 | 0000790816-26-000008 | 700,000,000 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | LTDMat…InYearThree | 350,000,000 | 0000790816-26-000008 | 350,000,000 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | LTDMat…InYearFour | 900,000,000 | 0000790816-26-000008 | 900,000,000 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | LTDMat…InYearFive | 0 | 0000790816-26-000008 | 0 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | LTDMat…AfterYearFive | 435,934,000 | 0000790816-26-000008 | 435,934,000 | 0000790816-26-000008 | yes |
-| Brandywine Realty Trust | CashAndCashEquivalentsAtCarryingValue | 32,284,000 | 0000790816-26-000008 | 32,284,000 | 0000790816-26-000045 | yes |
-| Brandywine Realty Trust | LongTermDebt | 2,556,862,000 | 0000790816-26-000008 | 2,556,862,000 | 0000790816-26-000045 | yes |
-| Regency Centers | LTDMat…InNextTwelveMonths | 360,684,000 | 0001193125-26-051668 | 360,684,000 | 0001193125-26-051668 | yes |
-| Regency Centers | LTDMat…InYearTwo | 757,609,000 | 0001193125-26-051668 | 757,609,000 | 0001193125-26-051668 | yes |
-| Regency Centers | LTDMat…InYearThree | 480,304,000 | 0001193125-26-051668 | 480,304,000 | 0001193125-26-051668 | yes |
-| Regency Centers | LTDMat…InYearFour | 527,739,000 | 0001193125-26-051668 | 527,739,000 | 0001193125-26-051668 | yes |
-| Regency Centers | LTDMat…InYearFive | 607,608,000 | 0001193125-26-051668 | 607,608,000 | 0001193125-26-051668 | yes |
-| Regency Centers | LTDMat…AfterYearFive | 2,064,887,000 | 0001193125-26-051668 | 2,064,887,000 | 0001193125-26-051668 | yes |
-| Regency Centers | CashAndCashEquivalentsAtCarryingValue | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Regency Centers | LongTermDebt | 4,739,301,000 | 0001193125-26-051668 | 4,739,301,000 | 0001193125-26-203537 | yes |
-| Kimco Realty | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
-| Kimco Realty | CashAndCashEquivalentsAtCarryingValue | 211,648,000 | 0001193125-26-060760 | 211,648,000 | 0001193125-26-331817 | yes |
-| Kimco Realty | LongTermDebt | 7,718,700,000 | 0001193125-26-060760 | 7,718,700,000 | 0001193125-26-060760 | yes |
-| Federal Realty | LTDMat…InNextTwelveMonths | 655,595,000 | 0000034903-26-000017 | 655,595,000 | 0000034903-26-000017 | yes |
-| Federal Realty | LTDMat…InYearTwo | 1,003,319,000 | 0000034903-26-000017 | 1,003,319,000 | 0000034903-26-000017 | yes |
-| Federal Realty | LTDMat…InYearThree | 1,157,511,000 | 0000034903-26-000017 | 1,157,511,000 | 0000034903-26-000017 | yes |
-| Federal Realty | LTDMat…InYearFour | 945,434,000 | 0000034903-26-000017 | 945,434,000 | 0000034903-26-000017 | yes |
-| Federal Realty | LTDMat…InYearFive | 400,684,000 | 0000034903-26-000017 | 400,684,000 | 0000034903-26-000017 | yes |
-| Federal Realty | LTDMat…AfterYearFive | 801,059,000 | 0000034903-26-000017 | 801,059,000 | 0000034903-26-000017 | yes |
-| Federal Realty | CashAndCashEquivalentsAtCarryingValue | 107,415,000 | 0000034903-26-000017 | 107,415,000 | 0000034903-26-000026 | yes |
-| Federal Realty | LongTermDebt | 4,963,602,000 | 0000034903-26-000017 | 4,963,602,000 | 0000034903-26-000017 | yes |
+| Douglas Emmett | LTDMat…InNextTwelveMonths | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearTwo | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearThree | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearFour | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…AfterYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | CashAndCashEquivalentsAtCarryingValue | 340,789,000 | 0001364250-26-000057 (10-Q) | 340,789,000 | 0001364250-26-000057 | yes |
+| Douglas Emmett | LongTermDebt | 5,548,870,000 | 0001364250-26-000057 (10-Q) | 5,548,870,000 | 0001364250-26-000057 | yes |
+| Hudson Pacific Properties | LTDMat…InNextTwelveMonths | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearTwo | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearThree | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearFour | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…AfterYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | CashAndCashEquivalentsAtCarryingValue | 138,358,000 | 0001482512-26-000050 (10-Q) | 138,358,000 | 0001482512-26-000050 | yes |
+| Hudson Pacific Properties | LongTermDebt | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Brandywine Realty Trust | LTDMat…InNextTwelveMonths | 178,014,000 | 0000790816-26-000008 (10-K) | 178,014,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearTwo | 700,000,000 | 0000790816-26-000008 (10-K) | 700,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearThree | 350,000,000 | 0000790816-26-000008 (10-K) | 350,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearFour | 900,000,000 | 0000790816-26-000008 (10-K) | 900,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearFive | 0 | 0000790816-26-000008 (10-K) | 0 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…AfterYearFive | 435,934,000 | 0000790816-26-000008 (10-K) | 435,934,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | CashAndCashEquivalentsAtCarryingValue | 32,284,000 | 0000790816-26-000045 (10-Q) | 32,284,000 | 0000790816-26-000045 | yes |
+| Brandywine Realty Trust | LongTermDebt | 2,556,862,000 | 0000790816-26-000045 (10-Q) | 2,556,862,000 | 0000790816-26-000045 | yes |
+| Regency Centers | LTDMat…InNextTwelveMonths | 360,684,000 | 0001193125-26-051668 (10-K) | 360,684,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearTwo | 757,609,000 | 0001193125-26-051668 (10-K) | 757,609,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearThree | 480,304,000 | 0001193125-26-051668 (10-K) | 480,304,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearFour | 527,739,000 | 0001193125-26-051668 (10-K) | 527,739,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearFive | 607,608,000 | 0001193125-26-051668 (10-K) | 607,608,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…AfterYearFive | 2,064,887,000 | 0001193125-26-051668 (10-K) | 2,064,887,000 | 0001193125-26-051668 | yes |
+| Regency Centers | CashAndCashEquivalentsAtCarryingValue | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Regency Centers | LongTermDebt | 4,739,301,000 | 0001193125-26-203537 (10-Q) | 4,739,301,000 | 0001193125-26-203537 | yes |
+| Kimco Realty | LTDMat…InNextTwelveMonths | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearTwo | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearThree | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearFour | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…AfterYearFive | n/a | no 10-K/10-Q instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | CashAndCashEquivalentsAtCarryingValue | 211,648,000 | 0001193125-26-331817 (10-Q) | 211,648,000 | 0001193125-26-331817 | yes |
+| Kimco Realty | LongTermDebt | 7,718,700,000 | 0001193125-26-060760 (10-K) | 7,718,700,000 | 0001193125-26-060760 | yes |
+| Federal Realty | LTDMat…InNextTwelveMonths | 655,595,000 | 0000034903-26-000017 (10-K) | 655,595,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearTwo | 1,003,319,000 | 0000034903-26-000017 (10-K) | 1,003,319,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearThree | 1,157,511,000 | 0000034903-26-000017 (10-K) | 1,157,511,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearFour | 945,434,000 | 0000034903-26-000017 (10-K) | 945,434,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearFive | 400,684,000 | 0000034903-26-000017 (10-K) | 400,684,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…AfterYearFive | 801,059,000 | 0000034903-26-000017 (10-K) | 801,059,000 | 0000034903-26-000017 | yes |
+| Federal Realty | CashAndCashEquivalentsAtCarryingValue | 107,415,000 | 0000034903-26-000026 (10-Q) | 107,415,000 | 0000034903-26-000026 | yes |
+| Federal Realty | LongTermDebt | 4,963,602,000 | 0000034903-26-000017 (10-K) | 4,963,602,000 | 0000034903-26-000017 | yes |
 | Macerich | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Macerich | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Macerich | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Macerich | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Macerich | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Macerich | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
-| Macerich | CashAndCashEquivalentsAtCarryingValue | 280,246,000 | 0000912242-26-000016 | 280,246,000 | 0000912242-26-000045 | yes |
-| Macerich | LongTermDebt | 5,068,946,000 | 0000912242-26-000016 | 5,068,946,000 | 0000912242-26-000045 | yes |
+| Macerich | CashAndCashEquivalentsAtCarryingValue | 280,246,000 | 0000912242-26-000045 (10-Q) | 280,246,000 | 0000912242-26-000045 | yes |
+| Macerich | LongTermDebt | 5,068,946,000 | 0000912242-26-000045 (10-Q) | 5,068,946,000 | 0000912242-26-000045 | yes |
 | Tanger | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Tanger | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Tanger | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Tanger | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Tanger | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
 | Tanger | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
-| Tanger | CashAndCashEquivalentsAtCarryingValue | 18,133,000 | 0001628280-26-012252 | 18,133,000 | 0001628280-26-071352 | yes |
-| Tanger | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | 1,596,821,000 | 0001628280-26-071352 | **NO** |
-| Phillips Edison | LTDMat…InNextTwelveMonths | 163,654,000 | 0001476204-26-000005 | 163,654,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | LTDMat…InYearTwo | 523,595,000 | 0001476204-26-000005 | 523,595,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | LTDMat…InYearThree | 17,367,000 | 0001476204-26-000005 | 17,367,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | LTDMat…InYearFour | 92,805,000 | 0001476204-26-000005 | 92,805,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | LTDMat…InYearFive | 200,844,000 | 0001476204-26-000005 | 200,844,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | LTDMat…AfterYearFive | 1,403,400,000 | 0001476204-26-000005 | 1,403,400,000 | 0001476204-26-000005 | yes |
-| Phillips Edison | CashAndCashEquivalentsAtCarryingValue | 3,544,000 | 0001476204-26-000005 | 3,544,000 | 0001476204-26-000054 | yes |
-| Phillips Edison | LongTermDebt | 2,375,328,000 | 0001476204-26-000005 | 2,375,328,000 | 0001476204-26-000054 | yes |
+| Tanger | CashAndCashEquivalentsAtCarryingValue | 18,133,000 | 0001628280-26-071352 (10-Q) | 18,133,000 | 0001628280-26-071352 | yes |
+| Tanger | LongTermDebt | 1,596,821,000 | 0001628280-26-071352 (10-Q) | 1,596,821,000 | 0001628280-26-071352 | yes |
+| Phillips Edison | LTDMat…InNextTwelveMonths | 163,654,000 | 0001476204-26-000005 (10-K) | 163,654,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearTwo | 523,595,000 | 0001476204-26-000005 (10-K) | 523,595,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearThree | 17,367,000 | 0001476204-26-000005 (10-K) | 17,367,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearFour | 92,805,000 | 0001476204-26-000005 (10-K) | 92,805,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearFive | 200,844,000 | 0001476204-26-000005 (10-K) | 200,844,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…AfterYearFive | 1,403,400,000 | 0001476204-26-000005 (10-K) | 1,403,400,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | CashAndCashEquivalentsAtCarryingValue | 3,544,000 | 0001476204-26-000054 (10-Q) | 3,544,000 | 0001476204-26-000054 | yes |
+| Phillips Edison | LongTermDebt | 2,375,328,000 | 0001476204-26-000054 (10-Q) | 2,375,328,000 | 0001476204-26-000054 | yes |
 
-**Differences: 1**
+**Differences: 0**
 
-- Tanger / LongTermDebt: A=n/a (no 10-K instant at 2025-12-31) vs B=1,596,821,000 (0001628280-26-071352)
+Side A uses the frames selection rule: the most recently filed 10-K or 10-Q fact for the instant. Until 2026-11-09 side A read 10-K facts only; rows that differed only because of that are listed under Conflicts and gaps as RESOLVED.
+
 
 ## 3. Spot check against 10-K text
 
@@ -1145,6 +1146,7 @@ If that mapping is right, years with no refinancing activity carry the same prin
 ## Conflicts and gaps
 
 - CONFLICT CBL & Associates / LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo: kept 11195.0, others 11,195,000. filer tagged scale differs from the rest of its own 10-K table; kept as tagged
+- RESOLVED (plumbing: period-selection) Tanger / LongTermDebt: raw row before the fix: A=n/a (no 10-K instant at 2025-12-31) vs B=1,596,821,000 (0001628280-26-071352). Evidence: companyfacts holds this 2025-12-31 value only as a comparative in 10-Q filings (10-Q 0001628280-26-071352 is the latest), and the frames API takes the latest filing for the instant. Fix: side A now applies the same rule; the values agree.
 - FALLBACK SL Green / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
 - FALLBACK SL Green / latest_debt: STALE: latest value is 1409 days old at as_of; no newer filing tagged (end 2022-12-31). Action: older value kept and flagged, not replaced.
 - GAP JBG Smith / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
