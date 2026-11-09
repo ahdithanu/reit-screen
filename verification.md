@@ -1,6 +1,6 @@
 # verification.md
 
-Run as_of 2026-11-09. Names in this run: SL Green, Cousins Properties, JBG Smith, Piedmont Office, Office Properties Income Trust, Empire State Realty Trust, BXP, CBL & Associates, Simon Property Group, Brixmor, Acadia Realty, Kite Realty.
+Run as_of 2026-11-09. Names in this run: SL Green, Cousins Properties, JBG Smith, Piedmont Office, Office Properties Income Trust, Empire State Realty Trust, BXP, CBL & Associates, Simon Property Group, Brixmor, Acadia Realty, Kite Realty, Vornado Realty Trust, Kilroy Realty, Highwoods Properties, Douglas Emmett, Hudson Pacific Properties, Brandywine Realty Trust, Regency Centers, Kimco Realty, Federal Realty, Macerich, Tanger, Phillips Edison.
 Raw diffs are printed in full, not summarized.
 
 ## 1. Pipeline control (OPI must be ACT NOW)
@@ -109,9 +109,106 @@ Checks the plumbing (two SEC endpoints over the same filings), not the filer.
 | Kite Realty | LTDMat…AfterYearFive | 1,095,735,000 | 0001286043-26-000009 | 1,095,735,000 | 0001286043-26-000009 | yes |
 | Kite Realty | CashAndCashEquivalentsAtCarryingValue | 36,761,000 | 0001286043-26-000009 | 36,761,000 | 0001286043-26-000058 | yes |
 | Kite Realty | LongTermDebt | 3,025,478,000 | 0001286043-26-000009 | 3,025,478,000 | 0001286043-26-000058 | yes |
+| Vornado Realty Trust | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Vornado Realty Trust | CashAndCashEquivalentsAtCarryingValue | 840,850,000 | 0000899689-26-000009 | 840,850,000 | 0000899689-26-000046 | yes |
+| Vornado Realty Trust | LongTermDebt | 2,264,959,000 | 0000899689-26-000009 | 2,264,959,000 | 0000899689-26-000046 | yes |
+| Kilroy Realty | LTDMat…InNextTwelveMonths | 601,317,000 | 0001628280-26-007051 | 601,317,000 | 0001628280-26-007051 | yes |
+| Kilroy Realty | LTDMat…InYearTwo | 249,125,000 | 0001628280-26-007051 | 249,125,000 | 0001628280-26-007051 | yes |
+| Kilroy Realty | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Kilroy Realty | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Kilroy Realty | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Kilroy Realty | LTDMat…AfterYearFive | 2,400,000,000 | 0001628280-26-007051 | 2,400,000,000 | 0001628280-26-007051 | yes |
+| Kilroy Realty | CashAndCashEquivalentsAtCarryingValue | 179,316,000 | 0001628280-26-007051 | 179,316,000 | 0001628280-26-028013 | yes |
+| Kilroy Realty | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Highwoods Properties | LTDMat…InNextTwelveMonths | 6,682,000 | 0000921082-26-000005 | 6,682,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearTwo | 458,736,000 | 0000921082-26-000005 | 458,736,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearThree | 723,928,000 | 0000921082-26-000005 | 723,928,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearFour | 717,027,000 | 0000921082-26-000005 | 717,027,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…InYearFive | 404,662,000 | 0000921082-26-000005 | 404,662,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | LTDMat…AfterYearFive | 1,259,119,000 | 0000921082-26-000005 | 1,259,119,000 | 0000921082-26-000005 | yes |
+| Highwoods Properties | CashAndCashEquivalentsAtCarryingValue | 27,358,000 | 0000921082-26-000005 | 27,358,000 | 0000921082-26-000035 | yes |
+| Highwoods Properties | LongTermDebt | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Douglas Emmett | CashAndCashEquivalentsAtCarryingValue | 340,789,000 | 0001364250-26-000011 | 340,789,000 | 0001364250-26-000057 | yes |
+| Douglas Emmett | LongTermDebt | 5,548,870,000 | 0001364250-26-000011 | 5,548,870,000 | 0001364250-26-000057 | yes |
+| Hudson Pacific Properties | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Hudson Pacific Properties | CashAndCashEquivalentsAtCarryingValue | 138,358,000 | 0001482512-26-000038 | 138,358,000 | 0001482512-26-000050 | yes |
+| Hudson Pacific Properties | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Brandywine Realty Trust | LTDMat…InNextTwelveMonths | 178,014,000 | 0000790816-26-000008 | 178,014,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearTwo | 700,000,000 | 0000790816-26-000008 | 700,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearThree | 350,000,000 | 0000790816-26-000008 | 350,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearFour | 900,000,000 | 0000790816-26-000008 | 900,000,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…InYearFive | 0 | 0000790816-26-000008 | 0 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | LTDMat…AfterYearFive | 435,934,000 | 0000790816-26-000008 | 435,934,000 | 0000790816-26-000008 | yes |
+| Brandywine Realty Trust | CashAndCashEquivalentsAtCarryingValue | 32,284,000 | 0000790816-26-000008 | 32,284,000 | 0000790816-26-000045 | yes |
+| Brandywine Realty Trust | LongTermDebt | 2,556,862,000 | 0000790816-26-000008 | 2,556,862,000 | 0000790816-26-000045 | yes |
+| Regency Centers | LTDMat…InNextTwelveMonths | 360,684,000 | 0001193125-26-051668 | 360,684,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearTwo | 757,609,000 | 0001193125-26-051668 | 757,609,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearThree | 480,304,000 | 0001193125-26-051668 | 480,304,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearFour | 527,739,000 | 0001193125-26-051668 | 527,739,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…InYearFive | 607,608,000 | 0001193125-26-051668 | 607,608,000 | 0001193125-26-051668 | yes |
+| Regency Centers | LTDMat…AfterYearFive | 2,064,887,000 | 0001193125-26-051668 | 2,064,887,000 | 0001193125-26-051668 | yes |
+| Regency Centers | CashAndCashEquivalentsAtCarryingValue | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Regency Centers | LongTermDebt | 4,739,301,000 | 0001193125-26-051668 | 4,739,301,000 | 0001193125-26-203537 | yes |
+| Kimco Realty | LTDMat…InNextTwelveMonths | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearTwo | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearThree | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearFour | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…InYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | LTDMat…AfterYearFive | n/a | no 10-K instant at 2025-12-31 | n/a | cik not in frame | both missing |
+| Kimco Realty | CashAndCashEquivalentsAtCarryingValue | 211,648,000 | 0001193125-26-060760 | 211,648,000 | 0001193125-26-331817 | yes |
+| Kimco Realty | LongTermDebt | 7,718,700,000 | 0001193125-26-060760 | 7,718,700,000 | 0001193125-26-060760 | yes |
+| Federal Realty | LTDMat…InNextTwelveMonths | 655,595,000 | 0000034903-26-000017 | 655,595,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearTwo | 1,003,319,000 | 0000034903-26-000017 | 1,003,319,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearThree | 1,157,511,000 | 0000034903-26-000017 | 1,157,511,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearFour | 945,434,000 | 0000034903-26-000017 | 945,434,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…InYearFive | 400,684,000 | 0000034903-26-000017 | 400,684,000 | 0000034903-26-000017 | yes |
+| Federal Realty | LTDMat…AfterYearFive | 801,059,000 | 0000034903-26-000017 | 801,059,000 | 0000034903-26-000017 | yes |
+| Federal Realty | CashAndCashEquivalentsAtCarryingValue | 107,415,000 | 0000034903-26-000017 | 107,415,000 | 0000034903-26-000026 | yes |
+| Federal Realty | LongTermDebt | 4,963,602,000 | 0000034903-26-000017 | 4,963,602,000 | 0000034903-26-000017 | yes |
+| Macerich | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Macerich | CashAndCashEquivalentsAtCarryingValue | 280,246,000 | 0000912242-26-000016 | 280,246,000 | 0000912242-26-000045 | yes |
+| Macerich | LongTermDebt | 5,068,946,000 | 0000912242-26-000016 | 5,068,946,000 | 0000912242-26-000045 | yes |
+| Tanger | LTDMat…InNextTwelveMonths | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | LTDMat…InYearTwo | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | LTDMat…InYearThree | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | LTDMat…InYearFour | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | LTDMat…InYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | LTDMat…AfterYearFive | n/a | tag not reported by filer | n/a | cik not in frame | both missing |
+| Tanger | CashAndCashEquivalentsAtCarryingValue | 18,133,000 | 0001628280-26-012252 | 18,133,000 | 0001628280-26-071352 | yes |
+| Tanger | LongTermDebt | n/a | no 10-K instant at 2025-12-31 | 1,596,821,000 | 0001628280-26-071352 | **NO** |
+| Phillips Edison | LTDMat…InNextTwelveMonths | 163,654,000 | 0001476204-26-000005 | 163,654,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearTwo | 523,595,000 | 0001476204-26-000005 | 523,595,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearThree | 17,367,000 | 0001476204-26-000005 | 17,367,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearFour | 92,805,000 | 0001476204-26-000005 | 92,805,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…InYearFive | 200,844,000 | 0001476204-26-000005 | 200,844,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | LTDMat…AfterYearFive | 1,403,400,000 | 0001476204-26-000005 | 1,403,400,000 | 0001476204-26-000005 | yes |
+| Phillips Edison | CashAndCashEquivalentsAtCarryingValue | 3,544,000 | 0001476204-26-000005 | 3,544,000 | 0001476204-26-000054 | yes |
+| Phillips Edison | LongTermDebt | 2,375,328,000 | 0001476204-26-000005 | 2,375,328,000 | 0001476204-26-000054 | yes |
 
-**Differences: 0**
+**Differences: 1**
 
+- Tanger / LongTermDebt: A=n/a (no 10-K instant at 2025-12-31) vs B=1,596,821,000 (0001628280-26-071352)
 
 ## 3. Spot check against 10-K text
 
@@ -526,9 +623,324 @@ Mortgage and other indebtedness, net | 3,025,478
 
 Printed total in the table ('(unlabelled subtotal row)', ladder column): 3,027,937 (scale 3) = 3,027,937,000; six tagged buckets sum to 3,027,937,000; diff 0.
 
-**Ladders checked number by number against 10-K text: SL Green, Cousins Properties, JBG Smith, Piedmont Office, Office Properties Income Trust, Empire State Realty Trust, CBL & Associates, Simon Property Group, Brixmor, Acadia Realty, Kite Realty.**
+### Vornado Realty Trust
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
 
-Not checked against 10-K text (companyfacts vs frames only): BXP.
+### Kilroy Realty
+Source: https://www.sec.gov/Archives/edgar/data/1025996/000162828026007051/krc-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 601,317,000 | 601,317,000 | 601,317 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 249,125,000 | 249,125,000 | 249,125 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | n/a | n/a | n/a | n/a | not tagged (dimensionless) in 10-K text |
+| y4_2029 | …InYearFour | n/a | n/a | n/a | n/a | not tagged (dimensionless) in 10-K text |
+| y5_2030 | …InYearFive | n/a | n/a | n/a | n/a | not tagged (dimensionless) in 10-K text |
+| after_2030 | …AfterYearFive | 2,400,000,000 | 2,400,000,000 | 2,400,000 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+Year | (in thousands)
+2026 | 601,317
+2027 | 249,125
+2028 | 400,000
+2029 | 475,000
+2030 | 500,000
+Thereafter | 2,400,000
+Total aggregate principal value | 4,625,442
+Less: unamortized net discounts and deferred financing costs (1) | (35,983)
+Total debt, net | 4,589,459
+```
+
+Printed total in the table ('Total aggregate principal value', ladder column): 4,625,442 (scale 3) = 4,625,442,000; six tagged buckets sum to 3,250,442,000; diff -1,375,000,000.
+
+Dimensioned ladder facts in the same filing (not in companyfacts totals, shown for the reader): 3
+
+- …InYearThree ctx=c-47 [LegalEntityAxis=KilroyRealtyL.P.Member] shown=400,000 → 400,000,000
+- …InYearFour ctx=c-47 [LegalEntityAxis=KilroyRealtyL.P.Member] shown=475,000 → 475,000,000
+- …InYearFive ctx=c-47 [LegalEntityAxis=KilroyRealtyL.P.Member] shown=500,000 → 500,000,000
+
+### Highwoods Properties
+Source: https://www.sec.gov/Archives/edgar/data/921082/000092108226000005/hiw-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 6,682,000 | 6,682,000 | 6,682 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 458,736,000 | 458,736,000 | 458,736 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | 723,928,000 | 723,928,000 | 723,928 (scale 3) | 0 |  |
+| y4_2029 | …InYearFour | 717,027,000 | 717,027,000 | 717,027 (scale 3) | 0 |  |
+| y5_2030 | …InYearFive | 404,662,000 | 404,662,000 | 404,662 (scale 3) | 0 |  |
+| after_2030 | …AfterYearFive | 1,259,119,000 | 1,259,119,000 | 1,259,119 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+Years Ending December 31, | Amount
+2026 | 6,682
+2027 | 458,736
+2028 | 723,928
+2029 | 717,027
+2030 | 404,662
+Thereafter | 1,259,119
+Less-unamortized debt issuance costs | (15,976)
+3,554,178
+```
+
+Printed total: NOT FOUND. The row directly below the year rows is neither labelled 'Total' nor an unlabelled subtotal with a number in the ladder column. Not guessed.
+
+### Douglas Emmett
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
+
+### Hudson Pacific Properties
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
+
+### Brandywine Realty Trust
+Source: https://www.sec.gov/Archives/edgar/data/790816/000079081626000008/bdn-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 178,014,000 | 178,014,000 | 178,014 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 700,000,000 | 700,000,000 | 700,000 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | 350,000,000 | 350,000,000 | 350,000 (scale 3) | 0 |  |
+| y4_2029 | …InYearFour | 900,000,000 | 900,000,000 | 900,000 (scale 3) | 0 |  |
+| y5_2030 | …InYearFive | 0 | 0 | — (scale 3) | 0 |  |
+| after_2030 | …AfterYearFive | 435,934,000 | 435,934,000 | 435,934 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+2026 | 178,014
+2027 | 700,000
+2028 | 350,000
+2029 | 900,000
+2030 | —
+Thereafter | 435,934
+Total principal payments | 2,563,948
+Net unamortized premiums/(discounts) | 7,760
+Net deferred financing costs | (14,846)
+Outstanding indebtedness | 2,556,862
+```
+
+Printed total in the table ('Total principal payments', ladder column): 2,563,948 (scale 3) = 2,563,948,000; six tagged buckets sum to 2,563,948,000; diff 0.
+
+2027 bucket by XBRL dimension (INFERRED: column meaning taken from the filer's member names, not yet confirmed by a human against the table header):
+
+| kind | member | unsecured bank/notes? | shown | USD |
+|---|---|---|---:|---:|
+| jv_share | ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember | None | 155,344 | 155,344,000 |
+
+Dimensioned ladder facts in the same filing (not in companyfacts totals, shown for the reader): 6
+
+- …InNextTwelveMonths ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=— → 0
+- …InYearTwo ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=155,344 → 155,344,000
+- …InYearThree ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=220,000 → 220,000,000
+- …InYearFour ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=211,097 → 211,097,000
+- …InYearFive ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=— → 0
+- …AfterYearFive ctx=c-382 [ScheduleOfEquityMethodInvestmentEquityMethodInvesteeNameAxis=UnconsolidatedRealEstateVenturesMember] shown=— → 0
+
+### Regency Centers
+Source: https://www.sec.gov/Archives/edgar/data/910606/000119312526051668/reg-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 360,684,000 | 360,684,000 | 360,684 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 757,609,000 | 757,609,000 | 757,609 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | 480,304,000 | 480,304,000 | 480,304 (scale 3) | 0 |  |
+| y4_2029 | …InYearFour | 527,739,000 | 527,739,000 | 527,739 (scale 3) | 0 |  |
+| y5_2030 | …InYearFive | 607,608,000 | 607,608,000 | 607,608 (scale 3) | 0 |  |
+| after_2030 | …AfterYearFive | 2,064,887,000 | 2,064,887,000 | 2,064,887 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+(in thousands) | December 31, 2025
+Scheduled Principal Payments and Maturities by Year: | Scheduled Principal Payments | Mortgage Loan Maturities | Unsecured Maturities (1) | Total
+2026 | 12,836 | 147,848 | 200,000 | 360,684
+2027 | 10,051 | 222,558 | 525,000 | 757,609
+2028 | 8,365 | 51,939 | 420,000 | 480,304
+2029 | 5,619 | 97,120 | 425,000 | 527,739
+2030 | 5,445 | 2,163 | 600,000 | 607,608
+Beyond 5 Years | 24,210 | 190,677 | 1,850,000 | 2,064,887
+Unamortized debt premium/(discount) and issuance costs | — | (32,394 | ) | (27,136 | ) | (59,530 | )
+Total | 66,526 | 679,911 | 3,992,864 | 4,739,301
+```
+
+Printed total: NOT FOUND. The row directly below the year rows is neither labelled 'Total' nor an unlabelled subtotal with a number in the ladder column. Not guessed.
+
+2027 bucket by XBRL dimension (INFERRED: column meaning taken from the filer's member names, not yet confirmed by a human against the table header):
+
+| kind | member | unsecured bank/notes? | shown | USD |
+|---|---|---|---:|---:|
+| instrument | MortgagesMember | False | 7,303 | 7,303,000 |
+| instrument | MortgagesMember | False | 32,800 | 32,800,000 |
+| instrument | UnsecuredDebtMember | True | — | 0 |
+| jv_share | LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember | None | 40,103 | 40,103,000 |
+| jv_share | LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember | None | 13,417 | 13,417,000 |
+| instrument | MortgagesMember | False | 10,051 | 10,051,000 |
+| instrument | MortgagesMember | False | 222,558 | 222,558,000 |
+| instrument | UnsecuredMaturitiesMember | True | 525,000 | 525,000,000 |
+
+Dimensioned ladder facts in the same filing (not in companyfacts totals, shown for the reader): 48
+
+- …InNextTwelveMonths ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=7,131 → 7,131,000
+- …InNextTwelveMonths ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=265,346 → 265,346,000
+- …InNextTwelveMonths ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=20,000 → 20,000,000
+- …InNextTwelveMonths ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=292,477 → 292,477,000
+- …InNextTwelveMonths ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=95,689 → 95,689,000
+- …InYearTwo ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=7,303 → 7,303,000
+- …InYearTwo ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=32,800 → 32,800,000
+- …InYearTwo ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=— → 0
+- …InYearTwo ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=40,103 → 40,103,000
+- …InYearTwo ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=13,417 → 13,417,000
+- …InYearThree ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=4,097 → 4,097,000
+- …InYearThree ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=231,235 → 231,235,000
+- …InYearThree ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=— → 0
+- …InYearThree ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=235,332 → 235,332,000
+- …InYearThree ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=81,592 → 81,592,000
+- …InYearFour ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=2,855 → 2,855,000
+- …InYearFour ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=104,434 → 104,434,000
+- …InYearFour ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=— → 0
+- …InYearFour ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=107,289 → 107,289,000
+- …InYearFour ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=37,157 → 37,157,000
+- …InYearFive ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=2,349 → 2,349,000
+- …InYearFive ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=215,893 → 215,893,000
+- …InYearFive ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=— → 0
+- …InYearFive ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=218,242 → 218,242,000
+- …InYearFive ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=77,886 → 77,886,000
+- …AfterYearFive ctx=C_3070f302-beaf-4288-8fda-553462736cb6 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; LongtermDebtTypeAxis=MortgagesMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=ScheduledPrincipalPaymentsMember] shown=2,159 → 2,159,000
+- …AfterYearFive ctx=C_e87b8439-8bfa-4403-92d5-03ff6677297a [LongtermDebtTypeAxis=MortgagesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=MortgageLoanMaturitiesMember] shown=634,631 → 634,631,000
+- …AfterYearFive ctx=C_5fae9eb1-f2d4-4a99-a50a-35fd8bd99cd6 [LongtermDebtTypeAxis=UnsecuredDebtMember; ScheduledPrincipalPaymentsAndMaturitiesAxis=UnsecuredMaturitiesMember; LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=— → 0
+- …AfterYearFive ctx=C_11480f13-b944-49b7-8e9d-1578b92c43f5 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipMember] shown=636,790 → 636,790,000
+- …AfterYearFive ctx=C_731fe8d0-f215-468c-a36d-1b69136cf186 [LegalEntityAxis=UnconsolidatedInvestmentsinPartnershipProRataShareMemberMember] shown=237,869 → 237,869,000
+
+### Kimco Realty
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
+
+### Federal Realty
+Source: https://www.sec.gov/Archives/edgar/data/34903/000003490326000017/frt-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 655,595,000 | 655,595,000 | 655,595 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 1,003,319,000 | 1,003,319,000 | 1,003,319 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | 1,157,511,000 | 1,157,511,000 | 1,157,511 (scale 3) | 0 |  |
+| y4_2029 | …InYearFour | 945,434,000 | 945,434,000 | 945,434 (scale 3) | 0 |  |
+| y5_2030 | …InYearFive | 400,684,000 | 400,684,000 | 400,684 (scale 3) | 0 |  |
+| after_2030 | …AfterYearFive | 801,059,000 | 801,059,000 | 801,059 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+Mortgages Payable | Notes Payable | Senior Notes and Debentures | Total Principal
+(In thousands)
+Year ending December 31,
+2026 | 226,242 | (1) | 153 | 429,200 | 655,595
+2027 | 178,282 | 310,037 | (2) | 515,000 | 1,003,319
+2028 | 57,511 | (3) | 750,000 | (4) | 350,000 | 1,157,511
+2029 | 60,434 | — | 885,000 | 945,434
+2030 | 684 | — | 400,000 | 400,684
+Thereafter | 59 | 1,000 | 800,000 | 801,059
+523,212 | 1,061,190 | 3,379,200 | 4,963,602 | (5)
+```
+
+Printed total in the table ('(unlabelled subtotal row)', ladder column): 4,963,602 (scale 3) = 4,963,602,000; six tagged buckets sum to 4,963,602,000; diff 0.
+
+2027 bucket by XBRL dimension (INFERRED: column meaning taken from the filer's member names, not yet confirmed by a human against the table header):
+
+| kind | member | unsecured bank/notes? | shown | USD |
+|---|---|---|---:|---:|
+| instrument | SecuredDebtMember | False | 178,282 | 178,282,000 |
+| instrument | NotesPayableOtherPayablesMember | False | 310,037 | 310,037,000 |
+| instrument | SeniorNotesMember | True | 515,000 | 515,000,000 |
+
+Dimensioned ladder facts in the same filing (not in companyfacts totals, shown for the reader): 18
+
+- …InNextTwelveMonths ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=226,242 → 226,242,000
+- …InNextTwelveMonths ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=153 → 153,000
+- …InNextTwelveMonths ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=429,200 → 429,200,000
+- …InYearTwo ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=178,282 → 178,282,000
+- …InYearTwo ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=310,037 → 310,037,000
+- …InYearTwo ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=515,000 → 515,000,000
+- …InYearThree ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=57,511 → 57,511,000
+- …InYearThree ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=750,000 → 750,000,000
+- …InYearThree ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=350,000 → 350,000,000
+- …InYearFour ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=60,434 → 60,434,000
+- …InYearFour ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=— → 0
+- …InYearFour ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=885,000 → 885,000,000
+- …InYearFive ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=684 → 684,000
+- …InYearFive ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=— → 0
+- …InYearFive ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=400,000 → 400,000,000
+- …AfterYearFive ctx=c-213 [LongtermDebtTypeAxis=SecuredDebtMember] shown=59 → 59,000
+- …AfterYearFive ctx=c-224 [LongtermDebtTypeAxis=NotesPayableOtherPayablesMember] shown=1,000 → 1,000,000
+- …AfterYearFive ctx=c-246 [LongtermDebtTypeAxis=SeniorNotesMember] shown=800,000 → 800,000,000
+
+### Macerich
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
+
+### Tanger
+NOT DONE: n/a: no ladder tags at 2025-12-31 in companyfacts, so there is nothing to compare (no 10-K table was parsed or guessed)
+
+### Phillips Edison
+Source: https://www.sec.gov/Archives/edgar/data/1476204/000147620426000005/cik0001476204-20251231.htm
+
+Method: the inline-XBRL facts rendered *inside the 10-K document* (dimensionless context, instant 2025-12-31), displayed number × 10^scale, compared with the companyfacts value.
+
+| bucket | tag | extracted (companyfacts) | 10-K displayed → USD | shown text | diff | note |
+|---|---|---:|---:|---|---:|---|
+| y1_2026 | …InNextTwelveMonths | 163,654,000 | 163,654,000 | 163,654 (scale 3) | 0 |  |
+| y2_2027 | …InYearTwo | 523,595,000 | 523,595,000 | 523,595 (scale 3) | 0 |  |
+| y3_2028 | …InYearThree | 17,367,000 | 17,367,000 | 17,367 (scale 3) | 0 |  |
+| y4_2029 | …InYearFour | 92,805,000 | 92,805,000 | 92,805 (scale 3) | 0 |  |
+| y5_2030 | …InYearFive | 200,844,000 | 200,844,000 | 200,844 (scale 3) | 0 |  |
+| after_2030 | …AfterYearFive | 1,403,400,000 | 1,403,400,000 | 1,403,400 (scale 3) | 0 |  |
+
+Table as rendered in the 10-K (cells joined with |; '$' cells dropped):
+
+```
+2026 | 2027 | 2028 | 2029 | 2030 | Thereafter | Total
+Unsecured debt(1)(2) | 161,750 | 323,000 | — | 92,000 | — | 1,400,000 | 1,976,750
+Secured debt | 1,904 | 200,595 | 17,367 | 805 | 200,844 | 3,400 | 424,915
+Total | 163,654 | 523,595 | 17,367 | 92,805 | 200,844 | 1,403,400 | 2,401,665
+```
+
+Printed total: NOT FOUND. The row directly below the year rows is neither labelled 'Total' nor an unlabelled subtotal with a number in the ladder column. Not guessed.
+
+2027 bucket by XBRL dimension (INFERRED: column meaning taken from the filer's member names, not yet confirmed by a human against the table header):
+
+| kind | member | unsecured bank/notes? | shown | USD |
+|---|---|---|---:|---:|
+| instrument | UnsecuredDebtMember | True | 323,000 | 323,000,000 |
+| instrument | SecuredDebtMember | False | 200,595 | 200,595,000 |
+
+Dimensioned ladder facts in the same filing (not in companyfacts totals, shown for the reader): 12
+
+- …InNextTwelveMonths ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=161,750 → 161,750,000
+- …InYearTwo ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=323,000 → 323,000,000
+- …InYearThree ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=— → 0
+- …InYearFour ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=92,000 → 92,000,000
+- …InYearFive ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=— → 0
+- …AfterYearFive ctx=c-160 [LongtermDebtTypeAxis=UnsecuredDebtMember] shown=1,400,000 → 1,400,000,000
+- …InNextTwelveMonths ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=1,904 → 1,904,000
+- …InYearTwo ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=200,595 → 200,595,000
+- …InYearThree ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=17,367 → 17,367,000
+- …InYearFour ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=805 → 805,000
+- …InYearFive ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=200,844 → 200,844,000
+- …AfterYearFive ctx=c-165 [LongtermDebtTypeAxis=SecuredDebtMember] shown=3,400 → 3,400,000
+
+**Ladders checked number by number against 10-K text: SL Green, Cousins Properties, JBG Smith, Piedmont Office, Office Properties Income Trust, Empire State Realty Trust, CBL & Associates, Simon Property Group, Brixmor, Acadia Realty, Kite Realty, Kilroy Realty, Highwoods Properties, Brandywine Realty Trust, Regency Centers, Federal Realty, Phillips Edison.**
+
+Not checked against 10-K text (companyfacts vs frames only): BXP, Vornado Realty Trust, Douglas Emmett, Hudson Pacific Properties, Kimco Realty, Macerich, Tanger.
 
 ## 3b. Filing list check: SL Green, all forms, 2026-03-10 to 2026-03-31
 
@@ -640,6 +1052,18 @@ Primary: the 10-K table's printed Total (spot-checked names only). Secondary: Lo
 | Brixmor | 5,518,453,000 | 5,518,453,000 | 0 | 5,494,753,000 | 23,700,000 | 5,322,955,000 (2026-09-30) | 195,498,000 |
 | Acadia Realty | 1,873,367,000 | 1,873,367,000 | 0 | 1,862,906,000 | 10,461,000 | 1,819,243,000 (2026-09-30) | 54,124,000 |
 | Kite Realty | 3,027,937,000 | 3,027,937,000 | 0 | 3,025,478,000 | 2,459,000 | 2,807,320,000 (2026-09-30) | 220,617,000 |
+| Vornado Realty Trust | n/a (incomplete) | not checked | n/a | 2,264,959,000 | n/a | 2,599,970,000 (2026-06-30) | n/a |
+| Kilroy Realty | 3,250,442,000 (incomplete) | 4,625,442,000 | -1,375,000,000 | n/a | n/a | 2,238,508,000 (2015-12-31, STALE) | 1,011,934,000 |
+| Highwoods Properties | 3,570,154,000 | not checked | n/a | n/a | n/a | n/a (tag not reported by filer) | n/a |
+| Douglas Emmett | n/a (incomplete) | not checked | n/a | 5,548,870,000 | n/a | 5,729,491,000 (2026-09-30) | n/a |
+| Hudson Pacific Properties | n/a (incomplete) | not checked | n/a | n/a | n/a | 2,623,835,000 (2018-12-31, STALE) | n/a |
+| Brandywine Realty Trust | 2,563,948,000 | 2,563,948,000 | 0 | 2,556,862,000 | 7,086,000 | 2,409,562,000 (2026-09-30) | 154,386,000 |
+| Regency Centers | 4,798,831,000 | not checked | n/a | 4,739,301,000 | 59,530,000 | 5,003,934,000 (2026-03-31, STALE) | -205,103,000 |
+| Kimco Realty | n/a (incomplete) | not checked | n/a | 7,718,700,000 | n/a | 7,718,700,000 (2025-12-31, STALE) | n/a |
+| Federal Realty | 4,963,602,000 | 4,963,602,000 | 0 | 4,963,602,000 | 0 | 4,963,602,000 (2025-12-31, STALE) | 0 |
+| Macerich | n/a (incomplete) | not checked | n/a | 5,068,946,000 | n/a | 4,409,716,000 (2026-09-30) | n/a |
+| Tanger | n/a (incomplete) | not checked | n/a | n/a | n/a | 1,663,654,000 (2026-09-30) | n/a |
+| Phillips Edison | 2,401,665,000 | not checked | n/a | 2,375,328,000 | 26,337,000 | 2,521,454,000 (2026-09-30) | -119,789,000 |
 
 Differences are expected (unamortized discounts and issuance costs, fair-value hedges, tag scope). Not forced to match.
 
@@ -647,13 +1071,13 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 
 | claim | item | filed | exact re-extract | substring of fresh text | how | gap |
 |---|---|---|---|---|---|---|
-| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T024656Z); compared with original fetch 20261109T012558Z from cache |  |
-| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
-| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015707Z from cache |  |
-| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T024657Z); compared with original fetch 20261109T015709Z from cache |  |
+| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T064835Z); compared with original fetch 20261109T012558Z from cache |  |
+| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015707Z from cache |  |
+| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015707Z from cache |  |
+| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
 
 ## 6. Override quotes: is each quote verbatim in the filing behind its claim_id?
 
@@ -662,6 +1086,61 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 | Office Properties Income Trust | OPI.ev10.1.03 | yes | https://www.sec.gov/Archives/edgar/data/1456772/000110465926076652/tm2618043d2_8k.htm |
 | CBL & Associates | CBL.ev10.2.03 | yes | https://www.sec.gov/Archives/edgar/data/910612/000119312526139801/cbl-20260327.htm |
 | SL Green | SLG.10q_2027_p0 | yes | https://www.sec.gov/Archives/edgar/data/1040971/000162828026071014/slg-20260930.htm |
+
+## 7. 10-Q ladder: calendar-year mapping check
+
+10-Q tags are read as: RemainderOfFiscalYear = rest of the current year, InNextTwelveMonths = next year, InYearTwo = the year after, and so on.
+If that mapping is right, years with no refinancing activity carry the same principal in both filings. Raw values below ($), no pass/fail threshold.
+
+| name | 10-Q period | year | 10-K value | 10-Q value | equal |
+|---|---|---|---:|---:|---|
+| SL Green | 2026-03-31 | 2027 | 2,569,277,000 | 1,236,390,000 | no |
+| SL Green | 2026-03-31 | 2028 | 284,550,000 | 284,438,000 | no |
+| SL Green | 2026-03-31 | 2029 | 177,000,000 | 189,200,000 | no |
+| SL Green | 2026-03-31 | 2030 | 0 | 0 | yes |
+| Cousins Properties | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| JBG Smith | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Piedmont Office | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Office Properties Income Trust | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Empire State Realty Trust | 2026-06-30 | 2027 | 159,276,000 | 159,276,000 | yes |
+| Empire State Realty Trust | 2026-06-30 | 2028 | 149,646,000 | 149,646,000 | yes |
+| Empire State Realty Trust | 2026-06-30 | 2029 | 398,890,000 | 428,890,000 | no |
+| Empire State Realty Trust | 2026-06-30 | 2030 | 513,111,000 | 333,111,000 | no |
+| BXP | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| CBL & Associates | 2026-06-30 | 2027 | 11,195 | 21,653,000 | no |
+| CBL & Associates | 2026-06-30 | 2028 | 134,781,000 | 145,913,000 | no |
+| CBL & Associates | 2026-06-30 | 2029 | 7,939,000 | 20,069,000 | no |
+| CBL & Associates | 2026-06-30 | 2030 | 740,144,000 | 929,295,000 | no |
+| Simon Property Group | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Brixmor | 2026-09-30 | 2027 | 400,000,000 | 400,000,000 | yes |
+| Brixmor | 2026-09-30 | 2028 | 357,708,000 | 357,708,000 | yes |
+| Brixmor | 2026-09-30 | 2029 | 753,203,000 | 753,203,000 | yes |
+| Brixmor | 2026-09-30 | 2030 | 1,300,000,000 | 1,300,000,000 | yes |
+| Acadia Realty | 2026-09-30 | 2027 | 309,638,000 | 106,029,000 | no |
+| Acadia Realty | 2026-09-30 | 2028 | 845,235,000 | 143,384,000 | no |
+| Acadia Realty | 2026-09-30 | 2029 | 98,292,000 | 182,891,000 | no |
+| Acadia Realty | 2026-09-30 | 2030 | 326,850,000 | 589,173,000 | no |
+| Kite Realty | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Vornado Realty Trust | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Kilroy Realty | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Highwoods Properties | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Douglas Emmett | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Hudson Pacific Properties | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Brandywine Realty Trust | 2026-09-30 | 2027 | 700,000,000 | 837,000,000 | no |
+| Brandywine Realty Trust | 2026-09-30 | 2028 | 350,000,000 | 300,000,000 | no |
+| Brandywine Realty Trust | 2026-09-30 | 2029 | 900,000,000 | 810,000,000 | no |
+| Brandywine Realty Trust | 2026-09-30 | 2030 | 0 | 0 | yes |
+| Regency Centers | 2026-03-31 | 2027 | 757,609,000 | 757,609,000 | yes |
+| Regency Centers | 2026-03-31 | 2028 | 480,304,000 | 390,304,000 | no |
+| Regency Centers | 2026-03-31 | 2029 | 527,739,000 | 527,739,000 | yes |
+| Regency Centers | 2026-03-31 | 2030 | 607,608,000 | 607,608,000 | yes |
+| Kimco Realty | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Federal Realty | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Macerich | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Tanger | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+| Phillips Edison | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
+
+**11 of 28 overlapping year values are equal.** Unequal values are expected where debt was refinanced, repaid or drawn after year-end.
 
 ## Conflicts and gaps
 
@@ -679,3 +1158,53 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 - GAP BXP / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
 - GAP BXP / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
 - FALLBACK BXP / latest_debt: STALE: latest value is 1774 days old at as_of; no newer filing tagged (end 2021-12-31). Action: older value kept and flagged, not replaced.
+- GAP Vornado Realty Trust / y1_2026: tag not reported by filer. Action: left as missing.
+- GAP Vornado Realty Trust / y2_2027: tag not reported by filer. Action: left as missing.
+- GAP Vornado Realty Trust / y3_2028: tag not reported by filer. Action: left as missing.
+- GAP Vornado Realty Trust / y4_2029: tag not reported by filer. Action: left as missing.
+- GAP Vornado Realty Trust / y5_2030: tag not reported by filer. Action: left as missing.
+- GAP Vornado Realty Trust / after_2030: tag not reported by filer. Action: left as missing.
+- GAP Kilroy Realty / y3_2028: tag not reported by filer. Action: left as missing.
+- GAP Kilroy Realty / y4_2029: tag not reported by filer. Action: left as missing.
+- GAP Kilroy Realty / y5_2030: tag not reported by filer. Action: left as missing.
+- FALLBACK Kilroy Realty / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Kilroy Realty / latest_debt: STALE: latest value is 3966 days old at as_of; no newer filing tagged (end 2015-12-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Highwoods Properties / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
+- GAP Highwoods Properties / latest_debt: tag not reported by filer. Action: left as missing.
+- GAP Douglas Emmett / y1_2026: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Douglas Emmett / y2_2027: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Douglas Emmett / y3_2028: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Douglas Emmett / y4_2029: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Douglas Emmett / y5_2030: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Douglas Emmett / after_2030: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.
+- GAP Hudson Pacific Properties / y1_2026: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Hudson Pacific Properties / y2_2027: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Hudson Pacific Properties / y3_2028: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Hudson Pacific Properties / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Hudson Pacific Properties / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Hudson Pacific Properties / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
+- FALLBACK Hudson Pacific Properties / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Hudson Pacific Properties / latest_debt: STALE: latest value is 2870 days old at as_of; no newer filing tagged (end 2018-12-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Regency Centers / latest_cash: STALE: latest value is 3510 days old at as_of; no newer filing tagged (end 2017-03-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Regency Centers / latest_debt: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
+- GAP Kimco Realty / y1_2026: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Kimco Realty / y2_2027: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Kimco Realty / y3_2028: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Kimco Realty / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Kimco Realty / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
+- GAP Kimco Realty / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.
+- FALLBACK Kimco Realty / latest_debt: STALE: latest value is 313 days old at as_of; no newer filing tagged (end 2025-12-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Federal Realty / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.
+- FALLBACK Federal Realty / latest_debt: STALE: latest value is 313 days old at as_of; no newer filing tagged (end 2025-12-31). Action: older value kept and flagged, not replaced.
+- GAP Macerich / y1_2026: tag not reported by filer. Action: left as missing.
+- GAP Macerich / y2_2027: tag not reported by filer. Action: left as missing.
+- GAP Macerich / y3_2028: tag not reported by filer. Action: left as missing.
+- GAP Macerich / y4_2029: tag not reported by filer. Action: left as missing.
+- GAP Macerich / y5_2030: tag not reported by filer. Action: left as missing.
+- GAP Macerich / after_2030: tag not reported by filer. Action: left as missing.
+- GAP Tanger / y1_2026: tag not reported by filer. Action: left as missing.
+- GAP Tanger / y2_2027: tag not reported by filer. Action: left as missing.
+- GAP Tanger / y3_2028: tag not reported by filer. Action: left as missing.
+- GAP Tanger / y4_2029: tag not reported by filer. Action: left as missing.
+- GAP Tanger / y5_2030: tag not reported by filer. Action: left as missing.
+- GAP Tanger / after_2030: tag not reported by filer. Action: left as missing.

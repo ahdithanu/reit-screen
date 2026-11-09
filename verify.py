@@ -457,6 +457,26 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
         L.append(f"| {ov['name']} | {ov.get('claim_id')} | {'yes' if found else '**NO**'} | {url or 'claim not found'} |")
     L.append("")
 
+    # §7 10-Q ladder calendar mapping: overlapping years against the 10-K (display-only data, never scored)
+    L += ["## 7. 10-Q ladder: calendar-year mapping check", "",
+          "10-Q tags are read as: RemainderOfFiscalYear = rest of the current year, InNextTwelveMonths = next year, InYearTwo = the year after, and so on.",
+          "If that mapping is right, years with no refinancing activity carry the same principal in both filings. Raw values below ($), no pass/fail threshold.", "",
+          "| name | 10-Q period | year | 10-K value | 10-Q value | equal |", "|---|---|---|---:|---:|---|"]
+    n_eq = n_cmp = 0
+    kmap = {"2027": "y2_2027", "2028": "y3_2028", "2029": "y4_2029", "2030": "y5_2030"}
+    for d in names:
+        q = d.get("qladder") or {}
+        if not q.get("buckets"):
+            L.append(f"| {d['label']} | n/a | n/a | n/a | n/a | {q.get('gap_reason', 'not extracted')} |")
+            continue
+        for b_ in q["buckets"]:
+            if b_["label"] in kmap:
+                kv, qv = d["ladder"][kmap[b_["label"]]]["value"], b_["fact"]["value"]
+                eq = kv is not None and qv is not None and abs(kv - qv) < 1
+                n_cmp += int(kv is not None and qv is not None); n_eq += int(eq)
+                L.append(f"| {d['label']} | {q['period_end']} | {b_['label']} | {_fmt(kv)} | {_fmt(qv)} | {'yes' if eq else 'no'} |")
+    L += ["", f"**{n_eq} of {n_cmp} overlapping year values are equal.** Unequal values are expected where debt was refinanced, repaid or drawn after year-end.", ""]
+
     L += ["## Conflicts and gaps", ""]
     for c in conflicts:
         L.append(f"- CONFLICT {c['name']} / {c['tag']}: kept {c['value_a']}, others {c['value_b']}. {c['reason']}")

@@ -52,6 +52,8 @@ def main():
         cf = fx.companyfacts(cik)
         cf_paths[cik] = cf["path"]
         facts, conf, ladder, cash, debt = ladder_extract.extract(cik, label, cfg, cf["path"])
+        qlad = ladder_extract.extract_q(cik, label, cfg, cf["path"])
+        sec = ladder_extract.secured_split(cik, label, cfg, cf["path"])
         conflicts += conf
         events, ev_gap = event_reader.list_events(cik, label, cfg, subs[cik]["path"])
         for e in events:
@@ -66,7 +68,7 @@ def main():
                       "ladder": ladder, "cash": cash, "debt": debt, "events": events,
                       "ev_counts": event_reader.counts(events), "ev_gap": ev_gap,
                       "drawdown": pm["drawdown_52w"], "return_6m": pm["return_6m"], "rel": rel[cik],
-                      "price_detail": detail, "sub_path": subs[cik]["path"]})
+                      "price_detail": detail, "sub_path": subs[cik]["path"], "qladder": qlad, "secured": sec})
 
     rows, flags, claims, case_files = synthesize.run(names, cfg, rates)
     # case-file evidence: verbatim 10-Q paragraphs on 2027 debt, and dated 2027 maturities from the 10-K text

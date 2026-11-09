@@ -4,6 +4,7 @@ Never fills a missing bucket and never substitutes another tag. Related tags the
 use are named in gap_reason as text only.
 """
 import json
+import re
 
 from common import cik10, fact, fetched_at_of, parse_date
 
@@ -36,7 +37,7 @@ def _maturity_hints(facts, period_end):
     hints = []
     for tax, tags in facts.items():
         for tag, body in tags.items():
-            if "Maturit" not in tag or (tax == "us-gaap" and tag in {t for _, t in LADDER}):
+            if not re.search(r"DebtMaturit|MaturitiesRepaymentsOfPrincipal", tag) or (tax == "us-gaap" and tag in {t for _, t in LADDER}):
                 continue
             for vals in body.get("units", {}).values():
                 if any(v.get("end") == period_end and str(v.get("form", "")).startswith("10-K") for v in vals):
@@ -142,3 +143,77 @@ def value_at(cf_path, tag, end):
     if not c:
         return None, f"no 10-K instant at {end}"
     return float(c[0]["val"]), c[0].get("accn")
+
+
+# ---------------------------------------------------------------- latest 10-Q ladder (display only, never scored)
+# In 10-Qs these filers label buckets relative to the CURRENT fiscal year: RemainderOfFiscalYear = rest of the
+# current year, InNextTwelveMonths = next fiscal year, InYearTwo = the year after, and so on. Checked against the
+# 10-K for overlapping years (verify.py section 7). Calendar years below assume a December fiscal year end.
+Q_LADDER = [("rest", P + "RemainderOfFiscalYear", 0), ("y1", P + "InNextTwelveMonths", 1), ("y2", P + "InYearTwo", 2),
+            ("y3", P + "InYearThree", 3), ("y4", P + "InYearFour", 4), ("y5", P + "InYearFive", 5), ("after", P + "AfterYearFive", 6)]
+
+
+def extract_q(cik, label, cfg, cf_path):
+    """Latest 10-Q maturity ladder after the 10-K ladder date. Returns dict with period_end, buckets {calendar label: fact}."""
+    url = companyfacts_url(cik)
+    out = {"period_end": None, "accession": None, "filed": None, "buckets": [], "gap_reason": None}
+    if cf_path is None:
+        out["gap_reason"] = "companyfacts not fetched"
+        return out
+    usg = json.loads(open(cf_path, "rb").read()).get("facts", {}).get("us-gaap", {})
+    facts = []
+    for _, tag, _ in Q_LADDER:
+        for v in (usg.get(tag, {}).get("units", {}).get("USD", []) or []):
+            if v.get("form") in ("10-Q", "10-Q/A") and v.get("end", "") > cfg["ladder_period_end"] and "start" not in v:
+                facts.append((tag, v))
+    if not facts:
+        out["gap_reason"] = "no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder)"
+        return out
+    end = max(v["end"] for _, v in facts)
+    year = int(end[:4])
+    same = {}
+    for tag, v in sorted(facts, key=lambda x: x[1]["filed"]):
+        if v["end"] == end and tag not in same:
+            same[tag] = v
+    first = next(iter(same.values()))
+    out.update(period_end=end, accession=first.get("accn"), filed=first.get("filed"))
+    for short, tag, off in Q_LADDER:
+        lab = f"{year} rest" if off == 0 else (f"{year + off}" if off < 6 else f"after {year + 5}")
+        v = same.get(tag)
+        out["buckets"].append({"key": short, "label": lab, "tag": tag,
+                               "fact": fact(name=label, cik=str(cik), metric=f"q_ladder_{short}", unit="USD", source_url=url, tag_or_form=tag,
+                                            period_end=end, filed=v and v["filed"], accession=v and v.get("accn"),
+                                            value=float(v["val"]) if v else None, fetched_at=fetched_at_of(cf_path),
+                                            gap_reason=None if v else f"tag not reported in the 10-Q for {end}")})
+    return out
+
+
+# ---------------------------------------------------------------- secured vs unsecured (display only, never scored)
+def secured_split(cik, label, cfg, cf_path):
+    """SecuredDebt and UnsecuredDebt at the same latest period end (10-K/10-Q). No other tag is substituted."""
+    url = companyfacts_url(cik)
+    res = {"period_end": None, "secured": None, "unsecured": None, "gap_reason": None, "source_url": url}
+    if cf_path is None:
+        res["gap_reason"] = "companyfacts not fetched"
+        return res
+    usg = json.loads(open(cf_path, "rb").read()).get("facts", {}).get("us-gaap", {})
+
+    def by_end(tag):
+        d = {}
+        for v in usg.get(tag, {}).get("units", {}).get("USD", []) or []:
+            if v.get("form") in PERIODIC_FORMS and "start" not in v:
+                d.setdefault(v["end"], v)
+        return d
+    s, u = by_end("SecuredDebt"), by_end("UnsecuredDebt")
+    common = sorted(set(s) & set(u))
+    if not common:
+        res["gap_reason"] = ("SecuredDebt and UnsecuredDebt are not both tagged at any common period end"
+                             + ("" if (s or u) else " (neither tag reported)"))
+        return res
+    end = common[-1]
+    age = (parse_date(cfg["as_of"]) - parse_date(end)).days
+    res.update(period_end=end, secured=float(s[end]["val"]), unsecured=float(u[end]["val"]),
+               accession=s[end].get("accn"), stale=age > cfg["staleness"]["max_age_days"])
+    if res["stale"]:
+        res["gap_reason"] = f"latest common period end {end} is {age} days old; shown as stale"
+    return res

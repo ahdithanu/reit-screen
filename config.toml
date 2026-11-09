@@ -7,7 +7,7 @@ events_since = "2026-01-01"
 ladder_period_end = "2025-12-31"   # FY2025 10-K. "NextTwelveMonths" = 2026 maturities, "YearTwo" = 2027
 ladder_fiscal_year = 2025
 checkpoint_subset = ["1456772", "1040971", "910612"]   # step 2: OPI (control), SL Green (office), CBL (retail)
-spot_check_ciks = ["1040971", "910612", "1063761", "1689796", "1541401", "25232", "1042776", "1456772", "1581068", "899629", "1286043", "1037540"]   # 10-K text spot checks: SL Green (office, largest 2027 share), CBL (retail; 2027 bucket came back $11,195), Simon (retail, largest 2027 wall in dollars), JBG Smith and ESRT (case files, added after report v1 review)
+spot_check_ciks = ["1040971", "910612", "1063761", "1689796", "1541401", "25232", "1042776", "1456772", "1581068", "899629", "1286043", "1037540", "899689", "1025996", "921082", "1364250", "1482512", "790816", "910606", "879101", "34903", "912242", "899715", "1476204"]   # 10-K text spot checks: SL Green (office, largest 2027 share), CBL (retail; 2027 bucket came back $11,195), Simon (retail, largest 2027 wall in dollars), JBG Smith and ESRT (case files, added after report v1 review)
 
 # Tickers are resolved from SEC submissions, never written here.
 [names]
@@ -23,6 +23,19 @@ spot_check_ciks = ["1040971", "910612", "1063761", "1689796", "1541401", "25232"
 "1581068" = { label = "Brixmor", segment = "retail" }
 "899629"  = { label = "Acadia Realty", segment = "retail" }
 "1286043" = { label = "Kite Realty", segment = "retail" }
+# added 2026-11-09 (CIKs resolved from SEC company_tickers.json and confirmed by registered name in submissions)
+"899689"  = { label = "Vornado Realty Trust", segment = "office" }
+"1025996" = { label = "Kilroy Realty", segment = "office" }
+"921082"  = { label = "Highwoods Properties", segment = "office" }
+"1364250" = { label = "Douglas Emmett", segment = "office" }
+"1482512" = { label = "Hudson Pacific Properties", segment = "office" }
+"790816"  = { label = "Brandywine Realty Trust", segment = "office" }
+"910606"  = { label = "Regency Centers", segment = "retail" }
+"879101"  = { label = "Kimco Realty", segment = "retail" }
+"34903"   = { label = "Federal Realty", segment = "retail" }
+"912242"  = { label = "Macerich", segment = "retail" }
+"899715"  = { label = "Tanger", segment = "retail" }
+"1476204" = { label = "Phillips Edison", segment = "retail" }
 
 [pipeline_control]
 cik = "1456772"
@@ -83,10 +96,14 @@ reason = "Applies to high-wall names (2027 or 2026 share at or above wall_share_
 wall_to_cash = "Display only, 0 points. Year-end cash leaves out revolver capacity, which is not tagged, so the ratio overstates the risk for every REIT."
 return_6m = "Display only, 0 points."
 rates = "Context only. Never moves a score or bucket."
+ladder_moved_pts = 0.10
+ladder_moved_label = "assumption"
+ladder_moved_reason = "Display flag only, 0 points: the latest 10-Q 2027 share differs from the FY2025 10-K 2027 share by 10 percentage points or more. Buckets are still scored on the 10-K ladder; a human decides through overrides.csv."
+secured_split = "Display only, 0 points: SecuredDebt and UnsecuredDebt tagged at the same latest period end. No other tag is substituted."
 
 # ---------------- market-view score ----------------
 [market_view]
-peer_group = "Median 52-week drawdown of names in the same segment (office or retail) within the 12 names, including the name itself. Names with no price data are left out of the median."
+peer_group = "Median 52-week drawdown of names in the same segment (office or retail) within the screened names (24), including the name itself. Names with no price data are left out of the median."
 label = "assumption"
 reason = "Absolute drawdown cut-offs would mostly measure the office sell-off, not the borrower. Scoring relative to sector peers isolates the name. The absolute figure is always shown alongside."
 

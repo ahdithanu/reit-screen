@@ -129,6 +129,126 @@
    "2,459,000",
    "2,807,320,000 (2026-09-30)",
    "220,617,000"
+  ],
+  [
+   "Vornado Realty Trust",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "2,264,959,000",
+   "n/a",
+   "2,599,970,000 (2026-06-30)",
+   "n/a"
+  ],
+  [
+   "Kilroy Realty",
+   "3,250,442,000 (incomplete)",
+   "4,625,442,000",
+   "-1,375,000,000",
+   "n/a",
+   "n/a",
+   "2,238,508,000 (2015-12-31, STALE)",
+   "1,011,934,000"
+  ],
+  [
+   "Highwoods Properties",
+   "3,570,154,000",
+   "not checked",
+   "n/a",
+   "n/a",
+   "n/a",
+   "n/a (tag not reported by filer)",
+   "n/a"
+  ],
+  [
+   "Douglas Emmett",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "5,548,870,000",
+   "n/a",
+   "5,729,491,000 (2026-09-30)",
+   "n/a"
+  ],
+  [
+   "Hudson Pacific Properties",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "n/a",
+   "n/a",
+   "2,623,835,000 (2018-12-31, STALE)",
+   "n/a"
+  ],
+  [
+   "Brandywine Realty Trust",
+   "2,563,948,000",
+   "2,563,948,000",
+   "0",
+   "2,556,862,000",
+   "7,086,000",
+   "2,409,562,000 (2026-09-30)",
+   "154,386,000"
+  ],
+  [
+   "Regency Centers",
+   "4,798,831,000",
+   "not checked",
+   "n/a",
+   "4,739,301,000",
+   "59,530,000",
+   "5,003,934,000 (2026-03-31, STALE)",
+   "-205,103,000"
+  ],
+  [
+   "Kimco Realty",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "7,718,700,000",
+   "n/a",
+   "7,718,700,000 (2025-12-31, STALE)",
+   "n/a"
+  ],
+  [
+   "Federal Realty",
+   "4,963,602,000",
+   "4,963,602,000",
+   "0",
+   "4,963,602,000",
+   "0",
+   "4,963,602,000 (2025-12-31, STALE)",
+   "0"
+  ],
+  [
+   "Macerich",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "5,068,946,000",
+   "n/a",
+   "4,409,716,000 (2026-09-30)",
+   "n/a"
+  ],
+  [
+   "Tanger",
+   "n/a (incomplete)",
+   "not checked",
+   "n/a",
+   "n/a",
+   "n/a",
+   "1,663,654,000 (2026-09-30)",
+   "n/a"
+  ],
+  [
+   "Phillips Edison",
+   "2,401,665,000",
+   "not checked",
+   "n/a",
+   "2,375,328,000",
+   "26,337,000",
+   "2,521,454,000 (2026-09-30)",
+   "-119,789,000"
   ]
  ],
  "conflict_lines": [
@@ -145,14 +265,64 @@
   "GAP BXP / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.",
   "GAP BXP / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
   "GAP BXP / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
-  "FALLBACK BXP / latest_debt: STALE: latest value is 1774 days old at as_of; no newer filing tagged (end 2021-12-31). Action: older value kept and flagged, not replaced."
+  "FALLBACK BXP / latest_debt: STALE: latest value is 1774 days old at as_of; no newer filing tagged (end 2021-12-31). Action: older value kept and flagged, not replaced.",
+  "GAP Vornado Realty Trust / y1_2026: tag not reported by filer. Action: left as missing.",
+  "GAP Vornado Realty Trust / y2_2027: tag not reported by filer. Action: left as missing.",
+  "GAP Vornado Realty Trust / y3_2028: tag not reported by filer. Action: left as missing.",
+  "GAP Vornado Realty Trust / y4_2029: tag not reported by filer. Action: left as missing.",
+  "GAP Vornado Realty Trust / y5_2030: tag not reported by filer. Action: left as missing.",
+  "GAP Vornado Realty Trust / after_2030: tag not reported by filer. Action: left as missing.",
+  "GAP Kilroy Realty / y3_2028: tag not reported by filer. Action: left as missing.",
+  "GAP Kilroy Realty / y4_2029: tag not reported by filer. Action: left as missing.",
+  "GAP Kilroy Realty / y5_2030: tag not reported by filer. Action: left as missing.",
+  "FALLBACK Kilroy Realty / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Kilroy Realty / latest_debt: STALE: latest value is 3966 days old at as_of; no newer filing tagged (end 2015-12-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Highwoods Properties / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "GAP Highwoods Properties / latest_debt: tag not reported by filer. Action: left as missing.",
+  "GAP Douglas Emmett / y1_2026: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Douglas Emmett / y2_2027: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Douglas Emmett / y3_2028: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Douglas Emmett / y4_2029: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Douglas Emmett / y5_2030: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Douglas Emmett / after_2030: no 10-K fact with end 2025-12-31; filer reports related maturity tags (not used): us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingAfterYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFive, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearFour, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearThree, us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInRollingYearTwo. Action: left as missing.",
+  "GAP Hudson Pacific Properties / y1_2026: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Hudson Pacific Properties / y2_2027: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Hudson Pacific Properties / y3_2028: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Hudson Pacific Properties / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Hudson Pacific Properties / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Hudson Pacific Properties / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "FALLBACK Hudson Pacific Properties / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Hudson Pacific Properties / latest_debt: STALE: latest value is 2870 days old at as_of; no newer filing tagged (end 2018-12-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Regency Centers / latest_cash: STALE: latest value is 3510 days old at as_of; no newer filing tagged (end 2017-03-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Regency Centers / latest_debt: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "GAP Kimco Realty / y1_2026: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Kimco Realty / y2_2027: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Kimco Realty / y3_2028: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Kimco Realty / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Kimco Realty / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP Kimco Realty / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "FALLBACK Kimco Realty / latest_debt: STALE: latest value is 313 days old at as_of; no newer filing tagged (end 2025-12-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Federal Realty / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK Federal Realty / latest_debt: STALE: latest value is 313 days old at as_of; no newer filing tagged (end 2025-12-31). Action: older value kept and flagged, not replaced.",
+  "GAP Macerich / y1_2026: tag not reported by filer. Action: left as missing.",
+  "GAP Macerich / y2_2027: tag not reported by filer. Action: left as missing.",
+  "GAP Macerich / y3_2028: tag not reported by filer. Action: left as missing.",
+  "GAP Macerich / y4_2029: tag not reported by filer. Action: left as missing.",
+  "GAP Macerich / y5_2030: tag not reported by filer. Action: left as missing.",
+  "GAP Macerich / after_2030: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / y1_2026: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / y2_2027: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / y3_2028: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / y4_2029: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / y5_2030: tag not reported by filer. Action: left as missing.",
+  "GAP Tanger / after_2030: tag not reported by filer. Action: left as missing."
  ],
- "same": 85,
- "both_missing": 11,
+ "same": 137,
+ "both_missing": 54,
  "control_pass": true,
  "control_msg": "expected ACT NOW, got **ACT NOW** (hard trigger: 1.03, NT 10-Q)",
- "cross_pairs": 96,
- "cross_diffs": 0,
+ "cross_pairs": 192,
+ "cross_diffs": 1,
  "spot_checked": {
   "SLG": {
    "rows_equal": 6,
@@ -230,10 +400,58 @@
    "printed_total": 3027937000.0,
    "ladder_sum": 3027937000.0,
    "url": "https://www.sec.gov/Archives/edgar/data/1286043/000128604326000009/krg-20251231.htm"
+  },
+  "KRC": {
+   "rows_equal": 3,
+   "rows": 6,
+   "printed_total": 4625442000.0,
+   "ladder_sum": 3250442000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1025996/000162828026007051/krc-20251231.htm"
+  },
+  "HIW": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": null,
+   "ladder_sum": 3570154000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/921082/000092108226000005/hiw-20251231.htm"
+  },
+  "BDN": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 2563948000.0,
+   "ladder_sum": 2563948000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/790816/000079081626000008/bdn-20251231.htm"
+  },
+  "REG": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": null,
+   "ladder_sum": 4798831000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/910606/000119312526051668/reg-20251231.htm"
+  },
+  "FRT": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 4963602000.0,
+   "ladder_sum": 4963602000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/34903/000003490326000017/frt-20251231.htm"
+  },
+  "PECO": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": null,
+   "ladder_sum": 2401665000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1476204/000147620426000005/cik0001476204-20251231.htm"
   }
  },
  "not_spot_checked": [
-  "BXP"
+  "BXP",
+  "Vornado Realty Trust",
+  "Douglas Emmett",
+  "Hudson Pacific Properties",
+  "Kimco Realty",
+  "Macerich",
+  "Tanger"
  ],
  "conflicts": [
   {

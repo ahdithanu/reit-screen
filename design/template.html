@@ -395,7 +395,7 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
  </section>
 
  <section class="sec" id="screen" aria-labelledby="hC">
-  <div class="hd"><div class="eyebrow"><b>C</b>The screen</div><h2 id="hC">All 12 names, ranked</h2>
+  <div class="hd"><div class="eyebrow"><b>C</b>The screen</div><h2 id="hC"></h2>
    <p id="screenFoot"></p></div>
   <div class="legend" id="legend" style="margin-bottom:12px"></div>
   <div class="whatif" id="whatif" hidden><span><b>What-if thresholds.</b> These buckets no longer match the file. The file's calls are unchanged.</span><button type="button" class="btn" id="whatifReset">Reset thresholds</button></div>
@@ -714,13 +714,14 @@ function renderTable(){
   h+='<td data-label="Bucket"><div>'+pill(l.b)+'</div>'+(l.b!==x.fileBucket&&!l.ov?'<span class="pill">what-if; file says '+esc(x.fileBucket)+'</span>':'')+synov+test+ovpill+chip(t+'.bucket')+'</td>';
   // 2027 share
   if(x.share27==null) h+=gapCell('gap',r.wall_gap,'2027 share',chip(t+'.ladder_y2_2027'));
-  else h+='<td data-label="2027 share" class="n">'+bar(x.share27,x.ub)+'<b>'+x.share27.toFixed(1)+'%</b>'+(x.ub?' <span class="cap">upper bound</span>':'')+chip(claimFor(t,'wall_2027_share'))+'<br><span class="muted small">$'+esc(x.wallM)+'M</span>'+chip(t+'.ladder_y2_2027')+'</td>';
+  else h+='<td data-label="2027 share" class="n">'+bar(x.share27,x.ub)+'<b>'+x.share27.toFixed(1)+'%</b>'+(x.ub?' <span class="cap">upper bound</span>':'')+chip(claimFor(t,'wall_2027_share'))+'<br><span class="muted small">$'+esc(x.wallM)+'M</span>'+chip(t+'.ladder_y2_2027')+(r.wallq?'<br><span class="muted small">'+esc(r.wallq)+'</span>'+(r.wallq_cid?chip(r.wallq_cid):''):'')+'</td>';
   h+='<td data-label="2026 share" class="n">'+(x.share26==null?'<span class="g"><b>gap</b></span> <span class="why">'+esc(r.wall_gap)+'</span>':x.share26.toFixed(1)+'%'+chip(claimFor(t,'y1_2026_share')))+'</td>';
   if(x.dd==null) h+=gapCell('gap',r.dd_gap,'Drawdown vs sector',chip(t+'.drawdown_52w'));
   else h+='<td data-label="Drawdown vs sector" class="n">'+x.dd.toFixed(1)+'%'+chip(t+'.drawdown_52w')+'<br><span class="muted">'+(x.rel>0?'+':'')+x.rel.toFixed(1)+' pts</span>'+chip(claimFor(t,'rel_drawdown'))+'<span class="dv'+(x.rel<0?' neg':'')+'"><i style="'+(x.rel>=0?'left:50%;width:'+Math.min(50,Math.abs(x.rel)/25*50)+'%':'right:50%;width:'+Math.min(50,Math.abs(x.rel)/25*50)+'%')+'"></i></span></td>';
   h+='<td data-label="Filings / market" class="n">'+l.F+' / '+(l.M==null?'<span title="">gap</span>':l.M)+'</td>';
   var fl=r.flags.map(function(f){return '<span class="flag">'+esc(f.replace(/_/g,' '))+'</span>'}).join('');
   var gn=r.gap.map(function(g){return '<span class="gn">'+esc(g)+'</span>'}).join('');
+  if(r.secured) fl+='<span class="flag">'+esc(r.secured)+'</span>'+chip(t+'.secured_split');
   h+='<td data-label="Flags and gaps">'+fl+(r.refi?'<span class="refi">refinancing evidence present: read before acting</span>':'')+gn+'</td></tr>';
  });
  h+='</tbody></table>';
@@ -756,10 +757,18 @@ function renderQuad(){
  s+='<text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-24)+'" text-anchor="end">Market singles out,</text><text class="qlab" x="'+(W-mr-8)+'" y="'+(H-mb-9)+'" text-anchor="end">filings below watch</text>';
  s+='<text class="ax" x="'+((ml+W-mr)/2)+'" y="'+(H-8)+'" text-anchor="middle">52-week drawdown vs sector median (pts)</text>';
  s+='<text class="ax" transform="translate(12 '+((mt+H-mb)/2)+') rotate(-90)" text-anchor="middle">2027 share of ladder</text>';
- var np=[];
+ var np=[],placed=[];
+ ROWS.forEach(function(x){if(x.share27!=null&&x.rel!=null)placed.push({x0:X(x.rel)-9,x1:X(x.rel)+9,y0:Y(x.share27)-9,y1:Y(x.share27)+9})});
+ function placeLabel(cx,cy,t){
+  var w=t.length*8.2+2,h=14,C2=[[12,5,'start'],[-12,5,'end'],[0,-13,'middle'],[0,24,'middle'],[12,-9,'start'],[-12,-9,'end'],[12,19,'start'],[-12,19,'end']];
+  for(var i=0;i<C2.length;i++){var c=C2[i],x0=c[2]==='start'?cx+c[0]:c[2]==='end'?cx+c[0]-w:cx-w/2,y0=cy+c[1]-11,r={x0:x0,x1:x0+w,y0:y0,y1:y0+h};
+   if(r.x0<ml||r.x1>W-mr||r.y0<mt||r.y1>H-mb)continue;
+   if(!placed.some(function(p){return r.x0<p.x1&&r.x1>p.x0&&r.y0<p.y1&&r.y1>p.y0})){placed.push(r);return c}}
+  return [12,5,'start'];
+ }
  ROWS.forEach(function(x){
   if(x.share27==null||x.rel==null){np.push(x);return}
-  var cx=X(x.rel),cy=Y(x.share27),b=L[x.t].pub,lp=LABPOS[x.t]||[9,4,'start'];
+  var cx=X(x.rel),cy=Y(x.share27),b=L[x.t].pub,lp=placeLabel(cx,cy,x.t);
   var d=x.t+': 2027 share '+x.share27.toFixed(1)+'%'+(x.ub?' (upper bound)':'')+', '+(x.rel>0?'+':'')+x.rel.toFixed(1)+' pts vs sector, '+b+'. Press Enter to jump to its row.';
   s+='<g class="pt '+BK[b]+(x.ub?' ub':'')+'" role="button" tabindex="0" data-goto="'+x.t+'" data-tip="'+esc(d)+'" aria-label="'+esc(d)+'">'+shape(b,cx,cy,7)+'<circle class="ring" cx="'+cx+'" cy="'+cy+'" r="13"/>'+(x.ub?'<path d="M'+cx+' '+(cy+11)+' v11 m-4 -4 l4 4 l4 -4" fill="none" stroke="currentColor" stroke-width="1.5"/>':'')+'<text x="'+(cx+lp[0])+'" y="'+(cy+lp[1])+'" text-anchor="'+lp[2]+'" style="fill:var(--ink)">'+x.t+'</text></g>';
  });
@@ -980,7 +989,7 @@ function readLenderCSV(text){
  for(var r=1;r<rows.length;r++){
   var cells=rows[r],g=function(k){return (cells[idx[k]]||'').trim()},tk=g('ticker').toUpperCase();
   if(!tk){probs.push('Row '+r+': ticker is blank. This row was skipped.');continue}
-  if(!ROW[tk]){notes.push('Row '+r+': '+tk+' is not one of the 12 screened names, so it was ignored.');continue}
+  if(!ROW[tk]){notes.push('Row '+r+': '+tk+' is not one of the '+ROWS.length+' screened names, so it was ignored.');continue}
   if(seen[tk]){notes.push('Row '+r+': '+tk+' appears again. The first row was used.');continue}
   var ok=true,hv=g('covenant_headroom'),h=null,md=g('own_facility_maturity'),mt=null,ud=g('undrawn_revolver');
   if(hv!==''){var m=/^(-?\d+(?:\.\d+)?)\s*%?$/.exec(hv);if(!m){probs.push('Row '+r+' ('+tk+'): covenant_headroom "'+hv+'" is not a number such as 8.0% or 8. This row was skipped.');ok=false}else h=parseFloat(m[1])}
@@ -1098,7 +1107,7 @@ var opened=[];
 window.addEventListener('beforeprint',function(){opened=[];document.querySelectorAll('details:not(.ledger)').forEach(function(d){if(!d.open){opened.push(d);d.open=true}})});
 window.addEventListener('afterprint',function(){opened.forEach(function(d){d.open=false})});
 
-$('#hB').textContent=D.clock_title;$('#hD').textContent=D.case_title;
+$('#hB').textContent=D.clock_title;$('#hC').textContent='All '+D.screen.length+' names, ranked';$('#hD').textContent=D.case_title;
 renderBanner();renderAnswer();renderClocks();renderLegend();$('#screenFoot').textContent=D.screen_foot;
 renderHero();renderSliders();renderOverrides();renderCases();renderTrust();renderLimits();refresh();labelTables();
 (function(){

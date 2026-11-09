@@ -30,7 +30,7 @@ python run.py --offline --names all
 
 Other flags:
 - `--cached`: online, but reuses cached files.
-- `--names subset`: OPI, SLG and CBL only (the step-2 checkpoint).
+- `--names subset`: OPI, SLG and CBL only (the step-2 checkpoint). `--names all` is the 24 names in config.toml.
 - `--no-verify`: skips verification.
 
 The run stops with an error if the OPI pipeline control does not land in ACT NOW.

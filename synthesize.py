@@ -262,6 +262,46 @@ def run(names, cfg, rates):
             flag_list.append({"flag": "refinancing_tag", "points": 0, "text": res["refinancing_tag"],
                               "inputs": [("debt_financing_items_2026", len(res["debt_financing"]), None)],
                               "claim_ids": [e.get("claim_id") for e in res["debt_financing"]]})
+        # ---- latest 10-Q ladder and secured split: DISPLAY ONLY, they never enter score()
+        q = d.get("qladder") or {"buckets": [], "gap_reason": "not extracted"}
+        qv = {b_["label"]: b_["fact"]["value"] for b_ in q["buckets"]}
+        q_present = [v for v in qv.values() if v is not None]
+        q27_label = str(int(cfg["ladder_period_end"][:4]) + 2)
+        q_confirmed = False
+        q27 = qv.get(q27_label)
+        q_total = sum(q_present) if q_present else None
+        q_share = q27 / q_total if (q27 is not None and q_total) else None
+        q_ub = q_share is not None and len(q_present) < len(qv)
+        for b_ in q["buckets"]:
+            f_ = b_["fact"]
+            claim(f"{tk}.q_ladder_{b_['key']}", f"{d['label']} 10-Q ({q['period_end']}) {f_['tag_or_form']} [{b_['label']}] = "
+                  + (f"${_musd(f_['value'])}M" if f_["value"] is not None else f"MISSING ({f_['gap_reason']})"), f_["source_url"], "measured",
+                  f"accn {f_['accession']} filed {f_['filed']}; 10-Q labels mapped to calendar years (verify.py section 7)")
+        if q_share is not None:
+            claim(f"{tk}.q_wall_2027_share", f"{d['label']} latest 10-Q ({q['period_end']}): {q27_label} maturities are {q_share:.1%} of the 10-Q ladder"
+                  + (" (UPPER BOUND, buckets missing)" if q_ub else "")
+                  + ("; calendar mapping confirmed by an equal overlapping year" if q_confirmed else "; calendar mapping UNCONFIRMED for this filer (no overlapping year matches the 10-K)"),
+                  "", "inferred", "display only, never scored")
+        # mapping is confirmed for this filer only if an overlapping year carries the same non-zero principal in 10-K and 10-Q
+        kmap = {"2027": "y2_2027", "2028": "y3_2028", "2029": "y4_2029", "2030": "y5_2030"}
+        q_confirmed = any(qv.get(yr) not in (None, 0) and d["ladder"][k]["value"] not in (None, 0) and abs(qv[yr] - d["ladder"][k]["value"]) < 1
+                          for yr, k in kmap.items())
+        # both shares must be exact (an upper bound cannot show a move) and the filer's 10-Q mapping must be confirmed
+        moved = (q_confirmed and not q_ub and not x["share_is_ub"] and q_share is not None and x["share"] is not None
+                 and abs(q_share - x["share"]) >= cfg["display_only"]["ladder_moved_pts"])
+        if moved:
+            flag_list.append({"flag": "ladder_moved_since_10k", "points": 0,
+                              "inputs": [("wall_2027_share_10k", x["share"], None), ("wall_2027_share_10q", q_share, cfg["display_only"]["ladder_moved_pts"])],
+                              "claim_ids": [ids.get("share"), f"{tk}.q_wall_2027_share"]})
+        sec = d.get("secured") or {}
+        sec_ok = sec.get("secured") is not None and not sec.get("stale") and sec["secured"] > 0 and sec["unsecured"] > 0
+        if sec.get("secured") is not None and not sec_ok and not sec.get("stale"):
+            sec["gap_reason"] = "one of SecuredDebt / UnsecuredDebt is tagged as 0, which conflicts with a mixed stack; not shown"
+        sec_share = (sec["secured"] / (sec["secured"] + sec["unsecured"])) if sec_ok else None
+        if sec.get("secured") is not None:
+            claim(f"{tk}.secured_split", f"{d['label']} SecuredDebt ${_musd(sec['secured'])}M and UnsecuredDebt ${_musd(sec['unsecured'])}M at {sec['period_end']}"
+                  + (f": {sec_share:.1%} secured" if sec_share is not None else f" (NOT SHOWN: {sec.get('gap_reason')})"),
+                  sec["source_url"], "measured", f"accn {sec.get('accession')}; display only, never scored")
         ov = overrides.get(d["label"]) or overrides.get(tk) or {}
         if ov:
             claim(f"{tk}.override", f"HUMAN OVERRIDE for {d['label']}: {ov['bucket']}. {ov['reason']}", "overrides.csv",
@@ -304,6 +344,11 @@ def run(names, cfg, rates):
             "nearest_flip_threshold": flip["nearest"]["threshold"] if flip and flip["nearest"] else "",
             "nearest_flip_distance_pct": round(flip["nearest"]["distance_pct"] * 100, 1) if flip and flip["nearest"] else "",
             "bucket_claim_id": bid,
+            "q_period_end": q.get("period_end") or "", "q_2027_musd": _musd(q27), "q_2027_share": None if q_share is None else round(q_share, 4),
+            "q_2027_share_is_upper_bound": q_ub, "q_mapping_confirmed": q_confirmed if q["buckets"] else "", "q_gap": q.get("gap_reason") or "", "ladder_moved_since_10k": moved,
+            "secured_musd": _musd(sec.get("secured")), "unsecured_musd": _musd(sec.get("unsecured")),
+            "secured_share": None if sec_share is None else round(sec_share, 4), "secured_period_end": sec.get("period_end") or "",
+            "secured_gap": sec.get("gap_reason") or "",
         })
         rows.append(row)
 

@@ -213,6 +213,30 @@ rep("""  '<dt>Source</dt><dd>'+srcLink(c.src)+'</dd>'+""",
     """  (c.raw?'<dt>Raw filing row</dt><dd><code>'+esc(c.raw)+'</code><br><span class="muted small">Empty cells are shown as n/a above.</span></dd>':'')+
   '<dt>Source</dt><dd>'+srcLink(c.src)+'</dd>'+""")
 
+# ---- more names, 10-Q ladder and secured split (display only)
+rep("""<h2 id="hC">All 12 names, ranked</h2>""", """<h2 id="hC"></h2>""")
+rep("""is not one of the 12 screened names, so it was ignored.""", """is not one of the '+ROWS.length+' screened names, so it was ignored.""")
+rep("""$('#hB').textContent=D.clock_title;""", """$('#hB').textContent=D.clock_title;$('#hC').textContent='All '+D.screen.length+' names, ranked';""")
+rep("""+'<br><span class="muted small">$'+esc(x.wallM)+'M</span>'+chip(t+'.ladder_y2_2027')+'</td>';""",
+    """+'<br><span class="muted small">$'+esc(x.wallM)+'M</span>'+chip(t+'.ladder_y2_2027')+(r.wallq?'<br><span class="muted small">'+esc(r.wallq)+'</span>'+(r.wallq_cid?chip(r.wallq_cid):''):'')+'</td>';""")
+rep("""  h+='<td data-label="Flags and gaps">'+fl+""", """  if(r.secured) fl+='<span class="flag">'+esc(r.secured)+'</span>'+chip(t+'.secured_split');
+  h+='<td data-label="Flags and gaps">'+fl+""")
+
+# ---- quadrant labels: greedy non-overlapping placement (24 names crowd the fixed offsets)
+rep("""  var cx=X(x.rel),cy=Y(x.share27),b=L[x.t].pub,lp=LABPOS[x.t]||[9,4,'start'];""",
+    """  var cx=X(x.rel),cy=Y(x.share27),b=L[x.t].pub,lp=placeLabel(cx,cy,x.t);""")
+rep(""" var np=[];
+ ROWS.forEach(function(x){""", """ var np=[],placed=[];
+ ROWS.forEach(function(x){if(x.share27!=null&&x.rel!=null)placed.push({x0:X(x.rel)-9,x1:X(x.rel)+9,y0:Y(x.share27)-9,y1:Y(x.share27)+9})});
+ function placeLabel(cx,cy,t){
+  var w=t.length*8.2+2,h=14,C2=[[12,5,'start'],[-12,5,'end'],[0,-13,'middle'],[0,24,'middle'],[12,-9,'start'],[-12,-9,'end'],[12,19,'start'],[-12,19,'end']];
+  for(var i=0;i<C2.length;i++){var c=C2[i],x0=c[2]==='start'?cx+c[0]:c[2]==='end'?cx+c[0]-w:cx-w/2,y0=cy+c[1]-11,r={x0:x0,x1:x0+w,y0:y0,y1:y0+h};
+   if(r.x0<ml||r.x1>W-mr||r.y0<mt||r.y1>H-mb)continue;
+   if(!placed.some(function(p){return r.x0<p.x1&&r.x1>p.x0&&r.y0<p.y1&&r.y1>p.y0})){placed.push(r);return c}}
+  return [12,5,'start'];
+ }
+ ROWS.forEach(function(x){""")
+
 (HERE / "template.html").write_text(s)
 left = re.findall(r"'(?:SLG|JBGS|ESRT|CBL|OPI|BXP)'|2026-11-09|2026,10|2026-11-0[56]", s.split("__DATA__")[1])
 print("template written; hard-coded specifics left in the script:", left)

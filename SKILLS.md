@@ -69,6 +69,10 @@ filings_fetch ──► data/raw/  (timestamped cache, the only network boundary
 
 **Outputs:** a list of `Fact` records per name, plus a `conflicts` list `{name, tag, value_a, value_b, reason}`.
 
+**Also extracts, for display only (never scored):**
+- **Latest 10-Q ladder** (`extract_q`): the maturity tags in the newest 10-Q after the 10-K ladder date. Filers label 10-Q buckets relative to the current fiscal year (RemainderOfFiscalYear = rest of this year, InNextTwelveMonths = next year, InYearTwo = the year after...), so buckets are labelled by calendar year on that rule. `verify.py` section 7 compares overlapping years with the 10-K, and the mapping counts as *confirmed* for a filer only when a non-zero year matches exactly. A "ladder moved since 10-K" flag (0 points) needs a confirmed mapping and exact shares on both sides.
+- **Secured share of debt** (`secured_split`): `SecuredDebt` and `UnsecuredDebt` at the same latest period end, shown only when that date is fresh and both values are non-zero. No other tag is substituted.
+
 **Must never:**
 - fill a missing bucket, whether with zero, a derived amount, or the difference between LongTermDebt and the other buckets
 - swap in another tag silently, such as `LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear`, `...YearTwoAndThree`, `DebtInstrumentCarryingAmount` or a company extension tag. If one of those exists, it goes into `gap_reason` as text ("filer uses X instead") and the bucket stays `None`.
@@ -107,7 +111,7 @@ All of this is display only and never parsed into a score.
 
 **Does:**
 - **Per name** (ticker taken from the submissions `tickers` field, never hard-coded): from cached Yahoo daily closes, `drawdown_52w = 1 - last_close / max(close over the window)` and `return_6m = last_close / close_on_or_before(last_date - 182d) - 1`. Each one records the as-of date and the price dates it used.
-- **Sector-relative drawdown:** `rel_drawdown = drawdown_52w - median(drawdown_52w of the same segment within the 12 names)`. The median and the peers used are recorded. A name with no price data is left out of the median. The market score uses only `rel_drawdown`. The absolute drawdown and the 6-month return are display only. The peer group is always all 12 names, even during the three-name checkpoint run.
+- **Sector-relative drawdown:** `rel_drawdown = drawdown_52w - median(drawdown_52w of the same segment within the screened names)`. The median and the peers used are recorded. A name with no price data is left out of the median. The market score uses only `rel_drawdown`. The absolute drawdown and the 6-month return are display only. The peer group is always every screened name in config.toml (24 since 2026-11-09), even during the three-name checkpoint run.
 - **Rates line:** DGS10 latest level, change over 12 months (latest minus value on or before the date 365 days earlier), and SOFR latest level, each with its observation date.
 
 **Inputs:** `data/raw/yahoo/*`, `data/raw/fred/*`, `data/raw/submissions/*` for tickers.
