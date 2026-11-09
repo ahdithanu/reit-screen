@@ -2,6 +2,9 @@
 
 Never edits metrics or buckets.
 """
+import calendar
+import csv
+import datetime as dt
 import json
 import re
 from html import unescape
@@ -201,6 +204,74 @@ def spot_check(fx, d, cfg):
             "printed_total": printed_total, "split_2027": split, "accession": acc}
 
 
+# ------------------------------------------------------------ 8. 10-Q ladder against the 10-Q document text
+def q10_text_check(fx, d, cfg):
+    """Cell-by-cell: companyfacts 10-Q ladder values vs the iXBRL cells rendered in the 10-Q document, plus the row label
+    each tag sits in (which confirms the calendar-year mapping). Joint-venture cells are read for context (no extracted
+    counterpart). Returns a dict; never edits metrics."""
+    q = d.get("qladder") or {}
+    if not q.get("buckets") or not q.get("accession"):
+        return {"status": "not done", "reason": "no 10-Q ladder"}
+    rec = json.loads(open(d["sub_path"], "rb").read())["filings"]["recent"]
+    try:
+        doc = rec["primaryDocument"][rec["accessionNumber"].index(q["accession"])]
+    except ValueError:
+        return {"status": "not done", "reason": f"accession {q['accession']} not in submissions"}
+    r = fx.archive(d["cik"], q["accession"], doc)
+    if r["path"] is None:
+        return {"status": "not done", "reason": f"10-Q fetch failed: {r['error']}", "url": r["url"]}
+    html = open(r["path"], "rb").read().decode("utf-8", errors="replace")
+    ctx = {}
+    for m in re.finditer(r'<(?:xbrli:)?context\b[^>]*?\bid="([^"]+)"[^>]*>(.*?)</(?:xbrli:)?context>', html, re.S | re.I):
+        inst = re.search(r"<(?:xbrli:)?instant>\s*([^<\s]+)", m.group(2), re.I)
+        mem = re.findall(r'dimension="([^"]+)"[^>]*>\s*([^<\s]+)', m.group(2))
+        ctx[m.group(1)] = (inst.group(1) if inst else None, "; ".join(f"{a.split(':')[-1]}={b.split(':')[-1]}" for a, b in mem))
+    tags = {tag: b for b in q["buckets"] for tag in [b["tag"]]}
+    cons, jv = {}, {}
+    for m in re.finditer(r"<ix:nonfraction\b([^>]*)>(.*?)</ix:nonfraction>", html, re.S | re.I):
+        a = _attrs(m.group(1))
+        tag = a.get("name", "").split(":")[-1]
+        if tag not in tags:
+            continue
+        inst, mem = ctx.get(a.get("contextref"), (None, ""))
+        if inst != q["period_end"]:
+            continue
+        t0, t1 = html.rfind("<tr", 0, m.start()), html.find("</tr>", m.start())
+        cells = [html_to_text(c) for c in re.findall(r"<t[dh]\b.*?</t[dh]>", html[t0:t1 + 5], re.S | re.I)]
+        label = next((c for c in cells if c and c != "$"), "")
+        val, shown = _num(m.group(2), a)
+        if not mem:
+            cons.setdefault(tag, (label, shown, val))
+        elif re.fullmatch(r"RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember", mem) or (
+                "JointVenture" in mem and "DebtInstrumentAxis" not in mem):
+            jv.setdefault(tag, (label, shown, val))
+    rows, mapping_ok, all_equal = [], True, True
+    for b in q["buckets"]:
+        ext = b["fact"]["value"]
+        lab, shown, docv = cons.get(b["tag"], (None, None, None))
+        want = b["label"].replace(" rest", "")
+        lab_ok = lab is not None and (lab.startswith(want) or ("Remaining" in lab and want in lab))
+        if lab is not None and not lab_ok:
+            mapping_ok = False
+        eq = ext is not None and docv is not None and abs(ext - docv) < 1
+        if ext is not None and not eq:
+            all_equal = False
+        rows.append({"bucket": b["label"], "tag": b["tag"], "row_label": lab, "label_matches": lab_ok if lab is not None else None,
+                     "extracted": ext, "doc_value": docv, "shown": shown, "equal": eq if (ext is not None or docv is not None) else None,
+                     "jv": jv.get(b["tag"])})
+    table = []
+    first = min((html.find(f'name="us-gaap:{b["tag"]}"') for b in q["buckets"] if html.find(f'name="us-gaap:{b["tag"]}"') > 0), default=-1)
+    if first > 0:
+        t0, t1 = html.rfind("<table", 0, first), html.find("</table>", first)
+        for tr in re.findall(r"<tr\b.*?</tr>", html[t0:t1], re.S | re.I):
+            cells = [html_to_text(c).replace("\u200b", "").strip() for c in re.findall(r"<t[dh]\b.*?</t[dh]>", tr, re.S | re.I)]
+            cells = [c for c in cells if c and c != "$"]
+            if cells:
+                table.append(" | ".join(cells))
+    return {"status": "done", "url": r["url"], "period_end": q["period_end"], "rows": rows, "table": table,
+            "mapping_ok": mapping_ok and any(x["label_matches"] for x in rows), "all_equal": all_equal}
+
+
 # ------------------------------------------------------------ 5. quotes
 def recheck_quotes(fx, d, cfg, offline):
     out = []
@@ -274,6 +345,12 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
             if "SCALE MISMATCH" in note:
                 conflicts.append({"name": d["label"], "tag": tag, "value_a": ext, "value_b": note.split("would be ")[1].split(".")[0],
                                   "reason": "filer tagged scale differs from the rest of its own 10-K table; kept as tagged"})
+                ptot = sc.get("printed_total")
+                lsum_ = sum(f["value"] for f in d["ladder"].values() if f["value"] is not None)
+                claim(claims, f"{tk}.scale_mismatch",
+                      f"{d['label']} 10-K: {short} bucket tagged {shown} while the other ladder cells in the same table use scale {note.split('scale ')[2].split(';')[0]}; "
+                      + (f"printed total {_fmt(ptot['value'])} vs tagged bucket sum {_fmt(lsum_)} (diff {_fmt(lsum_ - ptot['value'])}); " if ptot else "")
+                      + "value kept as tagged", sc["url"], "measured", "yes", "verify.py section 3 scale check")
             if diff == 0 and ext is not None and "SCALE MISMATCH" not in note:
                 c = claim_by_id.get(f"{tk}.ladder_{short}")
                 if c:
@@ -488,6 +565,58 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
                 L.append(f"| {d['label']} | {q['period_end']} | {b_['label']} | {_fmt(kv)} | {_fmt(qv)} | {'yes' if eq else 'no'} |")
     L += ["", f"**{n_eq} of {n_cmp} overlapping year values are equal.** Unequal values are expected where debt was refinanced, repaid or drawn after year-end.", ""]
 
+    # §8 10-Q ladder against the 10-Q document text (configured names only)
+    q_checked = []
+    for d in names:
+        qt = d.get("q10_text")
+        if not qt:
+            continue
+        L += [f"## 8. {d['label']} 10-Q ladder: cell by cell against the 10-Q text", ""]
+        if qt["status"] != "done":
+            L += [f"NOT DONE: {qt['reason']}", ""]
+            continue
+        L += [f"Source: {qt['url']} (period {qt['period_end']}). Extracted = companyfacts 10-Q fact; 10-Q text = iXBRL cell rendered in the document (dimensionless = consolidated). "
+              "Row label = the table row the tag sits in, which tests the calendar-year mapping.", "",
+              "| bucket (mapping) | tag | row label in 10-Q | label matches | extracted | 10-Q text | diff | JV share cell (context) |", "|---|---|---|---|---:|---:|---:|---|"]
+        for x in qt["rows"]:
+            diff = None if x["extracted"] is None or x["doc_value"] is None else x["extracted"] - x["doc_value"]
+            jvs = f"{x['jv'][0]}: {x['jv'][1]}" if x["jv"] else "not tagged"
+            L.append(f"| {x['bucket']} | {x['tag'].replace('LongTermDebtMaturitiesRepaymentsOfPrincipal', '…')} | {x['row_label'] or 'not tagged in document'} | "
+                     f"{'yes' if x['label_matches'] else ('n/a' if x['label_matches'] is None else '**NO**')} | {_fmt(x['extracted'])} | {_fmt(x['doc_value'])} | {_fmt(diff)} | {jvs} |")
+        L += ["", "Table as rendered in the 10-Q (cells joined with |; '$' cells dropped):", "", "```"] + qt["table"][:20] + ["```", "",
+              f"**Year mapping {'confirmed' if qt['mapping_ok'] else 'NOT confirmed'} from row labels; tagged cells {'all equal' if qt['all_equal'] else 'NOT all equal'}.** "
+              "Buckets with no standard tag in the 10-Q (e.g. a 'Thereafter' row tagged with a filer extension) stay gaps, so the 10-Q share remains an upper bound.", ""]
+        if qt["mapping_ok"] and qt["all_equal"]:
+            q_checked.append(d["ticker"])
+            tk = d["ticker"]
+            for x, b in zip(qt["rows"], (d.get("qladder") or {}).get("buckets", [])):
+                c = claim_by_id.get(f"{tk}.q_ladder_{b['key']}")
+                if c and x["equal"]:
+                    c["checked"] = "yes"; c["note"] += "; matched 10-Q text cell and row label (verify.py section 8)"
+
+    # ---- ledger entries for verification results (so the memo can cite them)
+    claim(claims, "CFG.persona", f"Decision-maker persona (assumption, not validated by a practitioner): {cfg['persona']['text']}", "config.toml", "assumed", "no",
+          cfg["persona"]["reason"])
+    claim(claims, "XCHK.cross_extraction",
+          f"Cross-extraction: {len(rows)} value pairs (companyfacts vs SEC frames {FRAME_PERIOD}), {len(diffs)} difference(s)"
+          + "".join(f"; RESOLVED artifact: {n} / {tg}, A read 10-K facts only (n/a) vs B {av:,.0f} ({aacc}, {aform}); period-selection plumbing, fixed by applying the frames selection rule"
+                    for n, tg, a10k, (av, aacc, aform) in resolved),
+          f"https://data.sec.gov/api/xbrl/frames/us-gaap/LongTermDebt/USD/{FRAME_PERIOD}.json", "measured", "no", "verification.md section 2")
+    qe = dt.date.fromisoformat(cfg["as_of"])
+    quarter_ends = [dt.date(y, m, calendar.monthrange(y, m)[1]) for y in (qe.year - 1, qe.year) for m in (3, 6, 9, 12)]
+    last_q = max(q for q in quarter_ends if q < qe)  # most recent quarter end before as_of
+    for d in names:
+        if d["cik"] not in case_files:
+            continue
+        rec = json.loads(open(d["sub_path"], "rb").read())["filings"]["recent"]
+        tq = [(rec["reportDate"][i], rec["filingDate"][i], rec["accessionNumber"][i]) for i, f in enumerate(rec["form"]) if f == "10-Q"]
+        latest = max(tq) if tq else None
+        if latest and latest[0] < last_q.isoformat():
+            claim(claims, f"{d['ticker']}.no_10q_{last_q.isoformat()}",
+                  f"{d['label']}: no 10-Q for period {last_q.isoformat()} on EDGAR as of the filing list fetched {fetched_at_of(d['sub_path'])}; "
+                  f"latest 10-Q is period {latest[0]}, filed {latest[1]} ({latest[2]})",
+                  event_reader.submissions_url(d["cik"]), "checked", "yes", "EDGAR submissions filing list (verify.py)")
+
     L += ["## Conflicts and gaps", ""]
     for c in conflicts:
         L.append(f"- CONFLICT {c['name']} / {c['tag']}: kept {c['value_a']}, others {c['value_b']}. {c['reason']}")
@@ -527,6 +656,7 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
     same_counts = {"same": sum(1 for r in rows if r[4] == "yes"), "both_missing": sum(1 for r in rows if r[4] == "both missing")}
     (PROC / "verification_summary.json").write_text(json.dumps({
         "control_hdr": ctl_hdr, "control_rows": ctl_rows, "conflict_lines": conflict_lines, **same_counts,
+        "q10_checked": q_checked,
         "resolved_cross": [{"name": n, "tag": tg, "a_before": "n/a", "a_before_reason": a10k[1], "b": av, "b_accn": aacc, "b_form": aform,
                             "a_source": "https://data.sec.gov/api/xbrl/companyfacts/", "b_source": f"https://data.sec.gov/api/xbrl/frames/us-gaap/{tg}/USD/CY2025Q4I.json"}
                            for n, tg, a10k, (av, aacc, aform) in resolved],
@@ -537,6 +667,11 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
                                                      "ladder_sum": spot_results[c]["ladder_sum"], "url": spot_results[c]["url"]}
                          for c in spot_results},
         "not_spot_checked": others + not_done, "conflicts": conflicts, "offline": offline}, indent=1, default=str))
+    signed = {r["claim_id"] for r in csv.DictReader(open(ROOT / "signoff.csv", newline="")) if r.get("claim_id")}
+    total = len([c for c in claims if c["claim_id"] != "REVIEW.signoff_count"]) + 1
+    n_rev = len(signed & {c["claim_id"] for c in claims})
+    claim(claims, "REVIEW.signoff_count", f"{n_rev} of {total} claims human reviewed (signoff.csv rows whose claim_id is in the ledger)",
+          "signoff.csv", "measured", "no", "counted by verify.py at the end of the run")
     synthesize.write_claims(claims)
     print("\n".join(L[:12]))
     return ok

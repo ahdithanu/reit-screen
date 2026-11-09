@@ -37,6 +37,11 @@ spot_check_ciks = ["1040971", "910612", "1063761", "1689796", "1541401", "25232"
 "899715"  = { label = "Tanger", segment = "retail" }
 "1476204" = { label = "Phillips Edison", segment = "retail" }
 
+[persona]
+text = "A credit officer at a regional bank holding participations in the syndicated unsecured facilities of listed office and retail REITs. They see their own loan and compliance certificate, not the full maturity stack, other lenders' activity or equity pricing."
+label = "assumption"
+reason = "Chosen for the brief. Not validated by any credit practitioner."
+
 [pipeline_control]
 cik = "1456772"
 expected_bucket = "ACT NOW"
@@ -184,4 +189,5 @@ reason = "A lender's own data can only escalate: one bucket up (ROUTINE to WATCH
 [checks]
 filing_window = { cik = "1040971", from = "2026-03-10", to = "2026-03-31", reason = "Is there any SLG filing for the March 18, 2026 credit facility amendment?" }
 signoff_file = "signoff.csv"
+q10_text_check_ciks = ["1040971"]   # 10-Q ladder checked cell by cell against the 10-Q document text (SLG only, by request)
 exhibit_search = { cik = "1040971", items = ["2.02"], since = "2026-01-01", pattern = "credit facilit|term loan|revolving credit|amended and restated|2026 Credit Facility|March 2026", max_hits_per_doc = 12, reason = "Does any SLG 2026 earnings 8-K exhibit mention the March 2026 credit facility amendment?" }

@@ -382,6 +382,7 @@ footer{margin:50px 0 60px;padding-top:16px;border-top:1px solid var(--line)}
    <dl class="four" id="four"></dl>
    <p class="assume" id="assume"></p>
   </div>
+  <p class="srclinks small"><b>Sources:</b> <a href="data/source_list.md">key-claim source list</a> (<a href="data/source_list.csv">CSV</a>) · <a href="data/claims.csv">full claims ledger (CSV)</a> · <a href="data/verification.md">verification.md</a></p>
   <div class="banner small" id="signoffBanner" role="status"></div>
   <div id="miniSentinel" aria-hidden="true"></div>
  </section>
@@ -942,7 +943,7 @@ function renderTrust(){
  '<div class="stat '+(D.control_pass?'pass':'')+'"><span class="cap">Pipeline control</span><b>'+(D.control_pass?'PASS':'FAIL')+'</b><span class="small">'+esc(D.control_result)+'</span></div>'+
  '<div class="stat"><span class="cap">Cross-extraction, companyfacts vs frames</span><b>'+x.diffs+' differences</b><span class="small">'+x.pairs+' name-tag pairs: '+x.same+' equal, '+x.both_missing+' missing in both</span></div>'+
  '<div class="stat"><span class="cap">10-K ladders checked against filing text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+esc(D.ladder_counts.k_label)+'</span></div>'+
- '<div class="stat"><span class="cap">10-Q ladders checked against filing text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">'+esc(D.ladder_counts.q_label)+'. Display only, never scored; year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+
+ '<div class="stat"><span class="cap">10-Q ladders checked against filing text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">'+esc(D.ladder_counts.q_label)+'. Display only, never scored; year mapping confirmed (10-K overlap or 10-Q row labels) for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+
  '<div class="stat"><span class="cap">Claims ledger</span><b>'+Object.keys(C).length+' claims</b><span class="small">'+tc.measured+' measured, '+(tc.checked||0)+' checked, '+tc.inferred+' inferred, '+tc.assumed+' assumed; '+D.checkedcount+' matched against filing text</span></div>'+
  '<div class="stat"><span class="cap">Human review (signoff.csv)</span><b>'+D.review.n+' of '+D.review.m+'</b><span class="small">claims human reviewed'+(D.review.n?'':' (none yet)')+'. Only ids listed in signoff.csv are shown as human reviewed.</span></div></div>';
  

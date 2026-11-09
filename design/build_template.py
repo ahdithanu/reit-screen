@@ -338,7 +338,7 @@ rep("""ladderSVG(q,max,{hot:H.qhot,aria:H.tk+' 10-Q debt maturity ladder, same s
 rep("""'<div class="stat"><span class="cap">10-K ladders checked against 10-K text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+D.ladder_counts.no_k+' of '+ROWS.length+' names file no 10-K ladder tags. Checked: '+esc(D.checked_names)+'</span></div>'+
  '<div class="stat"><span class="cap">10-Q ladders checked against 10-Q text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">Display only, never scored. Year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+""",
     """'<div class="stat"><span class="cap">10-K ladders checked against filing text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+esc(D.ladder_counts.k_label)+'</span></div>'+
- '<div class="stat"><span class="cap">10-Q ladders checked against filing text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">'+esc(D.ladder_counts.q_label)+'. Display only, never scored; year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+""")
+ '<div class="stat"><span class="cap">10-Q ladders checked against filing text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">'+esc(D.ladder_counts.q_label)+'. Display only, never scored; year mapping confirmed (10-K overlap or 10-Q row labels) for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+""")
 rep("""h+='<p class="muted"><b>Not checked against 10-K text (companyfacts vs frames only):</b> '+esc(D.unchecked_names)+'.</p>';""", "")
 rep("""<summary>Raw verification.md, printed in full (raw diffs, spot checks, quote re-fetch)</summary><div class="md">'+renderMd(D.verification_md)+'</div></details>';""",
     """<summary>Raw verification.md, printed in full (raw diffs, spot checks, quote re-fetch)</summary><div class="md" id="vmd"></div></details>';""")
@@ -356,6 +356,11 @@ rep("""$('#printBtn').addEventListener('click',function(){window.print()});""", 
 document.querySelectorAll('nav a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){var el=document.getElementById(a.getAttribute('href').slice(1));if(el)openFoldOf(el)})});
 if(location.hash){var _h=document.getElementById(location.hash.slice(1));if(_h)openFoldOf(_h)}
 $('#expandAll').addEventListener('click',function(){var all=[].every.call(document.querySelectorAll('details.fold'),function(d){return d.open});document.querySelectorAll('details.fold').forEach(function(d){d.open=!all});this.textContent=all?'Expand all':'Collapse all'});""")
+
+# ---- source list links on the first screen
+rep("""  <div class="banner small" id="signoffBanner" role="status"></div>""",
+    """  <p class="srclinks small"><b>Sources:</b> <a href="data/source_list.md">key-claim source list</a> (<a href="data/source_list.csv">CSV</a>) · <a href="data/claims.csv">full claims ledger (CSV)</a> · <a href="data/verification.md">verification.md</a></p>
+  <div class="banner small" id="signoffBanner" role="status"></div>""")
 
 (HERE / "template.html").write_text(s)
 left = re.findall(r"'(?:SLG|JBGS|ESRT|CBL|OPI|BXP)'|2026-11-09|2026,10|2026-11-0[56]", s.split("__DATA__")[1])

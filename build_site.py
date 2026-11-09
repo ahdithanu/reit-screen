@@ -21,6 +21,8 @@ def inject_head(html):
 
 def build_site(cfg):
     import report
+    import runpy
+    runpy.run_path(str(ROOT / "design" / "build_source_list.py"))  # source list from the final claims.csv, copied into public/data
     report.build(cfg)
     for path in (ROOT / "public" / "index.html", ROOT / "report.html"):
         path.write_text(inject_head(path.read_text()))

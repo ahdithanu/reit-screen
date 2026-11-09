@@ -192,7 +192,8 @@ def build_data(cfg):
                       else ("10-Q ladder: not tagged" if r["q_gap"] else "")),
             "wallq_cid": f"{t}.q_wall_2027_share" if r["q_2027_share"] != "" else None,
             "secured": (f"secured {_pct(r['secured_share'])} of debt ({r['secured_period_end']})" if r["secured_share"] != "" else None),
-            "wall_gap": ladder_gap or ("2027 bucket missing" if r["wall_2027_share"] == "" else ""),
+            "wall_gap": ("rolling-window maturity tags, not a dated ladder (not used, so CAN'T CALL)" if "Rolling" in ladder_gap
+                         else ladder_gap or ("2027 bucket missing" if r["wall_2027_share"] == "" else "")),
             "dd_gap": r["price_gap"] or "price data missing"})
 
     # ---- ladders and case files
@@ -385,7 +386,7 @@ def build_data(cfg):
     n_review = len([r for r in signoff if r["claim_id"] in claims])
     no_k_names = [r["ticker"] for r in rows if r["ticker"] not in k_names]
     k_checked = [t for t in vs["spot_checked"] if t in k_names]
-    q_checked = []  # no 10-Q ladder is compared with its 10-Q document text yet
+    q_checked = [t for t in vs.get("q10_checked", []) if t in q_names]  # verify.py section 8: cell by cell against the 10-Q text
     ladder_counts = {"k_total": len(k_names), "k_checked": len(k_checked), "no_k": len(no_k_names), "no_k_names": no_k_names,
                      "k_unchecked": [t for t in k_names if t not in k_checked],
                      "q_total": len(q_names), "q_checked": len(q_checked), "q_unchecked": [t for t in q_names if t not in q_checked],

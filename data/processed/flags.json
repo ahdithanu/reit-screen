@@ -7003,7 +7003,7 @@
    "override": {
     "name": "CBL & Associates",
     "bucket": "ROUTINE (clears year1_unresolved)",
-    "reason": "[inferred, Claude's reading; human reviewed 2026-11-09, see signoff.csv] 57.6% of the FY2025 ladder ($1,281.7M) was due in 2026. The 2026 8-Ks (items 1.01/2.03, Mar 13 and Mar 27) refinance the full $634M secured term loan with $425M + $176M non-recourse loans maturing 2031. The Q2-2026 10-Q (accn 0001193125-26-339651) tags LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear = $180.3M at 2026-06-30, about 9% of debt, below the 30% trigger. LongTermDebt fell from $2,170.8M (2025-12-31) to $2,034.0M (2026-06-30). Cash went from $42.3M to $101.3M. Not resolved: $180.3M was still due in H2 2026 as of 2026-06-30, and no Q3 data is tagged yet.",
+    "reason": "[inferred, Claude's reading; human reviewed 2026-11-09, see signoff.csv] 57.6% of the FY2025 ladder ($1,281.7M) was due in 2026. The 2026 8-Ks (items 1.01/2.03, Mar 13 and Mar 27) refinance the full $634M secured term loan with $425M + $176M non-recourse loans maturing 2031. The Q2-2026 10-Q (accn 0001193125-26-339651) tags LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear = $180.3M at 2026-06-30, about 9% of debt, below the 30% trigger. LongTermDebt fell from $2,170.8M (2025-12-31) to $2,034.0M (2026-06-30). Cash went from $42.3M to $101.3M. Not resolved: the Q3 2026 10-Q is pending (not on EDGAR at 2026-11-09), so $180.3M may still be due in H2 2026.",
     "quote": "The financing represents the second and final component of the Company\u2019s refinancing of its former $634 million secured term loan.",
     "claim_id": "CBL.ev10.2.03"
    },

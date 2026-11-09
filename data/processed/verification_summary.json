@@ -320,6 +320,9 @@
  ],
  "same": 138,
  "both_missing": 54,
+ "q10_checked": [
+  "SLG"
+ ],
  "resolved_cross": [
   {
    "name": "Tanger",

@@ -1072,13 +1072,13 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 
 | claim | item | filed | exact re-extract | substring of fresh text | how | gap |
 |---|---|---|---|---|---|---|
-| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T064835Z); compared with original fetch 20261109T012558Z from cache |  |
-| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015707Z from cache |  |
-| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015707Z from cache |  |
-| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
-| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T064836Z); compared with original fetch 20261109T015709Z from cache |  |
+| SLG.ev10.1.01 | 1.01 | 2026-03-06 | yes | yes | re-fetched earlier (20261109T081053Z); compared with original fetch 20261109T012558Z from cache |  |
+| JBGS.ev02.1.01 | 1.01 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T081053Z); compared with original fetch 20261109T015707Z from cache |  |
+| JBGS.ev03.2.03 | 2.03 | 2026-08-28 | yes | yes | re-fetched earlier (20261109T081053Z); compared with original fetch 20261109T015707Z from cache |  |
+| ESRT.ev06.1.01 | 1.01 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T081053Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev07.2.03 | 2.03 | 2026-07-17 | yes | yes | re-fetched earlier (20261109T081053Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev15.1.01 | 1.01 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T081054Z); compared with original fetch 20261109T015709Z from cache |  |
+| ESRT.ev16.2.03 | 2.03 | 2026-04-15 | yes | yes | re-fetched earlier (20261109T081054Z); compared with original fetch 20261109T015709Z from cache |  |
 
 ## 6. Override quotes: is each quote verbatim in the filing behind its claim_id?
 
@@ -1142,6 +1142,35 @@ If that mapping is right, years with no refinancing activity carry the same prin
 | Phillips Edison | n/a | n/a | n/a | n/a | no 10-Q maturity facts after the 10-K ladder date (filer does not tag its 10-Q ladder) |
 
 **11 of 28 overlapping year values are equal.** Unequal values are expected where debt was refinanced, repaid or drawn after year-end.
+
+## 8. SL Green 10-Q ladder: cell by cell against the 10-Q text
+
+Source: https://www.sec.gov/Archives/edgar/data/1040971/000162828026029075/slg-20260331.htm (period 2026-03-31). Extracted = companyfacts 10-Q fact; 10-Q text = iXBRL cell rendered in the document (dimensionless = consolidated). Row label = the table row the tag sits in, which tests the calendar-year mapping.
+
+| bucket (mapping) | tag | row label in 10-Q | label matches | extracted | 10-Q text | diff | JV share cell (context) |
+|---|---|---|---|---:|---:|---:|---|
+| 2026 rest | …RemainderOfFiscalYear | Remaining 2026 (1) | yes | 655,148,000 | 655,148,000 | 0 | Remaining 2026 (1): 1,076,993 |
+| 2027 | …InNextTwelveMonths | 2027 | yes | 1,236,390,000 | 1,236,390,000 | 0 | 2027: 1,453,918 |
+| 2028 | …InYearTwo | 2028 | yes | 284,438,000 | 284,438,000 | 0 | 2028: 555,449 |
+| 2029 | …InYearThree | 2029 | yes | 189,200,000 | 189,200,000 | 0 | 2029: — |
+| 2030 | …InYearFour | 2030 | yes | 0 | 0 | 0 | 2030: 840,000 |
+| 2031 | …InYearFive | not tagged in document | n/a | n/a | n/a | n/a | not tagged |
+| after 2031 | …AfterYearFive | not tagged in document | n/a | n/a | n/a | n/a | not tagged |
+
+Table as rendered in the 10-Q (cells joined with |; '$' cells dropped):
+
+```
+Principal | Revolving Credit Facility | Unsecured Term Loans | Trust Preferred Securities | Total | Company's Share of Joint Venture Debt
+Remaining 2026 (1) | 555,148 | — | 100,000 | — | 655,148 | 1,076,993
+2027 | 936,390 | — | 300,000 | — | 1,236,390 | 1,453,918
+2028 | 284,438 | — | — | — | 284,438 | 555,449
+2029 | 189,200 | — | — | — | 189,200 | —
+2030 | — | — | — | — | — | 840,000
+Thereafter | 734,107 | 825,000 | 750,000 | 100,000 | 2,409,107 | 2,071,051
+2,699,283 | 825,000 | 1,150,000 | 100,000 | 4,774,283 | 5,997,411
+```
+
+**Year mapping confirmed from row labels; tagged cells all equal.** Buckets with no standard tag in the 10-Q (e.g. a 'Thereafter' row tagged with a filer extension) stay gaps, so the 10-Q share remains an upper bound.
 
 ## Conflicts and gaps
 

@@ -1,8 +1,10 @@
 name: Daily refresh
 
 on:
-  schedule:
-    - cron: "30 22 * * 1-5"   # weekdays 22:30 UTC = 5:30pm EST / 6:30pm EDT, after the US close
+  # Scheduled refresh DISABLED 2026-11-09 so the site stays fixed after submission.
+  # To re-enable: uncomment the two lines below and push to main (or run: gh workflow enable refresh.yml).
+  # schedule:
+  #   - cron: "30 22 * * 1-5"   # weekdays 22:30 UTC = 5:30pm EST / 6:30pm EDT, after the US close
   workflow_dispatch: {}
 
 permissions:

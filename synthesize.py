@@ -277,16 +277,19 @@ def run(names, cfg, rates):
             claim(f"{tk}.q_ladder_{b_['key']}", f"{d['label']} 10-Q ({q['period_end']}) {f_['tag_or_form']} [{b_['label']}] = "
                   + (f"${_musd(f_['value'])}M" if f_["value"] is not None else f"MISSING ({f_['gap_reason']})"), f_["source_url"], "measured",
                   f"accn {f_['accession']} filed {f_['filed']}; 10-Q labels mapped to calendar years (verify.py section 7)")
-        if q_share is not None:
-            claim(f"{tk}.q_wall_2027_share", f"{d['label']} latest 10-Q ({q['period_end']}): {q27_label} maturities are {q_share:.1%} of the 10-Q ladder"
-                  + (" (UPPER BOUND, buckets missing)" if q_ub else "")
-                  + ("; calendar mapping confirmed by an equal overlapping year" if q_confirmed else "; calendar mapping UNCONFIRMED for this filer (no overlapping year matches the 10-K)"),
-                  "", "inferred", "display only, never scored")
         # mapping is confirmed for this filer only if an overlapping year carries the same non-zero principal in 10-K and 10-Q
         kmap = {"2027": "y2_2027", "2028": "y3_2028", "2029": "y4_2029", "2030": "y5_2030"}
         q_confirmed = any(qv.get(yr) not in (None, 0) and d["ladder"][k]["value"] not in (None, 0) and abs(qv[yr] - d["ladder"][k]["value"]) < 1
                           for yr, k in kmap.items())
         # both shares must be exact (an upper bound cannot show a move) and the filer's 10-Q mapping must be confirmed
+        qt = d.get("q10_text") or {}
+        if qt.get("status") == "done" and qt.get("mapping_ok"):
+            q_confirmed = True  # confirmed directly from the 10-Q row labels (verify.py section 8)
+        if q_share is not None:
+            claim(f"{tk}.q_wall_2027_share", f"{d['label']} latest 10-Q ({q['period_end']}): {q27_label} maturities are {q_share:.1%} of the 10-Q ladder"
+                  + (" (UPPER BOUND, buckets missing)" if q_ub else "")
+                  + ("; calendar year mapping confirmed (equal overlapping year, or 10-Q row labels)" if q_confirmed else "; calendar mapping UNCONFIRMED for this filer (no overlapping year matches the 10-K)"),
+                  "", "inferred", "display only, never scored")
         moved = (q_confirmed and not q_ub and not x["share_is_ub"] and q_share is not None and x["share"] is not None
                  and abs(q_share - x["share"]) >= cfg["display_only"]["ladder_moved_pts"])
         if moved:

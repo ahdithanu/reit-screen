@@ -70,6 +70,9 @@ def main():
                       "drawdown": pm["drawdown_52w"], "return_6m": pm["return_6m"], "rel": rel[cik],
                       "price_detail": detail, "sub_path": subs[cik]["path"], "qladder": qlad, "secured": sec})
 
+    for d in names:  # 10-Q ladder text check (configured names): result feeds the display-only mapping flag and verify §8
+        if d["cik"] in cfg.get("checks", {}).get("q10_text_check_ciks", []):
+            d["q10_text"] = verify.q10_text_check(fx, d, cfg)
     rows, flags, claims, case_files = synthesize.run(names, cfg, rates)
     # case-file evidence: verbatim 10-Q paragraphs on 2027 debt, and dated 2027 maturities from the 10-K text
     import json as _json
