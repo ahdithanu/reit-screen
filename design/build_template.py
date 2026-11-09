@@ -237,6 +237,11 @@ rep(""" var np=[];
  }
  ROWS.forEach(function(x){""")
 
+# ---- ladder-check stat split into 10-K and 10-Q (review feedback: 10-Q ladders are not 10-K text)
+rep("""'<div class="stat"><span class="cap">Ladders checked against 10-K text</span><b>'+D.checked_n+' of '+ROWS.length+'</b><span class="small">'+esc(D.checked_names)+'</span></div>'+""",
+    """'<div class="stat"><span class="cap">10-K ladders checked against 10-K text</span><b>'+D.ladder_counts.k_checked+' of '+D.ladder_counts.k_total+'</b><span class="small">'+D.ladder_counts.no_k+' of '+ROWS.length+' names file no 10-K ladder tags. Checked: '+esc(D.checked_names)+'</span></div>'+
+ '<div class="stat"><span class="cap">10-Q ladders checked against 10-Q text</span><b>'+D.ladder_counts.q_checked+' of '+D.ladder_counts.q_total+'</b><span class="small">Display only, never scored. Year mapping confirmed against the 10-K for '+D.ladder_counts.q_confirmed+' of '+D.ladder_counts.q_total+'.</span></div>'+""")
+
 (HERE / "template.html").write_text(s)
 left = re.findall(r"'(?:SLG|JBGS|ESRT|CBL|OPI|BXP)'|2026-11-09|2026,10|2026-11-0[56]", s.split("__DATA__")[1])
 print("template written; hard-coded specifics left in the script:", left)
