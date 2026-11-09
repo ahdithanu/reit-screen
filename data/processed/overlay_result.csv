@@ -1,0 +1,5 @@
+name,ticker,code_bucket,overlay_bucket,flipped,reasons,internal_rating,covenant_headroom_pct,undrawn_revolver_musd,own_facility_maturity,data_label
+SL Green,SLG,WATCH,WATCH,False,no overlay trigger,BB+,22.0,320,2030-06-30,SYNTHETIC
+JBG Smith,JBGS,WATCH,ACT NOW,True,"covenant headroom 8.0% < 10%; own facility matures 2027-01-31 (2.7 months after as_of, within 12)",BBB-,8.0,250,2027-01-31,SYNTHETIC
+Empire State Realty Trust,ESRT,WATCH,WATCH,False,no overlay trigger,BBB,35.0,600,2029-03-31,SYNTHETIC
+Kite Realty,KRG,ROUTINE,ROUTINE,False,no overlay trigger,BBB,40.0,900,2029-07-31,SYNTHETIC

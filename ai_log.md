@@ -1,0 +1,75 @@
+# ai_log.md
+
+Every time output was wrong or I corrected myself, and every piece of logic that matters to a result and how it was checked.
+
+## Design corrections before any code ran (checkpoint 1 → 2, from reviewer)
+- **Wall-to-cash scored every REIT.** My first config gave 1 point for 2027 wall > 10x cash. Using the unchecked numbers in sources.md, that fired for almost every name, because REITs keep little cash and lean on revolvers. Caught by: reviewer. Fix: display-only, 0 points.
+- **Absolute drawdown cut-offs measured the sector, not the borrower.** Caught by: reviewer. Fix: score drawdown relative to the segment median within the 12 names. The absolute figure is shown alongside.
+- **Missing ladder bucket sent the name straight to CAN'T CALL.** That was stricter than needed: a missing bucket can only lower the 2027 share. Caught by: reviewer. Fix: compute an upper bound; if it is below threshold the name is callable, otherwise CAN'T CALL.
+- **No bucket for clean names.** Caught by: reviewer. Fix: added ROUTINE.
+- **Custom YAML parser.** Caught by: reviewer. Fix: replaced with stdlib tomllib (config.toml).
+- **My own addition, flagged for review:** a `year1_unresolved` flag (0 points). With ROUTINE added, CBL would have been ROUTINE (2027 bucket = 0) even though, on the unchecked numbers, ~58% of its stack was due in 2026. Code cannot declare 2026 resolved, so the flag keeps such names out of ROUTINE. It never adds points.
+
+## Logic that matters to results (and how each was checked)
+
+## Step 2 run (OPI, SLG, CBL), 2026-11-09
+
+### Wrong output, caught and fixed
+1. **Crash: duplicate `tag_or_form` kwarg** in `ladder_extract.latest()`. Caught by: first run's traceback. Fix: pop the key before overriding it.
+2. **Quotes started at a cross-reference, not the item heading.** OPI 8-K 2026-02-06 "item 1.03" began "Item 1.03 of this Current Report ... is hereby incorporated" (from inside Item 1.01). CBL 2.03 quotes began "Item 2.03 below related to...". Caught by: reading every extracted quote by eye after the first run. Fix: the heading regex now rejects matches followed by of / below / above / herein / and / or / , / ;. Re-checked: all 14 quotes now start at a real heading and re-match verbatim on re-fetch.
+3. **NT 10-Q quote started mid-sentence** ("Part III of this Form could not be eliminated...") because the first "PART III" in the text is a cross-reference in Part II. Caught by: reading the quote. Fix: match the actual heading "PART III — NARRATIVE".
+4. **OPI's "52-week" drawdown used only 99 closes (since 2026-06-18).** OPI's equity was re-listed after its Chapter 11 exit (effective date 2026-06-23, per its own 8-K). So the 61.6% was a since-listing figure that I had labelled as 52-week, and it was entering the office median. Caught by: OPI's return_6m came back as a gap, and I checked the series length. Fix: a new `min_coverage_days = 330` (assumption). Below that, the drawdown is a gap, the name is left out of the sector median, and the since-first-close figure is shown as context only. SLG's relative drawdown moved from +0.0 to +2.1 pts once OPI left the median.
+5. **Misleading gap text.** Stale-but-present values (SLG cash from 2026-03-31; SLG LongTermDebt from 2022-12-31) were reported as "left as missing". Fix: now "FALLBACK ... older value kept and flagged".
+6. **Cross-check said "same: yes" when both endpoints were missing** (SLG LongTermDebt). Fix: now "both missing".
+
+### Finding from verification (not a code bug)
+- **CBL's 2027 bucket is tagged $11,195 with scale 0. Every other cell in its own 10-K table uses scale 3 (thousands).** The table's Total row (2,235,582) foots only if 2027 = 11,195 thousand. So the filer mis-scaled one iXBRL tag, and companyfacts and frames both carry the bad value (the cross-check cannot catch this because it is the same filing). Caught by: the implausible sum 2,224,398,195 and the spot check. Handling: value NOT changed (no imputation). verify.py now flags any ladder cell whose scale differs from its table's majority scale and logs it as a CONFLICT. Effect on the call: none. The 2027 share is 0.0% as tagged, or 0.5% if read at table scale, both far below 30%.
+
+### Logic that matters to results, and how it was checked
+- **Ladder extraction** (FY2025 10-K, end 2025-12-31, earliest original filing): checked two ways. (a) companyfacts vs frames for 24 name-tag pairs gave 0 differences. (b) SLG and CBL compared number by number with the iXBRL cells rendered in the 10-K document gave 12 of 12 equal (CBL 2027 flagged as a scale mismatch, as above).
+- **Hard-trigger classification:** OPI lands in ACT NOW from 1.03 (2026-02-06, 04-28, 06-23) and NT 10-Q (2026-05-15). Checked against the quoted text of each filing.
+- **Sector-relative drawdown:** median over the office or retail peers that have ≥330 days of closes. Peers are listed in claims.csv. Not yet hand-checked against a second price source.
+- **Not yet checked:** frames and companyfacts come from the same XBRL filings, so agreement there checks only the plumbing. Values for OPI have not been checked against the 10-K text.
+
+## Step 3 and 4 run (all 12 names), 2026-11-09
+
+### Wrong output, caught and fixed
+7. **Printed-total reader picked the wrong column.** The first version used the raw `<td>` index; SLG's Total row has a different cell layout, so it found nothing. The second version counted value cells but treated the row label "2027" as a number, so SLG read 5,897,198 (the JV column) instead of 4,044,499. Caught by: comparing the printed total with the bucket sum in verification.md (diff −1.85B). Fix: the row label is never a value cell. All three spot-check totals now read correctly: SLG 4,044,499 (diff 0), SPG 28,595,539 (diff 0), CBL 2,235,582 (diff −11,183,805, the scale error).
+8. **The 10-Q paragraph filter picked accounting boilerplate.** For JBGS it matched an ASU 2024-03 paragraph, because "notes to the financial statements" hit the word "notes", and a rate-cap note. For SLG it found nothing, because the facility terms are bullet items. Caught by: reading the extracted paragraphs. Fix: stricter debt words, the block must mention "matur", ASU/FASB/rate-cap blocks are skipped, and a bullet keeps its lead-in and sibling bullets.
+9. **The refinancing tag fired on SLG's partnership-agreement 1.01** (an equity/OP-unit amendment, not debt). Caught by: reading the quote in step 2. Fix: per the reviewer, the tag needs a debt word in the verbatim quote. SLG's tag is now off; CBL and OPI keep theirs.
+10. **The offline run would have reset `checked=yes` on quotes to `no`**, because offline cannot re-fetch. Fix: offline compares the original cached fetch with the later re-fetch, both kept in data/raw, so the check stays real without the network.
+
+### Findings from reading the filings (not code bugs)
+- **SLG's 2027 wall is stale.** The FY2025 10-K shows $2,569.3M (63.5%) due in 2027. The Q3-2026 10-Q shows a March 18, 2026 amended and restated facility: revolver to June 2030 (extendable to 2031), Term C $750M to June 2031, Term A $300M due May 2027. Consolidated 2027 maturities are 1,157,413 thousand. **SLG filed no 8-K item for this.** Its only 2026 item 1.01 (2026-03-06) is the partnership-agreement amendment. JV share due 2027 is 2,353,294 thousand, outside the wall. Caught by: the case-file 10-Q extraction (user change 4). The code bucket stays WATCH by rule; a human override is the right place for that call.
+- **JBGS's revolver moved** from June 2027 (10-K) to August 2030 (Q3-2026 10-Q). The $200M Tranche A-1 term loan still matures January 2027.
+- **CBL override decision (my reading, tagged inferred, needs human sign-off).** The 8-K 2.03 items show the full $634M secured term loan refinanced ("second and final component"). The Q2-2026 10-Q tags `LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear = $180.3M` at 2026-06-30, about 9% of debt and below the 30% trigger. I recorded ROUTINE (clears year1_unresolved) in overrides.csv. Remaining risk: $180.3M was still due in H2 2026 at June 30, and no Q3 data is tagged.
+- **OPI override:** pipeline test, emerged from Chapter 11 (8-K 2026-06-23). The override quote is checked verbatim against that filing by verify.py §6.
+
+### Logic that matters, and how it was checked
+- Printed table total as the primary control total: 3 of 3 spot-check names read correctly, and the CBL difference equals the mis-scaled bucket exactly (11,195,000 − 11,195 = 11,183,805).
+- Case-file ranking is deterministic (bucket, then disagreement, then points, then 2027 share), with OPI excluded. The result: SLG, JBGS, ESRT.
+- The overlay escalates only. The worked example (JBGS → ACT NOW) is based on SYNTHETIC numbers.
+- **Not checked by a human yet:** every 10-Q/10-K verbatim extract, the inferred SLG instrument column mapping, and the CBL override.
+
+## SLG override (added on request), 2026-11-09
+- **Decision (my reading, tagged inferred, needs human confirmation):** keep WATCH but change the reason. On the Q3-2026 10-Q table, consolidated 2027 maturities are 1,157,413 of 4,396,799 thousand (26.3%), under the 30% threshold. By the rules alone that points toward ROUTINE. I did not lower it, because SLG's share of JV debt due 2027 (2,353,294 thousand) sits outside the consolidated wall, and the $300M Term A is still due May 2027.
+- **Check:** verify.py §6 now also resolves override quotes that point at 10-Q extracts (through the claim's source_url to the cached filing). The SLG quote is found verbatim in slg-20260930.htm.
+
+## Report v1 review items, 2026-11-09 (no scoring changes)
+1. **"SLG filed no 8-K for the March 18, 2026 facility": checked.** SLG submissions were re-fetched from EDGAR at 20261109T021822Z. Filings dated 2026-03-10 to 2026-03-31: Form 4 (03-30), 144 (03-30), SCHEDULE 13G/A (03-26), Form 4 and Form 3 (03-10). **No 8-K.** All 2026 8-Ks: 01-29 [2.02,7.01], 03-04 [5.02], 03-06 [1.01,3.02] (partnership agreement), 04-16 [2.02,7.01], 06-02 [5.07], 07-23 [2.02,7.01], 10-22 [2.02,7.01]. My earlier wording "no 2026 8-K item flagged it" was loose. Corrected to: no 8-K in the window, and the only item 1.01 is the partnership amendment. Not read: earnings-8-K exhibits, which may mention the facility. Generated in verification.md §3b; claim SLG.no_8k_in_window.
+2. **JBGS and ESRT 10-K spot checks added.** Both tables parsed. JBGS: 5/5 tagged buckets equal, printed total 2,546,589 = bucket sum (diff 0). ESRT: 6/6 equal, printed total 2,389,011 (diff 0).
+   - **Finding:** JBGS's 10-K table has no row after 2030, and its printed total equals the five tagged buckets. So the "upper bound" 2027 share (26.6%) is the table share. The missing bucket stays missing (no imputation), and the scoring is unchanged. Claim JBGS.ub_equals_printed.
+3. **ESRT Q3 10-Q: checked, no selection bug.** ESRT submissions were re-fetched at 20261109T021822Z. 2026 10-Qs: 2026-05-07 (Q1) and 2026-08-06 (Q2) only. Filings after 2026-11-01: one 8-K (2026-11-02, earnings). There is no Q3 10-Q on EDGAR yet, so the 2026-06-30 10-Q is correctly the latest. Logged here instead of as a bug.
+4. **ESRT March 2027 notes amount** is read deterministically from a 10-Q debt-table row (new `debt_rows_2027`): "Senior unsecured notes due 2027 (Series B) | 125,000 | 125,000 | … | 3/27/2027" ($ thousands). Claim ESRT.10q_debtrow0.
+5. **SLG column-mapping arithmetic (verification.md §3c).** In the 10-Q "Unsecured Term Loans" column, the non-zero cells are 100,000 + 300,000 + 750,000 = 1,150,000, equal to the printed column total, and they match Term B/A/C in the 10-Q text. The 10-K 2027 TermLoanMember cell is 1,050,000,000, consistent with "a $1.05 billion term loan (Term Loan A)… May 15, 2027". Still tagged inferred until signed off.
+   - **Bug caught:** the first version treated year labels ("2027") as the unlabelled total row, so the parse failed. Fixed by using cell count (a labelled row has one more cell than the header).
+6. **signoff.csv** was added with only its header. The report shows "human reviewed" only for claim ids listed there (0 today). All three overrides show "pending human sign-off".
+
+## 10-K table checks for the remaining names, and the SLG exhibit search, 2026-11-09 (no scoring changes)
+1. **10-K table check extended to CUZ, PDM, OPI, BRX, AKR and KRG. BXP is n/a** (no ladder tags, so no table was parsed or guessed). Result over 11 names: 65/66 tagged cells equal the 10-K cells. The one gap is JBGS after-2030, which is not tagged and has no row in its table. Every printed subtotal equals its bucket sum except CBL (−11,183,805, the known scale error).
+   - **Wrong output, caught:** the printed-total reader only accepted rows labelled "Total". CUZ, AKR and KRG print the principal subtotal on an unlabelled row (or a row starting with a "$" cell) directly under "Thereafter". So CUZ and KRG showed NOT FOUND, and AKR picked "Total indebtedness" (net of premium and issuance costs, diff 10,461,000). Fix: take the first row with values directly below the last ladder row, if it is labelled Total… or unlabelled. "$" cells and bare years are handled when finding the label. After the fix: CUZ 3,357,127, AKR 1,873,367 and KRG 3,027,937, all diff 0.
+2. **SLG earnings-8-K exhibit search (verification.md §3d).** All four 2026 item-2.02 8-Ks were searched: every .htm document except the cover and the XBRL viewer pages, which means the earnings release and the supplemental.
+   - **Wrong output, caught:** the first version looked only for `ex99*` filenames. SLG names its exhibits `a26qNearningsrelease.htm`, so it searched nothing and reported 0. Fixed before any conclusion was drawn.
+   - **Result:** the Q1-2026 earnings release (8-K filed 2026-04-16, https://www.sec.gov/Archives/edgar/data/1040971/000162828026025419/a26q1earningsrelease.htm) describes the March refinancing: "In March, the Company refinanced, extended and reduced the overall cost of $2.0 billion of the Company's $2.4 billion corporate credit facility." It also says the remaining $300M term loan matures May 2027 and the $100M term loan November 2026. The Q1 supplemental repeats this. The Q4-2025, Q2 and Q3 exhibits match only boilerplate or tables. Claims SLG.exhibit_refi0–N.
+   - **Report corrected:** the refinancing was disclosed, just not under an 8-K item code (1.01/2.03) the screen reads.
+   - **Small inconsistency noted, not resolved:** the release says the revolver was "extended to June 2031". The Q3 10-Q says "maturity of June 2030 and two six-month, as-of-right extension options to June 2031". Both fit if 2031 includes the extensions.

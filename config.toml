@@ -1,0 +1,170 @@
+# config.toml: the only place scoring and bucket rules live. Read with stdlib tomllib.
+# Every threshold is an ASSUMPTION chosen by the author from first principles.
+# None is calibrated against default history or validated by a credit practitioner.
+
+as_of = "2026-11-09"
+events_since = "2026-01-01"
+ladder_period_end = "2025-12-31"   # FY2025 10-K. "NextTwelveMonths" = 2026 maturities, "YearTwo" = 2027
+ladder_fiscal_year = 2025
+checkpoint_subset = ["1456772", "1040971", "910612"]   # step 2: OPI (control), SL Green (office), CBL (retail)
+spot_check_ciks = ["1040971", "910612", "1063761", "1689796", "1541401", "25232", "1042776", "1456772", "1581068", "899629", "1286043", "1037540"]   # 10-K text spot checks: SL Green (office, largest 2027 share), CBL (retail; 2027 bucket came back $11,195), Simon (retail, largest 2027 wall in dollars), JBG Smith and ESRT (case files, added after report v1 review)
+
+# Tickers are resolved from SEC submissions, never written here.
+[names]
+"1040971" = { label = "SL Green", segment = "office" }
+"25232"   = { label = "Cousins Properties", segment = "office" }
+"1689796" = { label = "JBG Smith", segment = "office" }
+"1042776" = { label = "Piedmont Office", segment = "office" }
+"1456772" = { label = "Office Properties Income Trust", segment = "office" }
+"1541401" = { label = "Empire State Realty Trust", segment = "office" }
+"1037540" = { label = "BXP", segment = "office" }
+"910612"  = { label = "CBL & Associates", segment = "retail" }
+"1063761" = { label = "Simon Property Group", segment = "retail" }
+"1581068" = { label = "Brixmor", segment = "retail" }
+"899629"  = { label = "Acadia Realty", segment = "retail" }
+"1286043" = { label = "Kite Realty", segment = "retail" }
+
+[pipeline_control]
+cik = "1456772"
+expected_bucket = "ACT NOW"
+reason = "OPI's 2026 filings include 8-K item 1.03 and an NT 10-Q. Anything other than ACT NOW means the pipeline is broken. It is a pipeline test and never a finding."
+
+[staleness]
+max_age_days = 150
+label = "assumption"
+reason = "A balance sheet older than one quarter plus the 10-Q filing window (~45 days) gets a fallback flag. It is never used silently."
+
+[events]
+hard_trigger_items = ["1.03", "2.04", "3.01"]
+hard_trigger_forms = ["NT 10-K", "NT 10-Q"]
+scored_negative_items = ["2.06"]
+financing_items = ["1.01", "2.03"]
+quote_chars = 400
+
+# ---------------- filings-risk score ----------------
+[filings_risk.wall_share_watch]
+value = 0.30
+points = 1
+label = "assumption"
+reason = "30% or more of all scheduled principal falling due in 2027 is a concentrated wall."
+
+[filings_risk.wall_share_severe]
+value = 0.50
+points = 2
+label = "assumption"
+reason = "Half or more of the stack due in one year. Replaces the watch points rather than adding to them."
+
+[filings_risk.negative_event]
+points_per_filing = 1
+cap = 2
+label = "assumption"
+reason = "Each scored negative 8-K item (2.06 impairment) adds 1 point, capped at 2."
+
+[filings_risk.missing_bucket]
+label = "rule"
+reason = "If ladder buckets are missing, the 2027 share is computed over the buckets that are present. A missing bucket can only lower the true share, so this figure is an UPPER BOUND. If the upper bound is below wall_share_watch the name scores 0 and stays callable. Otherwise it is CAN'T CALL. No bucket is filled."
+
+[filings_risk.year1_unresolved]
+value = 0.30
+points = 0
+label = "assumption"
+reason = "If 30% or more of the stack was due in 2026, the code cannot say whether it was handled. The name is kept out of ROUTINE (0 points), and only a human reading the 8-Ks can clear it, through overrides.csv."
+
+[filings_risk.refinancing_tag]
+items = ["1.01", "2.03"]
+text = "refinancing evidence present: read before acting"
+debt_words = ["loan", "notes", "credit agreement", "credit facility", "facility", "mortgage", "indebtedness", "borrow", "refinanc", "debt"]
+debt_words_reason = "A 1.01 or 2.03 counts as refinancing evidence only if its verbatim quote contains one of these words (case-insensitive). An equity or partnership-agreement 1.01 does not count. A missing quote counts, because it cannot be ruled out."
+label = "rule"
+reason = "Applies to high-wall names (2027 or 2026 share at or above wall_share_watch) that have a 2026 item 1.01 or 2.03. It is a tag only: an 8-K never lowers a bucket in code."
+
+# ---------------- display-only (zero points) ----------------
+[display_only]
+wall_to_cash = "Display only, 0 points. Year-end cash leaves out revolver capacity, which is not tagged, so the ratio overstates the risk for every REIT."
+return_6m = "Display only, 0 points."
+rates = "Context only. Never moves a score or bucket."
+
+# ---------------- market-view score ----------------
+[market_view]
+peer_group = "Median 52-week drawdown of names in the same segment (office or retail) within the 12 names, including the name itself. Names with no price data are left out of the median."
+label = "assumption"
+reason = "Absolute drawdown cut-offs would mostly measure the office sell-off, not the borrower. Scoring relative to sector peers isolates the name. The absolute figure is always shown alongside."
+
+[market_view.rel_drawdown_watch]
+value = 0.15
+points = 1
+label = "assumption"
+reason = "Drawdown 15 percentage points worse than the sector median: the market is singling this name out."
+
+[market_view.rel_drawdown_severe]
+value = 0.25
+points = 2
+label = "assumption"
+reason = "25 or more points worse than the sector median. Replaces the watch points."
+
+# ---------------- buckets ----------------
+[buckets]
+order = ["ACT NOW", "WATCH", "ROUTINE", "CAN'T CALL"]
+rules = [
+  "1. Any hard-trigger event -> ACT NOW",
+  "2. Otherwise, 2027 share not computable (YearTwo missing, or an upper bound at or above wall_share_watch) -> CAN'T CALL",
+  "3. Otherwise filings_risk >= act_now_filings_min, or filings_risk >= act_now_joint_filings_min AND market_view >= act_now_joint_market_min -> ACT NOW",
+  "4. Otherwise, no flags at all (filings_risk 0, market_view 0, no year1_unresolved flag, no disagreement, market data present) -> ROUTINE",
+  "5. Otherwise -> WATCH",
+]
+market_gap_reason = "If price data is missing, market_view is a gap. The joint ACT NOW rule cannot fire and ROUTINE is not allowed (the name cannot be shown flag-free). The name is marked with the gap."
+
+[buckets.act_now_filings_min]
+value = 3
+label = "assumption"
+reason = "Filings evidence alone, at a severe wall plus one negative event or more, is enough for enhanced monitoring."
+
+[buckets.act_now_joint_filings_min]
+value = 2
+label = "assumption"
+reason = "Moderate filings risk..."
+
+[buckets.act_now_joint_market_min]
+value = 2
+label = "assumption"
+reason = "...confirmed by a severe sector-relative drawdown."
+
+[case_files]
+count = 3
+exclude_pipeline_control = true
+rank = "bucket order ACT NOW, WATCH, CAN'T CALL, ROUTINE; then disagreement flag present; then filings_risk + market_view; then 2027 share"
+reason = "The highest-priority real names. The OPI pipeline test is never a case file or a finding."
+
+[disagreement]
+filings_high_min = 2   # filings_risk at or above this, or a hard trigger, means "filings say risk"
+market_calm_max = 0
+market_high_min = 2
+filings_clean_max = 0
+label = "assumption"
+reason = "Both scores are coarse, so only clear opposites (high on one side, zero on the other) are flagged."
+
+[market]
+min_coverage_days = 330
+min_coverage_label = "assumption"
+min_coverage_reason = "A 52-week drawdown needs about 52 weeks of closes. If the series spans less (for example a new listing after a restructuring), the drawdown is a gap and the name is left out of the sector median. The since-first-close figure is shown for context only."
+return_window_days = 182
+rates_change_days = 365
+
+[sec]
+max_requests_per_second = 8
+retries = 3
+backoff_seconds = 1.5
+
+# ---------------- private-data overlay (runs locally on SYNTHETIC example data) ----------------
+[overlay]
+file = "private_overlay_example.csv"
+covenant_headroom_min_pct = 10.0
+own_facility_months = 12
+label = "assumption"
+reason = "A lender's own data can only escalate: one bucket up (ROUTINE to WATCH, WATCH to ACT NOW) when covenant headroom is under 10% or the lender's own facility matures within 12 months of as_of. It never lowers a bucket and never touches CAN'T CALL. It runs locally. No private data is sent to any API or model."
+
+# ---------------- report-v1 review checks (display and verification only, no scoring) ----------------
+[checks]
+filing_window = { cik = "1040971", from = "2026-03-10", to = "2026-03-31", reason = "Is there any SLG filing for the March 18, 2026 credit facility amendment?" }
+signoff_file = "signoff.csv"
+exhibit_search = { cik = "1040971", items = ["2.02"], since = "2026-01-01", pattern = "credit facilit|term loan|revolving credit|amended and restated|2026 Credit Facility|March 2026", max_hits_per_doc = 12, reason = "Does any SLG 2026 earnings 8-K exhibit mention the March 2026 credit facility amendment?" }

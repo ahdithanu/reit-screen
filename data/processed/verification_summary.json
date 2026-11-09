@@ -1,0 +1,248 @@
+{
+ "control_hdr": [
+  "name",
+  "ladder sum",
+  "10-K printed total",
+  "diff",
+  "LongTermDebt @2025-12-31",
+  "diff",
+  "latest LongTermDebt (end)",
+  "diff"
+ ],
+ "control_rows": [
+  [
+   "SL Green",
+   "4,044,499,000",
+   "4,044,499,000",
+   "0",
+   "\u2014",
+   "\u2014",
+   "3,227,563,000 (2022-12-31, STALE)",
+   "816,936,000"
+  ],
+  [
+   "Cousins Properties",
+   "3,357,127,000",
+   "3,357,127,000",
+   "0",
+   "3,340,815,000",
+   "16,312,000",
+   "3,579,763,000 (2026-09-30)",
+   "-222,636,000"
+  ],
+  [
+   "JBG Smith",
+   "2,546,589,000 (incomplete)",
+   "2,546,589,000",
+   "0",
+   "\u2014",
+   "\u2014",
+   "1,376,077,000 (2017-06-30, STALE)",
+   "1,170,512,000"
+  ],
+  [
+   "Piedmont Office",
+   "2,248,080,000",
+   "2,248,080,000",
+   "0",
+   "2,224,712,000",
+   "23,368,000",
+   "2,340,841,000 (2026-09-30)",
+   "-92,761,000"
+  ],
+  [
+   "Office Properties Income Trust",
+   "2,431,614,000",
+   "2,431,614,000",
+   "0",
+   "2,408,626,000",
+   "22,988,000",
+   "1,683,556,000 (2026-06-30)",
+   "748,058,000"
+  ],
+  [
+   "Empire State Realty Trust",
+   "2,389,011,000",
+   "2,389,011,000",
+   "0",
+   "\u2014",
+   "\u2014",
+   "606,313,000 (2019-09-30, STALE)",
+   "1,782,698,000"
+  ],
+  [
+   "BXP",
+   "\u2014 (incomplete)",
+   "not checked",
+   "\u2014",
+   "\u2014",
+   "\u2014",
+   "3,300,000,000 (2021-12-31, STALE)",
+   "\u2014"
+  ],
+  [
+   "CBL & Associates",
+   "2,224,398,195",
+   "2,235,582,000",
+   "-11,183,805",
+   "2,170,785,000",
+   "53,613,195",
+   "2,034,011,000 (2026-06-30)",
+   "190,387,195"
+  ],
+  [
+   "Simon Property Group",
+   "28,595,539,000",
+   "28,595,539,000",
+   "0",
+   "28,430,175,000",
+   "165,364,000",
+   "28,423,903,000 (2026-09-30)",
+   "171,636,000"
+  ],
+  [
+   "Brixmor",
+   "5,518,453,000",
+   "5,518,453,000",
+   "0",
+   "5,494,753,000",
+   "23,700,000",
+   "5,322,955,000 (2026-09-30)",
+   "195,498,000"
+  ],
+  [
+   "Acadia Realty",
+   "1,873,367,000",
+   "1,873,367,000",
+   "0",
+   "1,862,906,000",
+   "10,461,000",
+   "1,819,243,000 (2026-09-30)",
+   "54,124,000"
+  ],
+  [
+   "Kite Realty",
+   "3,027,937,000",
+   "3,027,937,000",
+   "0",
+   "3,025,478,000",
+   "2,459,000",
+   "2,807,320,000 (2026-09-30)",
+   "220,617,000"
+  ]
+ ],
+ "conflict_lines": [
+  "CONFLICT CBL & Associates / LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo: kept 11195.0, others 11,195,000. filer tagged scale differs from the rest of its own 10-K table; kept as tagged",
+  "FALLBACK SL Green / latest_cash: STALE: latest value is 223 days old at as_of; no newer filing tagged (end 2026-03-31). Action: older value kept and flagged, not replaced.",
+  "FALLBACK SL Green / latest_debt: STALE: latest value is 1409 days old at as_of; no newer filing tagged (end 2022-12-31). Action: older value kept and flagged, not replaced.",
+  "GAP JBG Smith / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "FALLBACK JBG Smith / latest_debt: STALE: latest value is 3419 days old at as_of; no newer filing tagged (end 2017-06-30). Action: older value kept and flagged, not replaced.",
+  "GAP Office Properties Income Trust / price: partial window: 99 closes since 2026-06-18 (141 days); 52-week drawdown not computable. Since-first-close drawdown 61.6% shown as context only. Market view not scored; name left out of the sector median.",
+  "FALLBACK Empire State Realty Trust / latest_debt: STALE: latest value is 2597 days old at as_of; no newer filing tagged (end 2019-09-30). Action: older value kept and flagged, not replaced.",
+  "GAP BXP / y1_2026: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP BXP / y2_2027: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP BXP / y3_2028: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP BXP / y4_2029: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP BXP / y5_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "GAP BXP / after_2030: no 10-K fact with end 2025-12-31. Action: left as missing.",
+  "FALLBACK BXP / latest_debt: STALE: latest value is 1774 days old at as_of; no newer filing tagged (end 2021-12-31). Action: older value kept and flagged, not replaced."
+ ],
+ "same": 85,
+ "both_missing": 11,
+ "control_pass": true,
+ "control_msg": "expected ACT NOW, got **ACT NOW** (hard trigger: 1.03, NT 10-Q)",
+ "cross_pairs": 96,
+ "cross_diffs": 0,
+ "spot_checked": {
+  "SLG": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 4044499000.0,
+   "ladder_sum": 4044499000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1040971/000162828026008669/slg-20251231.htm"
+  },
+  "CUZ": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 3357127000.0,
+   "ladder_sum": 3357127000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/25232/000002523226000014/cuz-20251231.htm"
+  },
+  "JBGS": {
+   "rows_equal": 5,
+   "rows": 6,
+   "printed_total": 2546589000.0,
+   "ladder_sum": 2546589000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1689796/000110465926016450/jbgs-20251231x10k.htm"
+  },
+  "PDM": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 2248080000.0,
+   "ladder_sum": 2248080000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1042776/000104277626000012/pdm-20251231.htm"
+  },
+  "OPI": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 2431614000.0,
+   "ladder_sum": 2431614000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1456772/000145677226000022/opi-20251231.htm"
+  },
+  "ESRT": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 2389011000.0,
+   "ladder_sum": 2389011000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1541401/000154140126000008/esrt-20251231.htm"
+  },
+  "CBL": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 2235582000.0,
+   "ladder_sum": 2224398195.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/910612/000119312526087049/cbl-20251231.htm"
+  },
+  "SPG": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 28595539000.0,
+   "ladder_sum": 28595539000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926019419/spg-20251231x10k.htm"
+  },
+  "BRX": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 5518453000.0,
+   "ladder_sum": 5518453000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1581068/000158106826000007/brx-20251231.htm"
+  },
+  "AKR": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 1873367000.0,
+   "ladder_sum": 1873367000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/899629/000119312526051677/akr-20251231.htm"
+  },
+  "KRG": {
+   "rows_equal": 6,
+   "rows": 6,
+   "printed_total": 3027937000.0,
+   "ladder_sum": 3027937000.0,
+   "url": "https://www.sec.gov/Archives/edgar/data/1286043/000128604326000009/krg-20251231.htm"
+  }
+ },
+ "not_spot_checked": [
+  "BXP"
+ ],
+ "conflicts": [
+  {
+   "name": "CBL & Associates",
+   "tag": "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+   "value_a": 11195.0,
+   "value_b": "11,195,000",
+   "reason": "filer tagged scale differs from the rest of its own 10-K table; kept as tagged"
+  }
+ ],
+ "offline": true
+}

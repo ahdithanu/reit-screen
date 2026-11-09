@@ -1,0 +1,1170 @@
+{
+ "1040971": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1040971/000162828026008669/slg-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    655148000.0,
+    655148000.0,
+    "655,148 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    2569277000.0,
+    2569277000.0,
+    "2,569,277 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    284550000.0,
+    284550000.0,
+    "284,550 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    177000000.0,
+    177000000.0,
+    "177,000 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    0.0,
+    0.0,
+    "\u2014 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    358524000.0,
+    358524000.0,
+    "358,524 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Principal | Revolving Credit Facility | Unsecured Term Loans | Trust Preferred Securities | Total | Company's Share of Joint Venture Debt",
+   "2026 | 555,148 | \u2014 | 100,000 | \u2014 | 655,148 | 1,080,248",
+   "2027 | 879,277 | 640,000 | 1,050,000 | \u2014 | 2,569,277 | 1,749,857",
+   "2028 | 284,550 | \u2014 | \u2014 | \u2014 | 284,550 | 576,793",
+   "2029 | 177,000 | \u2014 | \u2014 | \u2014 | 177,000 | \u2014",
+   "2030 | \u2014 | \u2014 | \u2014 | \u2014 | \u2014 | 840,000",
+   "Thereafter | 258,524 | \u2014 | \u2014 | 100,000 | 358,524 | 1,650,300",
+   "Total | 2,154,499 | 640,000 | 1,150,000 | 100,000 | 4,044,499 | 5,897,198"
+  ],
+  "dimensioned": [
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "555,148",
+    555148000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "100,000",
+    100000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "1,080,248",
+    1080248000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "879,277",
+    879277000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "640,000",
+    640000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "1,050,000",
+    1050000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "1,749,857",
+    1749857000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "284,550",
+    284550000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "576,793",
+    576793000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "177,000",
+    177000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "840,000",
+    840000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "258,524",
+    258524000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "\u2014",
+    0.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "100,000",
+    100000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]",
+    "1,650,300",
+    1650300000.0
+   ]
+  ],
+  "printed_total": {
+   "label": "Total",
+   "shown": "4,044,499",
+   "scale": "3",
+   "value": 4044499000.0,
+   "column_ordinal": 4
+  },
+  "split_2027": [
+   {
+    "kind": "instrument",
+    "member": "MortgageAndOtherLoansPayableMember",
+    "unsecured_bank_or_notes": false,
+    "shown": "879,277",
+    "value": 879277000.0,
+    "context": "c-476 [DebtInstrumentAxis=MortgageAndOtherLoansPayableMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]"
+   },
+   {
+    "kind": "instrument",
+    "member": "CreditFacility2012Member",
+    "unsecured_bank_or_notes": true,
+    "shown": "640,000",
+    "value": 640000000.0,
+    "context": "c-477 [DebtInstrumentAxis=CreditFacility2012Member; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]"
+   },
+   {
+    "kind": "instrument",
+    "member": "TermLoanMember",
+    "unsecured_bank_or_notes": true,
+    "shown": "1,050,000",
+    "value": 1050000000.0,
+    "context": "c-478 [DebtInstrumentAxis=TermLoanMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]"
+   },
+   {
+    "kind": "instrument",
+    "member": "JuniorSubordinatedDebtMember",
+    "unsecured_bank_or_notes": false,
+    "shown": "\u2014",
+    "value": 0.0,
+    "context": "c-479 [DebtInstrumentAxis=JuniorSubordinatedDebtMember; RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]"
+   },
+   {
+    "kind": "jv_share",
+    "member": "RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember",
+    "unsecured_bank_or_notes": null,
+    "shown": "1,749,857",
+    "value": 1749857000.0,
+    "context": "c-285 [RelatedPartyTransactionsByRelatedPartyAxis=CorporateJointVentureMember]"
+   }
+  ],
+  "accession": "0001628280-26-008669",
+  "ladder_sum": 4044499000.0,
+  "ticker": "SLG",
+  "name": "SL Green"
+ },
+ "25232": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/25232/000002523226000014/cuz-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    870127000.0,
+    870127000.0,
+    "870,127 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    341000000.0,
+    341000000.0,
+    "341,000 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    250000000.0,
+    250000000.0,
+    "250,000 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    275000000.0,
+    275000000.0,
+    "275,000 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    500000000.0,
+    500000000.0,
+    "500,000 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    1121000000.0,
+    1121000000.0,
+    "1,121,000 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "2026 | 870,127",
+   "2027 | 341,000",
+   "2028 | 250,000",
+   "2029 | 275,000",
+   "2030 | 500,000",
+   "Thereafter | 1,121,000",
+   "3,357,127"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "(unlabelled subtotal row)",
+   "shown": "3,357,127",
+   "scale": "3",
+   "value": 3357127000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0000025232-26-000014",
+  "ladder_sum": 3357127000.0,
+  "ticker": "CUZ",
+  "name": "Cousins Properties"
+ },
+ "1689796": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1689796/000110465926016450/jbgs-20251231x10k.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    170820000.0,
+    170820000.0,
+    "170,820 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    676303000.0,
+    676303000.0,
+    "676,303 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    610147000.0,
+    610147000.0,
+    "610,147 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    278987000.0,
+    278987000.0,
+    "278,987 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    810332000.0,
+    810332000.0,
+    "810,332 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    null,
+    null,
+    null,
+    "not tagged (dimensionless) in 10-K text"
+   ]
+  ],
+  "table": [
+   "Year ending December 31, | Amount",
+   "(In thousands)",
+   "2026 | 170,820",
+   "2027 | 676,303",
+   "2028 | 610,147",
+   "2029 | 278,987",
+   "2030 | 810,332",
+   "Total | 2,546,589"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "Total",
+   "shown": "2,546,589",
+   "scale": "3",
+   "value": 2546589000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0001104659-26-016450",
+  "ladder_sum": 2546589000.0,
+  "ticker": "JBGS",
+  "name": "JBG Smith"
+ },
+ "1042776": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1042776/000104277626000012/pdm-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    3433000.0,
+    3433000.0,
+    "3,433 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    328894000.0,
+    328894000.0,
+    "328,894 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    515753000.0,
+    515753000.0,
+    "515,753 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    400000000.0,
+    400000000.0,
+    "400,000 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    300000000.0,
+    300000000.0,
+    "300,000 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    700000000.0,
+    700000000.0,
+    "700,000 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "2026 | 3,433",
+   "2027 | 328,894",
+   "2028 | 515,753",
+   "2029 | 400,000",
+   "2030 | 300,000",
+   "Thereafter | 700,000",
+   "Total | 2,248,080"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "Total",
+   "shown": "2,248,080",
+   "scale": "3",
+   "value": 2248080000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0001042776-26-000012",
+  "ladder_sum": 2248080000.0,
+  "ticker": "PDM",
+  "name": "Piedmont Office"
+ },
+ "1456772": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1456772/000145677226000022/opi-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    144154000.0,
+    144154000.0,
+    "144,154 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    921300000.0,
+    921300000.0,
+    "921,300 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    123487000.0,
+    123487000.0,
+    "123,487 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    910278000.0,
+    910278000.0,
+    "910,278 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    14739000.0,
+    14739000.0,
+    "14,739 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    317656000.0,
+    317656000.0,
+    "317,656 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Year | Principal Payment",
+   "2026 | 144,154",
+   "2027 | 921,300",
+   "2028 | 123,487",
+   "2029 | 910,278",
+   "2030 | 14,739",
+   "Thereafter | 317,656",
+   "Total (1) | 2,431,614"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "Total (1)",
+   "shown": "2,431,614",
+   "scale": "3",
+   "value": 2431614000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0001456772-26-000022",
+  "ladder_sum": 2431614000.0,
+  "ticker": "OPI",
+  "name": "Office Properties Income Trust"
+ },
+ "1541401": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1541401/000154140126000008/esrt-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    53958000.0,
+    53958000.0,
+    "53,958 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    159276000.0,
+    159276000.0,
+    "159,276 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    149646000.0,
+    149646000.0,
+    "149,646 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    398890000.0,
+    398890000.0,
+    "398,890 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    513111000.0,
+    513111000.0,
+    "513,111 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    1114130000.0,
+    1114130000.0,
+    "1,114,130 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Year | Amortization | Maturities | Total",
+   "2026 | 3,958 | 50,000 | 53,958",
+   "2027 | 4,276 | 155,000 | 159,276",
+   "2028 | 3,555 | 146,091 | 149,646",
+   "2029 | 3,890 | 395,000 | 398,890",
+   "2030 | 4,511 | 508,600 | 513,111",
+   "Thereafter | 10,123 | 1,104,007 | 1,114,130",
+   "Total | 30,313 | 2,358,698 | 2,389,011"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "Total",
+   "shown": "2,389,011",
+   "scale": "3",
+   "value": 2389011000.0,
+   "column_ordinal": 2
+  },
+  "split_2027": [],
+  "accession": "0001541401-26-000008",
+  "ladder_sum": 2389011000.0,
+  "ticker": "ESRT",
+  "name": "Empire State Realty Trust"
+ },
+ "910612": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/910612/000119312526087049/cbl-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    1281692000.0,
+    1281692000.0,
+    "1,281,692 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    11195.0,
+    11195.0,
+    "11,195 (scale 0)",
+    "SCALE MISMATCH: tagged scale 0 while the other ladder cells in this table use scale 3; if read at the table's scale the value would be 11,195,000. Value NOT changed (filer's tag kept)."
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    134781000.0,
+    134781000.0,
+    "134,781 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    7939000.0,
+    7939000.0,
+    "7,939 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    740144000.0,
+    740144000.0,
+    "740,144 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    59831000.0,
+    59831000.0,
+    "59,831 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "2026 | 1,281,692",
+   "2027 | 11,195",
+   "2028 | 134,781",
+   "2029 | 7,939",
+   "2030 | 740,144",
+   "Thereafter | 59,831",
+   "Total | 2,235,582",
+   "Principal balance of a loan with a maturity date prior to December 31, 2025 (1) | 19,438",
+   "Total mortgage and other indebtedness | 2,255,020"
+  ],
+  "dimensioned": [
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "C_f505c324-6b9e-43b5-aaf9-f4dcc9c54532 [DebtInstrumentAxis=LoansSecuredByThreePropertiesAndSecuredTermLoanMember]",
+    "624,083",
+    624083000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "C_61b76345-5ed9-42e1-adab-8261f785d419 [LongtermDebtTypeAxis=SecuredTermLoanMember]",
+    "646,722",
+    646722000.0
+   ]
+  ],
+  "printed_total": {
+   "label": "Total",
+   "shown": "2,235,582",
+   "scale": "3",
+   "value": 2235582000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0001193125-26-087049",
+  "ladder_sum": 2224398195.0,
+  "ticker": "CBL",
+  "name": "CBL & Associates"
+ },
+ "1063761": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1063761/000110465926019419/spg-20251231x10k.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    5905606000.0,
+    5905606000.0,
+    "5,905,606 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    3936773000.0,
+    3936773000.0,
+    "3,936,773 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    2296651000.0,
+    2296651000.0,
+    "2,296,651 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    2940031000.0,
+    2940031000.0,
+    "2,940,031 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    1657864000.0,
+    1657864000.0,
+    "1,657,864 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    11858614000.0,
+    11858614000.0,
+    "11,858,614 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "2026 | 5,905,606",
+   "2027 | 3,936,773",
+   "2028 | 2,296,651",
+   "2029 | 2,940,031",
+   "2030 | 1,657,864",
+   "Thereafter | 11,858,614",
+   "Total principal maturities | 28,595,539",
+   "Net unamortized debt premium | 1,065",
+   "Net unamortized debt discount | (73,175)",
+   "Debt issuance costs, net | (117,853)",
+   "Other Debt Obligations and Other | 24,599",
+   "Total mortgages and unsecured indebtedness | 28,430,175"
+  ],
+  "dimensioned": [
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "3,573,638",
+    3573638000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "2,459,508",
+    2459508000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "3,175,273",
+    3175273000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "749,397",
+    749397000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "2,113,931",
+    2113931000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]",
+    "4,344,553",
+    4344553000.0
+   ]
+  ],
+  "printed_total": {
+   "label": "Total principal maturities",
+   "shown": "28,595,539",
+   "scale": "3",
+   "value": 28595539000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [
+   {
+    "kind": "jv_share",
+    "member": "EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember",
+    "unsecured_bank_or_notes": null,
+    "shown": "2,459,508",
+    "value": 2459508000.0,
+    "context": "As_Of_12_31_2025_us-gaap_EquityMethodInvestmentNonconsolidatedInvesteeAxis_spg_EquityMethodInvesteesExcludingThoseSpecifiedMember_us-gaap_RealEstatePropertiesAxis_us-gaap_UnconsolidatedPropertiesMember_GK06KjSvZ0Srv67_dq3DsA [EquityMethodInvestmentNonconsolidatedInvesteeAxis=EquityMethodInvesteesExcludingThoseSpecifiedMember; RealEstatePropertiesAxis=UnconsolidatedPropertiesMember]"
+   }
+  ],
+  "accession": "0001104659-26-019419",
+  "ladder_sum": 28595539000.0,
+  "ticker": "SPG",
+  "name": "Simon Property Group"
+ },
+ "1581068": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1581068/000158106826000007/brx-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    607542000.0,
+    607542000.0,
+    "607,542 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    400000000.0,
+    400000000.0,
+    "400,000 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    357708000.0,
+    357708000.0,
+    "357,708 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    753203000.0,
+    753203000.0,
+    "753,203 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    1300000000.0,
+    1300000000.0,
+    "1,300,000 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    2100000000.0,
+    2100000000.0,
+    "2,100,000 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Year ending December 31,",
+   "2026 | 607,542",
+   "2027 | 400,000",
+   "2028 | 357,708",
+   "2029 | 753,203",
+   "2030 | 1,300,000",
+   "Thereafter | 2,100,000",
+   "Total debt maturities | 5,518,453",
+   "Net unamortized premium | 10,277",
+   "Net unamortized debt issuance costs | (33,977)",
+   "Total debt obligations, net | 5,494,753"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "Total debt maturities",
+   "shown": "5,518,453",
+   "scale": "3",
+   "value": 5518453000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [],
+  "accession": "0001581068-26-000007",
+  "ladder_sum": 5518453000.0,
+  "ticker": "BRX",
+  "name": "Brixmor"
+ },
+ "899629": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/899629/000119312526051677/akr-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    292287000.0,
+    292287000.0,
+    "292,287 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    309638000.0,
+    309638000.0,
+    "309,638 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    845235000.0,
+    845235000.0,
+    "845,235 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    98292000.0,
+    98292000.0,
+    "98,292 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    326850000.0,
+    326850000.0,
+    "326,850 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    1065000.0,
+    1065000.0,
+    "1,065 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Year Ending December 31, | Principal Repayments",
+   "2026 | 292,287",
+   "2027 | 309,638",
+   "2028 | 845,235",
+   "2029 | 98,292",
+   "2030 | 326,850",
+   "Thereafter | 1,065",
+   "1,873,367",
+   "Unamortized premium | 926",
+   "Net unamortized debt issuance costs | (11,387 | )",
+   "Total indebtedness | 1,862,906"
+  ],
+  "dimensioned": [
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    "C_1e96ff32-5e77-4538-aa9e-2edfdda6e69c [DebtInstrumentAxis=DebtWithExtensionOptionsMember]",
+    "188.0",
+    188000000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    "C_1e96ff32-5e77-4538-aa9e-2edfdda6e69c [DebtInstrumentAxis=DebtWithExtensionOptionsMember]",
+    "252.4",
+    252400000.0
+   ],
+   [
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    "C_1e96ff32-5e77-4538-aa9e-2edfdda6e69c [DebtInstrumentAxis=DebtWithExtensionOptionsMember]",
+    "682.0",
+    682000000.0
+   ]
+  ],
+  "printed_total": {
+   "label": "(unlabelled subtotal row)",
+   "shown": "1,873,367",
+   "scale": "3",
+   "value": 1873367000.0,
+   "column_ordinal": 0
+  },
+  "split_2027": [
+   {
+    "kind": "instrument",
+    "member": "DebtWithExtensionOptionsMember",
+    "unsecured_bank_or_notes": false,
+    "shown": "252.4",
+    "value": 252400000.0,
+    "context": "C_1e96ff32-5e77-4538-aa9e-2edfdda6e69c [DebtInstrumentAxis=DebtWithExtensionOptionsMember]"
+   }
+  ],
+  "accession": "0001193125-26-051677",
+  "ladder_sum": 1873367000.0,
+  "ticker": "AKR",
+  "name": "Acadia Realty"
+ },
+ "1286043": {
+  "status": "done",
+  "url": "https://www.sec.gov/Archives/edgar/data/1286043/000128604326000009/krg-20251231.htm",
+  "rows": [
+   [
+    "y1_2026",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+    415181000.0,
+    415181000.0,
+    "415,181 (scale 3)",
+    ""
+   ],
+   [
+    "y2_2027",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo",
+    522568000.0,
+    522568000.0,
+    "522,568 (scale 3)",
+    ""
+   ],
+   [
+    "y3_2028",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree",
+    187943000.0,
+    187943000.0,
+    "187,943 (scale 3)",
+    ""
+   ],
+   [
+    "y4_2029",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    403474000.0,
+    403474000.0,
+    "403,474 (scale 3)",
+    ""
+   ],
+   [
+    "y5_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive",
+    403036000.0,
+    403036000.0,
+    "403,036 (scale 3)",
+    ""
+   ],
+   [
+    "after_2030",
+    "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive",
+    1095735000.0,
+    1095735000.0,
+    "1,095,735 (scale 3)",
+    ""
+   ]
+  ],
+  "table": [
+   "Secured Debt",
+   "Scheduled Principal Payments | Term Maturities | Unsecured Debt | Total",
+   "2026 | 4,581 | 10,600 | 400,000 | 415,181",
+   "2027 | 2,662 | 19,906 | 500,000 | 522,568",
+   "2028 | 2,943 | \u2014 | 185,000 | 187,943",
+   "2029 | 3,474 | \u2014 | 400,000 | 403,474",
+   "2030 | 2,936 | 100 | 400,000 | 403,036",
+   "Thereafter | 3,186 | 92,549 | 1,000,000 | 1,095,735",
+   "19,782 | 123,155 | 2,885,000 | 3,027,937",
+   "Debt discounts, premiums and issuance costs, net | (2,459)",
+   "Mortgage and other indebtedness, net | 3,025,478"
+  ],
+  "dimensioned": [],
+  "printed_total": {
+   "label": "(unlabelled subtotal row)",
+   "shown": "3,027,937",
+   "scale": "3",
+   "value": 3027937000.0,
+   "column_ordinal": 3
+  },
+  "split_2027": [],
+  "accession": "0001286043-26-000009",
+  "ladder_sum": 3027937000.0,
+  "ticker": "KRG",
+  "name": "Kite Realty"
+ }
+}

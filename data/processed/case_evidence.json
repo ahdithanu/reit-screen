@@ -1,0 +1,123 @@
+{
+ "SLG": {
+  "tenq": {
+   "accession": "0001628280-26-071014",
+   "doc": "slg-20260930.htm",
+   "filed": "2026-11-05",
+   "period": "2026-09-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1040971/000162828026071014/slg-20260930.htm",
+   "error": null,
+   "paragraphs": [
+    "On March 18, 2026, the Company entered into an amended and restated credit facility (the \"2026 Credit Facility\"), which was previously amended in December 2021 and November 2017, and was originally entered into in November 2012. As of September 30, 2026, the 2026 Credit Facility consisted of a: \u2022$1.25 billion revolving credit facility with a maturity of June 2030 and two six-month, as-of-right extension options to June 2031. \u2022$300.0 million term loan (or the \"Term A Loans\") with a maturity of May 2027. \u2022$100.0 million term loan (or the \"Term B Loans\") with a maturity of November 2026. \u2022$750.0 million term loan (or the \"Term C Loans\") with a maturity of June 2031."
+   ],
+   "maturity_table": [
+    "Principal | Revolving Credit Facility | Unsecured Term Loans | Trust Preferred Securities | Total | Company's Share of Joint Venture Debt",
+    "Remaining 2026 | 365,000 | \u2014 | 100,000 | \u2014 | 465,000 | 141,017",
+    "2027 | 857,413 | \u2014 | 300,000 | \u2014 | 1,157,413 | 2,353,294",
+    "2028 | 80,000 | \u2014 | \u2014 | \u2014 | 80,000 | 578,849",
+    "2029 | 189,200 | \u2014 | \u2014 | \u2014 | 189,200 | \u2014",
+    "2030 | \u2014 | \u2014 | \u2014 | \u2014 | \u2014 | 840,000",
+    "Thereafter | 725,186 | 930,000 | 750,000 | 100,000 | 2,505,186 | 2,071,050",
+    "2,216,799 | 930,000 | 1,150,000 | 100,000 | 4,396,799 | 5,984,210"
+   ],
+   "maturity_table_gap": null,
+   "debt_rows_2027": [
+    "Real estate loans held by consolidated securitization vehicles (1) | 1,003,918 | 1,119,044 | 1,023,877 | 1,119,044 | 2023 - 2027"
+   ]
+  },
+  "tenk": {
+   "accession": "0001628280-26-008669",
+   "doc": "slg-20251231.htm",
+   "filed": "2026-02-17",
+   "period": "2025-12-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/1040971/000162828026008669/slg-20251231.htm",
+   "error": null,
+   "dates": [
+    {
+     "date": "May 15, 2027",
+     "sentence": "As of December 31, 2025, the 2021 credit facility consisted of a $1.25 billion revolving credit facility, a $1.05 billion term loan (or \"Term Loan A\"), and a $100.0 million term loan (or \"Term Loan B\") with maturity dates of May 15, 2026, May 15, 2027, and May 19, 2026, respectively."
+    },
+    {
+     "date": "May 15, 2027",
+     "sentence": "The revolving credit facility has two six-month, as-of-right extension options to May 15, 2027."
+    },
+    {
+     "date": "November 2027",
+     "sentence": "(7)The loan is a $1.25 billion construction facility, which was fully extended to November 2027."
+    }
+   ]
+  }
+ },
+ "JBGS": {
+  "tenq": {
+   "accession": "0001104659-26-123567",
+   "doc": "jbgs-20260930x10q.htm",
+   "filed": "2026-11-06",
+   "period": "2026-09-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1689796/000110465926123567/jbgs-20260930x10q.htm",
+   "error": null,
+   "paragraphs": [
+    "As of September 30, 2026, our unsecured revolving credit facility and term loans totaling $1.4 billion consisted of (i) a revolving credit facility with a capacity of $690.0 million maturing in August 2030, (ii) a $200.0 million term loan (\"Tranche A-1 Term Loan\") maturing in January 2027, (iii) a $415.0 million term loan (\"Tranche A-2 Term Loan\"), of which $171.1 million matures in January 2028 and $243.9 million matures in August 2028, and (iv) a $120.0 million term loan (\"2023 Term Loan\") maturing in June 2028.",
+    "debt service and principal repayment obligations, including balloon payments on maturing mortgage loans \u2014 As of September 30, 2026, we had maturities totaling $636.7 million related to our consolidated entities and $35.0 million related to our unconsolidated real estate ventures at our share scheduled to mature in 2026 and 2027;"
+   ],
+   "maturity_table": null,
+   "maturity_table_gap": "phrase 'principal maturities' not found",
+   "debt_rows_2027": []
+  },
+  "tenk": {
+   "accession": "0001104659-26-016450",
+   "doc": "jbgs-20251231x10k.htm",
+   "filed": "2026-02-17",
+   "period": "2025-12-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/1689796/000110465926016450/jbgs-20251231x10k.htm",
+   "error": null,
+   "dates": [
+    {
+     "date": "January 2027",
+     "sentence": "\"Tranche A-1 Term Loan\" refers to our $200.0 million term loan maturing in January 2027, as extended."
+    },
+    {
+     "date": "January 2027",
+     "sentence": "\u25cfthe one-year extension of the maturity date of the Tranche A-1 Term Loan to January 2027;"
+    },
+    {
+     "date": "June 2027",
+     "sentence": "As of December 31, 2025 and 2024, our unsecured revolving credit facility and term loans totaling $1.5 billion consisted of a $750.0 million revolving credit facility maturing in June 2027, a $200.0 million Tranche A-1 Term Loan maturing in January 2027, as extended in January 2026, a $400.0 million Tranche A-2 Term Loan maturing in January 2028 and a $120.0 million 2023 Term Loan maturing in June 2028."
+    },
+    {
+     "date": "June 2027",
+     "sentence": "As of December 31, 2025 and 2024, our unsecured revolving credit facility and term loans totaling $1.5 billion consisted of a $750.0 million revolving credit facility maturing in June 2027, a $200.0 million term loan (\"Tranche A-1 Term Loan\") maturing in January 2027, as extended in January 2026, a $400.0 million term loan (\"Tranche A-2 Term Loan\") maturing in January 2028 and a $120.0 million term loan (\"2023 Term Loan\") maturing in June 2028."
+    }
+   ]
+  }
+ },
+ "ESRT": {
+  "tenq": {
+   "accession": "0001541401-26-000033",
+   "doc": "esrt-20260630.htm",
+   "filed": "2026-08-06",
+   "period": "2026-06-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1541401/000154140126000033/esrt-20260630.htm",
+   "error": null,
+   "paragraphs": [
+    "On March 31, 2026, we closed on a $53.5 million mortgage loan at 10 Union Square East. The 10-year interest-only loan has a fixed rate of 5.33%, which includes the effect of treasury locks executed in connection with the refinancing of the $50.0 million loan that matured on April 1, 2026. As of June 30, 2026, total mortgage notes payable, net, amounted to $443.1 million. The first maturity is in May 2027.",
+    "As of June 30, 2026, mortgage notes payable, net, amounted to $443.1 million. Our next mortgage debt maturity is for $30.0 million in May 2027.",
+    "As of June 30, 2026, senior unsecured notes, net, amounted to $1.3 billion. We have no senior unsecured notes maturing until March 2027."
+   ],
+   "maturity_table": null,
+   "maturity_table_gap": "phrase 'principal maturities' not found",
+   "debt_rows_2027": [
+    "Senior unsecured notes due 2027 (Series B) | 125,000 | 125,000 | 4.09 | % | 4.12 | % | 3/27/2027"
+   ]
+  },
+  "tenk": {
+   "accession": "0001541401-26-000008",
+   "doc": "esrt-20251231.htm",
+   "filed": "2026-03-02",
+   "period": "2025-12-31",
+   "url": "https://www.sec.gov/Archives/edgar/data/1541401/000154140126000008/esrt-20251231.htm",
+   "error": null,
+   "dates": []
+  }
+ }
+}

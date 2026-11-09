@@ -1,0 +1,5 @@
+# raw filing cache (~140MB): rebuilt by an online run, kept between daily runs in the GitHub Actions cache
+data/raw/
+__pycache__/
+.DS_Store
+.vercel

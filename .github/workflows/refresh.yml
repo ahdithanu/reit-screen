@@ -1,0 +1,62 @@
+name: Daily refresh
+
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"   # weekdays 22:30 UTC = 5:30pm EST / 6:30pm EDT, after the US close
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies (stdlib + requests + pandas only)
+        run: pip install requests==2.32.3 pandas==2.2.3
+
+      - name: Restore filing cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+
+      - name: Run pipeline online (fails the job if the OPI control fails)
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python run.py --names all --as-of today
+
+      - name: Re-run offline from the cache (must make zero network calls)
+        run: |
+          env -u SEC_USER_AGENT python run.py --offline --names all --as-of today | tee offline.log
+          grep -q "network calls this run: 0" offline.log
+
+      - name: Prune old cached copies
+        run: python prune_cache.py
+
+      - name: Save filing cache
+        uses: actions/cache/save@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+
+      - name: Commit refreshed outputs (Vercel deploys on push)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public report.html claims.csv verification.md data/processed
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "Daily refresh $(date -u +%F)"
+          git push
