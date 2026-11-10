@@ -16,6 +16,12 @@ pip install -r requirements.txt
 Download the filing cache from the release and extract it at the repo root. It recreates `data/raw/`, 14.8 MB compressed.
 
 ```bash
+curl -LO https://github.com/ahdithanu/reit-screen/releases/download/cache-2026-11-09/raw_cache_2026-11-09.tar.gz
+```
+
+Or with the GitHub CLI:
+
+```bash
 gh release download cache-2026-11-09 --repo ahdithanu/reit-screen -p raw_cache_2026-11-09.tar.gz
 ```
 
