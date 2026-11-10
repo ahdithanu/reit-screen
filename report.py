@@ -111,7 +111,7 @@ def limits_lines(vs, n_review, n_claims, lc):
         "There is no interest coverage ratio, because InterestExpense is not tagged consistently, and no undrawn revolver data, because it is not tagged. Liquidity from cash alone understates the picture.",
         "Ladders are as of the FY2025 10-K (2025-12-31) unless a 10-Q ladder is shown. 10-Q ladders are display only and never scored.",
         f"{lc['k_label']}. {lc['q_label']}.",
-        f"{n_review} of {n_claims} claims are human reviewed (listed in signoff.csv)."
+        f"{n_review} of {n_claims} claims human reviewed (listed in signoff.csv)."
         + (" No claim is human signed off." if n_review == 0 else " Every other claim is machine-extracted or machine-checked only."),
         "The ladder does not separate secured property-level mortgages from unsecured debt, and does not show extension options. A large wall is not the same as refinancing risk for the unsecured facility.",
     ]
@@ -491,7 +491,7 @@ def build(cfg):
     (pub / "data").mkdir(parents=True, exist_ok=True)
     (pub / "index.html").write_text(html)
     for src, dst in (("claims.csv", "claims.csv"), ("verification.md", "verification.md"), ("data/processed/metrics.csv", "metrics.csv"),
-                     ("overrides.csv", "overrides.csv"), ("signoff.csv", "signoff.csv")):
+                     ("overrides.csv", "overrides.csv"), ("signoff.csv", "signoff.csv"), ("config.toml", "config.toml")):
         shutil.copyfile(ROOT / src, pub / "data" / dst)
     missing = sorted({m for m in re.findall(r"\[\[([^\]]+)\]\]", blob) if m not in D["claims"]})
     if missing:

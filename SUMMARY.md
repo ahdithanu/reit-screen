@@ -14,12 +14,12 @@ Run as of 2026-11-09, 24 listed office and retail REITs, public data only (SEC E
 - **SLG's 10-Q ladder** checked cell by cell against the 10-Q text, with the calendar-year mapping confirmed from the row labels.
 - **Every 8-K quote** in the case files was downloaded again and matched word for word.
 - **Re-runs offline** from the cached responses with zero network calls (see README).
-- **4 claims are human reviewed** (signoff.csv): the SLG, CBL and OPI overrides, and the SLG table-column mapping.
+- **3 of 505 claims human reviewed** (signoff.csv): the SLG and OPI overrides, and the SLG table-column mapping. CBL has no override; it stays at its code bucket, WATCH.
 
 ## Unchecked (extracted but not verified against filing text, or not reviewed by a human)
 - **10-Q ladders:** 6 of 7 not checked against the 10-Q text (ESRT, CBL, BRX, AKR, BDN, REG). They are display only and never scored.
 - **Verbatim filing passages:** the 10-Q passages and dated 10-K sentences used in the case files were extracted by code and read by the AI. No human has signed them off.
-- **Most of the ledger:** 500 of 504 claims are machine-extracted or machine-checked only.
+- **Most of the ledger:** 502 of 505 claims are machine-extracted or machine-checked only.
 - **Prices** come from the unofficial Yahoo chart API and are not checked against a second price source.
 
 ## Could not be verified, and why

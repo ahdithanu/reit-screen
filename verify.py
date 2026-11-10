@@ -638,6 +638,25 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
         if d["drawdown"]["gap_reason"]:
             L.append(f"- GAP {d['label']} / price: {d['drawdown']['gap_reason']}. Market view not scored; name left out of the sector median.")
     L.append("")
+    k_tagged = [d["ticker"] for d in names if any(f.get("value") is not None for f in d["ladder"].values())]  # same rule as the page
+    k_done = [spot_results[c]["ticker"] for c in spot_results if spot_results[c]["ticker"] in k_tagged]
+    claim(claims, "VERIFY.ladders_10k_checked", f"{len(k_done)} of {len(k_tagged)} tagged FY2025 10-K ladders checked against the 10-K text (verify.py section 3)",
+          "verification.md", "measured", "no", "counted by verify.py from the section 3 spot checks")
+    bk = {}
+    for c in claims:
+        m = re.search(r"code bucket (ACT NOW|WATCH|CAN'T CALL|ROUTINE)", c["claim"]) if c["claim_id"].endswith(".bucket") else None
+        if m:
+            bk[m.group(1)] = bk.get(m.group(1), 0) + 1
+    n_act, n_watch, n_cant, n_rout = (bk.get(b, 0) for b in ("ACT NOW", "WATCH", "CAN'T CALL", "ROUTINE"))
+    claim(claims, "RUN.bucket_counts", f"Code buckets across {sum(bk.values())} names: {n_act} ACT NOW (OPI, the pipeline test), "
+          f"{n_watch} WATCH, {n_cant} CAN'T CALL, {n_rout} ROUTINE (human overrides shown beside, not applied)",
+          "metrics.csv", "measured", "no", "counted from the bucket column of data/processed/metrics.csv")
+    signed = {r["claim_id"] for r in csv.DictReader(open(ROOT / "signoff.csv", newline="")) if r.get("claim_id")}
+    total = len([c for c in claims if c["claim_id"] != "REVIEW.signoff_count"]) + 1
+    n_rev = len(signed & {c["claim_id"] for c in claims})
+    claim(claims, "REVIEW.signoff_count", f"{n_rev} of {total} claims human reviewed (signoff.csv rows whose claim_id is in the ledger)",
+          "signoff.csv", "measured", "no", "counted by verify.py at the end of the run")
+    L += ["## Human review", "", f"{n_rev} of {total} claims human reviewed (signoff.csv rows whose claim_id is in the ledger).", ""]
     (ROOT / "verification.md").write_text("\n".join(L))
     def _section_table(title_prefix):
         i = next((k for k, x in enumerate(L) if x.startswith(title_prefix)), None)
@@ -667,11 +686,6 @@ def run(fx, cfg, names, flags, conflicts, cf_paths, subs, claims, case_files, of
                                                      "ladder_sum": spot_results[c]["ladder_sum"], "url": spot_results[c]["url"]}
                          for c in spot_results},
         "not_spot_checked": others + not_done, "conflicts": conflicts, "offline": offline}, indent=1, default=str))
-    signed = {r["claim_id"] for r in csv.DictReader(open(ROOT / "signoff.csv", newline="")) if r.get("claim_id")}
-    total = len([c for c in claims if c["claim_id"] != "REVIEW.signoff_count"]) + 1
-    n_rev = len(signed & {c["claim_id"] for c in claims})
-    claim(claims, "REVIEW.signoff_count", f"{n_rev} of {total} claims human reviewed (signoff.csv rows whose claim_id is in the ledger)",
-          "signoff.csv", "measured", "no", "counted by verify.py at the end of the run")
     synthesize.write_claims(claims)
     print("\n".join(L[:12]))
     return ok

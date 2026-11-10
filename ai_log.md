@@ -90,3 +90,6 @@ Every time output was wrong or I corrected myself, and every piece of logic that
 
 ## Bug found while adding the SLG 10-Q text check (2026-11-09)
 - **Wrong output, live on the site since commit 9e7837d:** the ledger claim `{TICKER}.q_wall_2027_share` was written *before* the year-mapping test ran, so it said "calendar mapping UNCONFIRMED" for every name, including ESRT, BRX and REG, which the screen (metrics.csv) correctly showed as confirmed. Caught by: reading the claim text while wiring the new 10-Q text check. Fix: the claim is now written after both tests (overlap with the 10-K, and the 10-Q row labels). Display only; no score was affected.
+
+## 2026-11-09: CBL override removed (human decision)
+- The human reviewer withdrew the CBL override (ROUTINE, clears year1_unresolved) and its signoff.csv row. CBL's effective bucket is its code bucket, WATCH. The earlier entries above record the override as it was proposed.

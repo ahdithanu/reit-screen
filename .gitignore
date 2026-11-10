@@ -6,3 +6,4 @@ __pycache__/
 .env*
 raw_cache_*.tar.gz
 run.log
+internal_notes.md

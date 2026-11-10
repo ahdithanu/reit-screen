@@ -1085,7 +1085,6 @@ Differences are expected (unamortized discounts and issuance costs, fair-value h
 | name | claim_id | quote found in filing text | filing |
 |---|---|---|---|
 | Office Properties Income Trust | OPI.ev10.1.03 | yes | https://www.sec.gov/Archives/edgar/data/1456772/000110465926076652/tm2618043d2_8k.htm |
-| CBL & Associates | CBL.ev10.2.03 | yes | https://www.sec.gov/Archives/edgar/data/910612/000119312526139801/cbl-20260327.htm |
 | SL Green | SLG.10q_2027_p0 | yes | https://www.sec.gov/Archives/edgar/data/1040971/000162828026071014/slg-20260930.htm |
 
 ## 7. 10-Q ladder: calendar-year mapping check
@@ -1239,3 +1238,7 @@ Thereafter | 734,107 | 825,000 | 750,000 | 100,000 | 2,409,107 | 2,071,051
 - GAP Tanger / y4_2029: tag not reported by filer. Action: left as missing.
 - GAP Tanger / y5_2030: tag not reported by filer. Action: left as missing.
 - GAP Tanger / after_2030: tag not reported by filer. Action: left as missing.
+
+## Human review
+
+3 of 505 claims human reviewed (signoff.csv rows whose claim_id is in the ledger).
